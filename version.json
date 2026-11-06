@@ -1,7 +1,7 @@
 {
-  "version": "0.7.0",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.7.0.exe",
-  "sha256": "56dbd88a21f56180d25a368a537e5df74e34c3af0f8dd8105655209b272bc1b2",
-  "firma": "2ZwUe74tUrFLEV/aCS9jvVGnSxrhAIKLzyW+AmenSRmnFPkigAxOgTOwVwVyKUkmmUYKgA2K9SKcCXHLSGivAA==",
-  "notas": "Agentes de las gafas sin Internet: pilas de los mandos 1–5, batería, app y Wi-Fi"
+  "version": "0.8.0",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.0.exe",
+  "sha256": "74992f6a7d5c77ab79b5c44ef3f53e521e5a217f9e87f068dceb03db815d2c2b",
+  "firma": "VK+yho//xp2Ks57fANUDDeP4+qU42Jq1W7LZyRquu04PAqojmqsLv/R3+uXui6K5d8UlImW8FvbZw+8815EZDw==",
+  "notas": "Gafas, Sala de control y Baterías como en la web, sin Internet"
 }
