@@ -111,3 +111,23 @@ func TestParsearEventosWindows(t *testing.T) {
 		t.Fatalf("%+v", ev)
 	}
 }
+
+func TestReencontrarPorMAC(t *testing.T) {
+	m := nuevoTest(t)
+	a := m.equipos[0]
+	a.MAC = "5a:12:9c:aa:01:7f"
+	a.Estado, a.Desde = Offline, time.Now().Add(-2*time.Minute)
+	var guardado string
+	m.OnIPCambiada = func(id, ip string) { guardado = id + "=" + ip }
+	perdidas := m.gafasPerdidas(60 * time.Second)
+	if len(perdidas) != 1 || perdidas[0] != "PICO-01" {
+		t.Fatalf("perdidas: %v", perdidas)
+	}
+	pend := m.aplicarTabla(map[string]string{"10.0.0.99": "5A:12:9C:AA:01:7F", "10.0.0.5": "aa:aa:aa:aa:aa:aa"}, perdidas)
+	if len(pend) != 0 || a.IP != "10.0.0.99" || a.Estado != SinConf || guardado != "PICO-01=10.0.0.99" {
+		t.Fatalf("no se reencontró: ip=%s estado=%s guardado=%s pend=%v", a.IP, a.Estado, guardado, pend)
+	}
+	if !strings.Contains(tipos(m), "PICO-01:ip_cambiada") {
+		t.Fatal("falta el evento ip_cambiada")
+	}
+}

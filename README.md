@@ -45,6 +45,13 @@ Sin conexión o con firma no válida, sigue con la versión instalada. `playbox 
 
 La clave privada no se sube nunca al servidor ni al repositorio.
 
+## Vincular gafas por USB (v0.5)
+
+La primera vez cada gafa se enchufa por USB (depuración USB activada): el programa lee por ADB su serie,
+modelo, MAC e IP (solo lectura) y la guarda como PICO-XX. Después la vigila por Wi-Fi; si deja de responder,
+la busca por su MAC (tabla ARP y barrido ligero cada 5 min) y actualiza la IP si el router se la cambió.
+La herramienta ADB oficial de Google se descarga desde la propia app (`platform-tools` junto al exe).
+
 ## Vigilancia continua (v0.3)
 
 - `playbox simular` — 10 visores virtuales con un guion de fallos (PICO-03 cae, PICO-07 va lento, Internet cae). No toca nada real.

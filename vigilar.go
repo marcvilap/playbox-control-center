@@ -41,6 +41,20 @@ func cargarConfig() (monitor.Config, bool) {
 	return c, true
 }
 
+// guardarIPCambiada persiste en playbox.json la nueva IP de una gafa reencontrada por su MAC.
+func guardarIPCambiada(id, ip string) {
+	cfg, _, err := monitor.Cargar(rutaConfig())
+	if err != nil {
+		return
+	}
+	for i := range cfg.Visores {
+		if cfg.Visores[i].ID == id {
+			cfg.Visores[i].IP = ip
+		}
+	}
+	_ = monitor.Guardar(rutaConfig(), cfg)
+}
+
 func configSimulacion() monitor.Config {
 	c := monitor.PorDefecto()
 	for i := range c.Visores {
@@ -77,6 +91,8 @@ func cmdVigilar(simular bool) int {
 	}
 	if simular {
 		mon.NuevaSonda = sonda.NuevaSimulada(time.Now())
+	} else {
+		mon.OnIPCambiada = guardarIPCambiada
 	}
 	ctx, parar := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer parar()

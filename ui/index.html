@@ -86,6 +86,11 @@ dialog.ancho{width:min(820px,94vw)}
 .paso{display:flex;gap:12px;background:var(--panel2);border:1px solid var(--borde);border-radius:10px;padding:12px}
 .paso>b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--acento);color:#fff;display:grid;place-items:center;font-size:13px}
 .paso p{margin:0 0 10px;font-size:13px;color:var(--suave)}
+.instr{background:var(--panel2);border:1px solid var(--borde);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px}
+.instr summary{cursor:pointer;color:var(--acento2);font-weight:600}
+.instr ol{margin:10px 0 2px;padding-left:20px;color:var(--suave)}.instr li{margin:4px 0}.instr b{color:var(--texto)}
+.gafa{display:flex;align-items:center;gap:14px;background:var(--panel2);border:1px solid var(--borde);border-radius:10px;padding:12px 14px;margin-top:8px}
+.gafa .d{flex:1;font-size:13px}.gafa .d .t{font-weight:650;font-size:14px}.gafa .d .s{color:var(--suave);font-family:Consolas,monospace;font-size:12px;margin-top:3px}
 .nuevo{font-size:10px;font-weight:700;background:var(--verde);color:#062b16;border-radius:4px;padding:1px 6px;margin-left:6px}
 @media (max-width:980px){.rejilla{grid-template-columns:repeat(3,1fr)}.cols,.resumen{grid-template-columns:1fr 1fr}}
 </style>
@@ -111,7 +116,8 @@ dialog.ancho{width:min(820px,94vw)}
     <div class="caja"><h2>Últimos eventos</h2><div id="eventos"></div></div>
   </section>
   <section class="acciones">
-    <button class="primario" onclick="abrirBuscar()">Buscar visores en la red</button>
+    <button class="primario" onclick="abrirUSB()">Vincular gafas por USB</button>
+    <button onclick="abrirBuscar()">Buscar en la red</button>
     <button onclick="abrirConfig()">Configurar IP de visores</button>
     <button id="b-sim" onclick="simular()">Probar con simulación</button>
     <span class="sep"></span>
@@ -138,6 +144,24 @@ dialog.ancho{width:min(820px,94vw)}
   <div class="pie"><button onclick="dlg.close()">Cancelar</button><button class="primario" onclick="guardarConfig()">Guardar</button></div>
 </dialog>
 
+<dialog id="dlg-usb" class="ancho">
+  <h3>Vincular gafas por USB</h3>
+  <p class="ayuda">Solo hace falta una vez por gafa. Después el programa la reconoce siempre por la Wi-Fi, aunque el router le cambie la IP.</p>
+  <div id="u-prep"></div>
+  <details class="instr"><summary>Cómo preparar las gafas (la primera vez)</summary>
+    <ol>
+      <li>En las gafas: <b>Ajustes → General → Acerca de</b> y pulsa 7 veces sobre el número de versión del software hasta que avise de que eres desarrollador (el nombre exacto puede variar según la versión).</li>
+      <li>Entra en <b>Opciones de desarrollador</b> y activa <b>Depuración USB</b>.</li>
+      <li>Enchufa las gafas al PC con un cable USB-C <b>de datos</b> (los de solo carga no sirven).</li>
+      <li>Ponte las gafas y acepta el aviso <b>«¿Permitir depuración USB?»</b> (marca «Permitir siempre desde este equipo»).</li>
+      <li>Asegúrate de que las gafas están conectadas a la misma Wi-Fi que el PC.</li>
+    </ol>
+  </details>
+  <div class="lista" id="u-lista"></div>
+  <div class="error" id="u-err"></div>
+  <div class="pie"><button class="primario" onclick="dlgU.close()">Cerrar</button></div>
+</dialog>
+
 <dialog id="dlg-buscar" class="ancho">
   <h3>Encontrar las gafas en la red</h3>
   <div class="pasos">
@@ -155,6 +179,7 @@ const TOKEN = new URLSearchParams(location.search).get('t');
 const $ = id => document.getElementById(id);
 const dlg = $('dlg');
 const dlgB = $('dlg-buscar');
+const dlgU = $('dlg-usb');
 let ultimo = null;
 
 async function api(ruta, cuerpo) {
@@ -193,13 +218,14 @@ function pintarActualizacion(d) {
 function pintar(d) {
   ultimo = d;
   pintarBusqueda(d);
+  pintarUSB(d);
   $('ver').textContent = 'v' + d.version;
   pintarActualizacion(d);
   let av = '';
   if (!d.instalado) av += `<div class="aviso morado"><p><b>Estás usando PlayBox sin instalar.</b> Instálalo para tener acceso directo en el escritorio y actualizaciones automáticas.</p><button class="primario" onclick="instalar()">Instalar en este PC</button></div>`;
   if (d.simulando) av += `<div class="aviso ambar"><p><b>Modo simulación:</b> visores virtuales. PICO-03 cae a los 30 s, PICO-07 va lento a los 45 s e Internet cae a los 100 s.</p><button onclick="simular()">Volver a vigilancia real</button></div>`;
   const cfgIP = (d.visores_config || []).filter(v => v.ip).length;
-  if (!d.simulando && cfgIP === 0) av += `<div class="aviso"><p>Ningún visor tiene IP todavía. Configúralas para empezar a vigilarlos, o prueba la simulación.</p><button class="primario" onclick="abrirBuscar()">Buscar visores en la red</button><button onclick="abrirConfig()">Poner IP a mano</button></div>`;
+  if (!d.simulando && cfgIP === 0) av += `<div class="aviso"><p>Ningún visor tiene IP todavía. Configúralas para empezar a vigilarlos, o prueba la simulación.</p><button class="primario" onclick="abrirUSB()">Vincular gafas por USB</button><button onclick="abrirBuscar()">Buscar en la red</button></div>`;
   if (d.f0 && d.f0.en_curso) av += `<div class="aviso"><p>Descubrimiento F0 en curso (${esc(d.f0.fase)}): tarda un par de minutos…</p></div>`;
   else if (d.f0 && d.f0.error) av += `<div class="aviso"><p>El descubrimiento falló: ${esc(d.f0.error)}</p></div>`;
   $('avisos').innerHTML = av;
@@ -263,6 +289,47 @@ async function guardarConfig() {
   catch (e) { $('dlg-err').textContent = e.message; }
 }
 
+let usbTimer = null;
+function abrirUSB() {
+  $('u-err').textContent = ''; $('u-lista').dataset.h = '';
+  dlgU.showModal();
+  const activar = () => api('usb/activar', {}).catch(() => {});
+  activar(); clearInterval(usbTimer); usbTimer = setInterval(() => dlgU.open ? activar() : clearInterval(usbTimer), 10000);
+  setTimeout(refrescar, 300);
+}
+function pintarUSB(d) {
+  if (!dlgU.open) return;
+  const u = d.usb || {};
+  let prep = '';
+  if (u.descargando) prep = '<div class="aviso"><p>Descargando la herramienta USB oficial de Google…</p></div>';
+  else if (!u.adb) prep = '<div class="aviso morado"><p><b>Falta la herramienta USB.</b> Es la oficial de Google para conectar con gafas Android (unos 7 MB). Se descarga una sola vez.</p><button class="primario" onclick="prepararUSB()">Descargar herramienta</button></div>';
+  $('u-prep').innerHTML = prep;
+  if (u.error) $('u-err').textContent = u.error;
+  if (!u.adb) { $('u-lista').innerHTML = ''; return; }
+  const cfg = d.visores_config || [];
+  const porSerie = Object.fromEntries(cfg.filter(v => v.serie).map(v => [v.serie, v.id]));
+  const libre = (cfg.find(v => !v.ip) || {}).id;
+  const opciones = cfg.map(v => `<option value="${esc(v.id)}"${v.id === libre ? ' selected' : ''}>${esc(v.id)}${v.ip ? ' (ocupado)' : ''}</option>`).join('');
+  const gs = u.gafas || [];
+  let h;
+  if (!gs.length) h = '<div class="vacio">Enchufa unas gafas por USB… (si no aparecen, revisa los pasos de arriba y el cable)</div>';
+  else h = gs.map(g => {
+    if (g.estado === 'unauthorized') return `<div class="gafa"><i class="punto SINCONF"></i><div class="d"><div class="t">Gafas detectadas · falta permiso</div><div class="s">${esc(g.serie)}</div></div><span>Ponte las gafas y acepta «Permitir depuración USB»</span></div>`;
+    if (g.estado !== 'device') return `<div class="gafa"><i class="punto OFFLINE"></i><div class="d"><div class="t">Gafas sin conexión USB (${esc(g.estado)})</div><div class="s">${esc(g.serie)}</div></div><span>Desenchufa y vuelve a enchufar el cable</span></div>`;
+    const ya = porSerie[g.serie];
+    const wifi = g.ip ? `Wi-Fi ${esc(g.ssid || '')} · IP ${esc(g.ip)} · MAC ${esc(g.mac)}` : '<span style="color:var(--rojo)">No está conectada a la Wi-Fi</span>';
+    const accion = ya ? `<span class="ok">Vinculada como ${esc(ya)}</span> <button onclick="vincular('${esc(g.serie)}', '${esc(ya)}')">Actualizar</button>`
+      : g.ip ? `<select id="usb-${esc(g.serie)}">${opciones}</select> <button class="primario" onclick="vincular('${esc(g.serie)}')">Vincular</button>` : '';
+    return `<div class="gafa"><i class="punto ONLINE"></i><div class="d"><div class="t">${esc(g.modelo || 'Gafas')} · serie ${esc(g.serie)}</div><div class="s">${wifi}</div></div>${accion}</div>`;
+  }).join('');
+  if ($('u-lista').dataset.h !== h) { $('u-lista').innerHTML = h; $('u-lista').dataset.h = h; }
+}
+async function prepararUSB() { try { await api('usb/preparar', {}); refrescar(); } catch (e) { $('u-err').textContent = e.message; } }
+async function vincular(serie, id) {
+  id = id || document.getElementById('usb-' + serie).value;
+  try { const r = await api('usb/vincular', {serie, id}); $('u-err').textContent = ''; alert(`Listo: ${r.id} vinculada (IP ${r.ip}). Ya puedes desenchufarla.`); refrescar(); }
+  catch (e) { $('u-err').textContent = e.message; }
+}
 let verTodos = false;
 function abrirBuscar() { $('b-err').textContent = ''; verTodos = false; dlgB.showModal(); buscar('normal'); }
 async function buscar(modo) {

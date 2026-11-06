@@ -18,6 +18,7 @@ import (
 	"time"
 
 	"playbox/internal/actualizar"
+	"playbox/internal/adb"
 	"playbox/internal/descubrir"
 	"playbox/internal/ejec"
 	"playbox/internal/monitor"
@@ -47,6 +48,14 @@ type App struct {
 		nueva       *actualizar.Manifiesto
 		err         string
 		hora        time.Time
+	}
+	usb struct {
+		activoHasta time.Time // el diálogo de USB está abierto
+		descargando bool
+		err         string
+		gafas       []adb.Gafa
+		leido       time.Time
+		datos       map[string]adb.Gafa // caché de lo leído por serie
 	}
 	busqueda struct {
 		enCurso    bool
@@ -88,6 +97,8 @@ func (a *App) arrancarMonitor(simular bool) error {
 	}
 	if simular {
 		mon.NuevaSonda = sonda.NuevaSimulada(time.Now())
+	} else {
+		mon.OnIPCambiada = guardarIPCambiada
 	}
 	ctx, cancel := context.WithCancel(context.Background())
 	hecho := make(chan struct{})
@@ -174,6 +185,9 @@ func (a *App) servidor() (string, error) {
 	api("abrir", a.apiAbrir)
 	api("instalar", a.apiInstalarApp)
 	api("buscar", a.apiBuscar)
+	api("usb/activar", a.apiUSBActivar)
+	api("usb/preparar", a.apiUSBPreparar)
+	api("usb/vincular", a.apiUSBVincular)
 	api("salir", func(*http.Request) (any, error) {
 		go func() { time.Sleep(200 * time.Millisecond); a.salir() }()
 		return "ok", nil
@@ -258,7 +272,7 @@ func (a *App) apiEstado(*http.Request) (any, error) {
 
 	cfg, _, _ := monitor.Cargar(rutaConfig())
 	res := map[string]any{
-		"version": Version, "simulando": sim, "actualizacion": upd, "f0": f0, "busqueda": busq,
+		"version": Version, "simulando": sim, "actualizacion": upd, "f0": f0, "busqueda": busq, "usb": a.estadoUSB(),
 		"instalado": estaInstalado(), "carpeta": dirExe(), "visores_config": cfg.Visores,
 	}
 	if mon != nil {
@@ -387,6 +401,133 @@ func (a *App) apiF0(r *http.Request) (any, error) {
 		abrirCarpeta(res.Carpeta)
 	}()
 	return "ok", nil
+}
+
+// estadoUSB lista las gafas conectadas por USB mientras el diálogo está abierto
+// (como mucho cada 2 s, para no lanzar adb sin necesidad).
+func (a *App) estadoUSB() map[string]any {
+	a.mu.Lock()
+	activo := time.Now().Before(a.usb.activoHasta)
+	refrescar := activo && !a.usb.descargando && time.Since(a.usb.leido) > 2*time.Second
+	if refrescar {
+		a.usb.leido = time.Now()
+	}
+	a.mu.Unlock()
+	ruta := adb.Localizar(dirExe())
+	if refrescar && ruta != "" {
+		gafas, err := adb.Dispositivos(ruta)
+		a.mu.Lock()
+		if a.usb.datos == nil {
+			a.usb.datos = map[string]adb.Gafa{}
+		}
+		cache := a.usb.datos
+		a.mu.Unlock()
+		for i := range gafas {
+			g := &gafas[i]
+			if g.Estado != "device" {
+				continue
+			}
+			if c, ok := cache[g.Serie]; ok && c.IP != "" {
+				*g = c
+				continue
+			}
+			adb.Leer(ruta, g)
+		}
+		a.mu.Lock()
+		a.usb.gafas, a.usb.err = gafas, ""
+		if err != nil {
+			a.usb.err = err.Error()
+		}
+		for _, g := range gafas {
+			if g.Estado == "device" && g.IP != "" {
+				a.usb.datos[g.Serie] = g
+			}
+		}
+		a.mu.Unlock()
+	}
+	a.mu.Lock()
+	defer a.mu.Unlock()
+	return map[string]any{"adb": ruta != "", "descargando": a.usb.descargando, "error": a.usb.err, "gafas": a.usb.gafas}
+}
+
+func (a *App) apiUSBActivar(*http.Request) (any, error) {
+	a.mu.Lock()
+	a.usb.activoHasta = time.Now().Add(20 * time.Second)
+	a.usb.leido = time.Time{}
+	a.usb.datos = nil // vuelve a leer las gafas recién enchufadas
+	a.mu.Unlock()
+	return "ok", nil
+}
+
+func (a *App) apiUSBPreparar(*http.Request) (any, error) {
+	a.mu.Lock()
+	if a.usb.descargando {
+		a.mu.Unlock()
+		return "ok", nil
+	}
+	a.usb.descargando, a.usb.err = true, ""
+	a.mu.Unlock()
+	go func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+		defer cancel()
+		_, err := adb.Descargar(ctx, dirExe())
+		a.mu.Lock()
+		a.usb.descargando = false
+		if err != nil {
+			a.usb.err = err.Error()
+		}
+		a.mu.Unlock()
+	}()
+	return "ok", nil
+}
+
+// apiUSBVincular guarda una gafa leída por USB como PICO-XX (serie, MAC e IP).
+func (a *App) apiUSBVincular(r *http.Request) (any, error) {
+	var in struct {
+		Serie string `json:"serie"`
+		ID    string `json:"id"`
+	}
+	if err := leerJSON(r, &in); err != nil {
+		return nil, err
+	}
+	a.mu.Lock()
+	g, ok := a.usb.datos[in.Serie]
+	a.mu.Unlock()
+	if !ok {
+		return nil, fmt.Errorf("no tengo los datos de esa gafa: vuelve a conectarla")
+	}
+	if g.IP == "" || g.MAC == "" {
+		return nil, fmt.Errorf("la gafa no está conectada a la Wi-Fi: conéctala y vuelve a intentarlo")
+	}
+	cfg, _, err := monitor.Cargar(rutaConfig())
+	if err != nil {
+		return nil, err
+	}
+	encontrado := false
+	for i := range cfg.Visores {
+		v := &cfg.Visores[i]
+		if v.ID != in.ID && (v.Serie == g.Serie || v.MAC == g.MAC) {
+			*v = monitor.Equipo{ID: v.ID} // la gafa estaba asignada a otro número
+		}
+		if v.ID == in.ID {
+			v.IP, v.MAC, v.Serie, encontrado = g.IP, g.MAC, g.Serie, true
+		}
+	}
+	if !encontrado {
+		return nil, fmt.Errorf("número de visor desconocido: %s", in.ID)
+	}
+	if err := monitor.Guardar(rutaConfig(), cfg); err != nil {
+		return nil, err
+	}
+	a.mu.Lock()
+	sim := a.simulando
+	a.mu.Unlock()
+	if !sim {
+		if err := a.arrancarMonitor(false); err != nil {
+			return nil, err
+		}
+	}
+	return map[string]string{"id": in.ID, "ip": g.IP}, nil
 }
 
 // apiBuscar rastrea la red local para encontrar los visores (solo lectura).

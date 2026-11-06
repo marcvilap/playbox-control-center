@@ -192,6 +192,7 @@ func (servicio) Execute(_ []string, req <-chan svc.ChangeRequest, cambios chan<-
 		log("No se pudo iniciar: " + err.Error())
 		return true, 1
 	}
+	mon.OnIPCambiada = guardarIPCambiada
 	ctx, cancelar := context.WithCancel(context.Background())
 	fin := make(chan error, 1)
 	go func() { fin <- mon.Ejecutar(ctx) }()

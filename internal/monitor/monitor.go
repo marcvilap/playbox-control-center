@@ -41,6 +41,7 @@ type EstadoEquipo struct {
 	PerdidaPct     float64    `json:"perdida_1min_pct"`
 	JitterMs       *float64   `json:"jitter_ms"`
 	LatenciaAlta   bool       `json:"latencia_alta"`
+	MAC            string     `json:"mac,omitempty"`
 
 	fallos int
 	hist   []Muestra
@@ -70,6 +71,9 @@ type Monitor struct {
 	caja       *Caja
 	log        func(string)
 	NuevaSonda func() (sonda.Sonda, error)
+	// OnIPCambiada se llama cuando una gafa vinculada aparece con otra IP
+	// (para guardarlo en playbox.json).
+	OnIPCambiada func(id, ip string)
 
 	mu           sync.Mutex
 	equipos      []*EstadoEquipo
@@ -117,6 +121,7 @@ func (m *Monitor) prepararEquipos() error {
 		if err := add(v.ID, "visor", v.IP); err != nil {
 			return err
 		}
+		m.equipos[len(m.equipos)-1].MAC = v.MAC
 	}
 	router := m.cfg.Router
 	if router == "" {
@@ -151,6 +156,7 @@ func (m *Monitor) Ejecutar(ctx context.Context) error {
 	m.log(fmt.Sprintf("Vigilando %d visores, router e Internet cada %d s", m.cfg.VisoresConIP(), m.cfg.IntervaloS))
 
 	go m.vigilarWindows(ctx)
+	go m.reencontrar(ctx)
 	tick := time.NewTicker(time.Duration(m.cfg.IntervaloS) * time.Second)
 	defer tick.Stop()
 	purga := time.NewTicker(6 * time.Hour)
@@ -186,6 +192,12 @@ func (m *Monitor) ciclo() {
 	espera := time.Duration(m.cfg.EsperaMs) * time.Millisecond
 	res := make([]sonda.Resultado, len(m.equipos))
 	var wg sync.WaitGroup
+	m.mu.Lock() // la IP puede cambiar si se reencuentra la gafa por su MAC
+	ips := make([]string, len(m.equipos))
+	for i, e := range m.equipos {
+		ips[i] = e.IP
+	}
+	m.mu.Unlock()
 	for i, e := range m.equipos {
 		if e.sonda == nil {
 			continue
@@ -193,7 +205,7 @@ func (m *Monitor) ciclo() {
 		wg.Add(1)
 		go func(i int, e *EstadoEquipo) {
 			defer wg.Done()
-			res[i] = e.sonda.Eco(e.IP, espera)
+			res[i] = e.sonda.Eco(ips[i], espera)
 		}(i, e)
 	}
 	wg.Wait()
