@@ -15,14 +15,17 @@ const PuertoWifi = "5555"
 
 // Telemetria es lo que se lee de una gafa por ADB (estado OBSERVADO).
 type Telemetria struct {
-	BateriaPct *int      `json:"bateria_pct"`
-	Cargando   bool      `json:"cargando"`
-	TempC      *float64  `json:"temp_c"`
-	Pantalla   string    `json:"pantalla"` // Activa, Reposo
-	App        string    `json:"app"`      // paquete en primer plano
-	EnMenu     bool      `json:"en_menu"`  // INFERIDO: el paquete parece el launcher de PICO
-	Leido      time.Time `json:"leido"`
-	Error      string    `json:"error,omitempty"`
+	BateriaPct *int     `json:"bateria_pct"`
+	Cargando   bool     `json:"cargando"`
+	TempC      *float64 `json:"temp_c"`
+	Pantalla   string   `json:"pantalla"` // Activa, Reposo
+	App        string   `json:"app"`      // paquete en primer plano
+	EnMenu     bool     `json:"en_menu"`  // INFERIDO: el paquete parece el launcher de PICO
+	// Mandos: estado de conexión según pxrcontrollerservice (PICO no publica su batería).
+	MandoIzq string    `json:"mando_izq"` // online, offline o "" si no se pudo leer
+	MandoDer string    `json:"mando_der"`
+	Leido    time.Time `json:"leido"`
+	Error    string    `json:"error,omitempty"`
 }
 
 // ActivarWifi deja la gafa escuchando ADB por Wi-Fi (hasta que se reinicie).
@@ -46,7 +49,7 @@ func Conectar(adb, ip string) error {
 
 // Una sola llamada a la gafa, con los filtros ejecutados dentro de ella para
 // transferir solo unas pocas líneas.
-const consulta = `dumpsys battery; echo @@@; dumpsys power | grep -m1 mWakefulness=; echo @@@; dumpsys activity activities | grep -m1 -E 'mResumedActivity|ResumedActivity'`
+const consulta = `dumpsys battery; echo @@@; dumpsys power | grep -m1 mWakefulness=; echo @@@; dumpsys activity activities | grep -m1 -E 'mResumedActivity|ResumedActivity'; echo @@@; dumpsys pxrcontrollerservice | grep -A2 -E '(left|right) controller:' | grep -E 'controller:|state:'`
 
 // LeerTelemetria pide batería, pantalla y app en primer plano a la gafa.
 func LeerTelemetria(adb, ip string) Telemetria {
@@ -76,7 +79,7 @@ var (
 func ParsearTelemetria(txt string) Telemetria {
 	t := Telemetria{Leido: time.Now()}
 	partes := strings.Split(txt, "@@@")
-	for len(partes) < 3 {
+	for len(partes) < 4 {
 		partes = append(partes, "")
 	}
 	bat, pow, act := partes[0], partes[1], partes[2]
@@ -95,6 +98,7 @@ func ParsearTelemetria(txt string) Telemetria {
 		t.Pantalla = "Reposo"
 	}
 	t.App = firstGroup(reApp, act)
+	t.MandoIzq, t.MandoDer = estadoMandos(partes[3])
 	a := strings.ToLower(t.App)
 	t.EnMenu = strings.Contains(a, "launcher") || strings.HasSuffix(a, ".home") || strings.Contains(a, "vrshell")
 	return t
@@ -105,4 +109,18 @@ func firstGroup(re *regexp.Regexp, s string) string {
 		return m[1]
 	}
 	return ""
+}
+
+var reMando = regexp.MustCompile(`(?s)(left|right) controller:\s*\n(?:.*?\n)??\s*state:\s*(\w+)`)
+
+// estadoMandos lee «left/right controller: … state: online|offline» de pxrcontrollerservice.
+func estadoMandos(txt string) (izq, der string) {
+	for _, m := range reMando.FindAllStringSubmatch(txt, -1) {
+		if m[1] == "left" {
+			izq = m[2]
+		} else {
+			der = m[2]
+		}
+	}
+	return
 }

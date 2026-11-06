@@ -241,7 +241,9 @@ function tele(v) {
   const cls = b == null ? '' : b < 15 ? 'critica' : b < 25 ? 'baja' : '';
   const bat = b == null ? '—' : `<span class="bat ${cls}"><i><b style="width:${b}%"></b></i>${b} %${t.cargando ? ' ⚡' : ''}</span>`;
   const app = t.pantalla === 'Reposo' ? 'En reposo' : t.en_menu ? 'En el menú PICO' : (t.app || '—');
-  return `<div class="dat"><span>Batería</span><b>${bat}</b></div><div class="app" title="${esc(t.app || '')}">${esc(app)}${t.temp_c != null ? ' · ' + t.temp_c.toFixed(0) + ' °C' : ''}</div>`;
+  const m = x => x === 'online' ? '<span style="color:var(--verde)">●</span>' : x === 'offline' ? '<span style="color:var(--rojo)">●</span>' : '<span class="via">?</span>';
+  const mandos = (t.mando_izq || t.mando_der) ? `<div class="dat"><span>Mandos</span><b>I ${m(t.mando_izq)} · D ${m(t.mando_der)}</b></div>` : '';
+  return `<div class="dat"><span>Batería</span><b>${bat}</b></div>${mandos}<div class="app" title="${esc(t.app || '')}">${esc(app)}${t.temp_c != null ? ' · ' + t.temp_c.toFixed(0) + ' °C' : ''}</div>`;
 }
 
 function pintar(d) {

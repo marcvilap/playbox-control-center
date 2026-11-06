@@ -45,6 +45,17 @@ func calcularSemaforo(g EstadoGlobal, cfg Config) Semaforo {
 				ambar = append(ambar, fmt.Sprintf("%s caliente (%.0f °C)", v.ID, *t.TempC))
 				ok = false
 			}
+			if t.Error == "" && (t.MandoIzq == "offline" || t.MandoDer == "offline") {
+				lado := "derecho"
+				if t.MandoIzq == "offline" {
+					lado = "izquierdo"
+					if t.MandoDer == "offline" {
+						lado = "izquierdo y derecho"
+					}
+				}
+				ambar = append(ambar, v.ID+": mando "+lado+" desconectado")
+				ok = false
+			}
 			if t.Error == "" && t.Pantalla == "Reposo" {
 				ambar = append(ambar, v.ID+" en reposo")
 				ok = false

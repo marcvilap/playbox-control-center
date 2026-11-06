@@ -131,6 +131,9 @@ func Dispositivos(adb string) ([]Gafa, error) {
 		if i == 0 || len(f) < 2 || strings.HasPrefix(l, "*") {
 			continue
 		}
+		if strings.Contains(f[0], ":") {
+			continue // conexión por Wi-Fi (ip:5555) de una gafa ya vista por USB
+		}
 		gs = append(gs, Gafa{Serie: f[0], Estado: f[1]})
 	}
 	return gs, nil

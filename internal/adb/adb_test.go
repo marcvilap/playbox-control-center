@@ -34,3 +34,11 @@ func TestTelemetria(t *testing.T) {
 		t.Fatalf("%+v", tel)
 	}
 }
+
+func TestMandosReales(t *testing.T) {
+	// Salida real de una PICO 4 Ultra Enterprise (firmware 5.11.2) filtrada por la consulta.
+	tel := ParsearTelemetria("level: 74\n@@@\n@@@\n@@@\n    left controller:\n      state: online\n    right controller:\n      state: offline\n")
+	if tel.MandoIzq != "online" || tel.MandoDer != "offline" {
+		t.Fatalf("%+v", tel)
+	}
+}

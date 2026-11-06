@@ -15,7 +15,7 @@ import (
 )
 
 // Patron identifica el software de los tres proveedores.
-const Patron = "spawn|vex|hero"
+const Patron = "spawnpoint|vex[ _-]?(solutions|arena)|\\bvex\\b|herozone|hero[ _-]?zone"
 
 const proc = "@{n='Proc';e={(Get-Process -Id $_.OwningProcess).Name}}"
 
