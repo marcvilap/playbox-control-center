@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"playbox/internal/adb"
 	"playbox/internal/monitor"
 	"playbox/internal/sonda"
 )
@@ -59,6 +60,7 @@ func configSimulacion() monitor.Config {
 	c := monitor.PorDefecto()
 	for i := range c.Visores {
 		c.Visores[i].IP = fmt.Sprintf("%s%d", sonda.PrefijoSimulado, i+1)
+		c.Visores[i].Telemetria = true
 	}
 	c.Router, c.Internet = sonda.RouterSimulado, sonda.InternetSimulado
 	c.VentanaAntesMin, c.VentanaDespuesMin = 2, 1
@@ -91,8 +93,10 @@ func cmdVigilar(simular bool) int {
 	}
 	if simular {
 		mon.NuevaSonda = sonda.NuevaSimulada(time.Now())
+		mon.TelemetriaSimulada = true
 	} else {
 		mon.OnIPCambiada = guardarIPCambiada
+		mon.RutaADB = adb.Localizar(dirExe())
 	}
 	ctx, parar := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer parar()

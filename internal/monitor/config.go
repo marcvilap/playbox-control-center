@@ -12,6 +12,8 @@ type Equipo struct {
 	IP    string `json:"ip"`
 	MAC   string `json:"mac,omitempty"`   // permite reencontrarlo si cambia la IP
 	Serie string `json:"serie,omitempty"` // número de serie leído por USB
+	// Telemetria: leer batería y app por ADB Wi-Fi (activado desde «Vincular por USB»).
+	Telemetria bool `json:"telemetria,omitempty"`
 }
 
 // Config se guarda en playbox.json junto al exe.
@@ -26,6 +28,9 @@ type Config struct {
 	RetencionDias     int      `json:"retencion_dias"`
 	VentanaAntesMin   int      `json:"incidente_minutos_antes"`
 	VentanaDespuesMin int      `json:"incidente_minutos_despues"`
+	TelemetriaS       int      `json:"telemetria_intervalo_s"`
+	BateriaBajaPct    int      `json:"bateria_baja_pct"`
+	TempAltaC         int      `json:"temperatura_alta_c"`
 }
 
 // PorDefecto devuelve una configuración inicial con 10 visores sin IP.
@@ -51,6 +56,9 @@ func (c *Config) completar() {
 	def(&c.RetencionDias, 30)
 	def(&c.VentanaAntesMin, 5)
 	def(&c.VentanaDespuesMin, 2)
+	def(&c.TelemetriaS, 30)
+	def(&c.BateriaBajaPct, 25)
+	def(&c.TempAltaC, 45)
 }
 
 // Cargar lee la configuración; si no existe, crea una plantilla y avisa.

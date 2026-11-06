@@ -13,7 +13,9 @@ import (
 	"sync"
 	"time"
 
+	"playbox/internal/adb"
 	"playbox/internal/ejec"
+	"playbox/internal/pc"
 	"playbox/internal/sonda"
 )
 
@@ -29,19 +31,23 @@ const (
 
 // EstadoEquipo es el estado de un equipo con su fuente y frescura.
 type EstadoEquipo struct {
-	ID             string     `json:"id"`
-	Tipo           string     `json:"tipo"` // visor, router, internet
-	IP             string     `json:"ip"`
-	Estado         string     `json:"estado"`
-	Fuente         string     `json:"fuente"`
-	Fiabilidad     string     `json:"fiabilidad"`
-	Desde          time.Time  `json:"desde"`
-	UltimoContacto *time.Time `json:"ultimo_contacto"`
-	RTTms          *float64   `json:"rtt_ms"`
-	PerdidaPct     float64    `json:"perdida_1min_pct"`
-	JitterMs       *float64   `json:"jitter_ms"`
-	LatenciaAlta   bool       `json:"latencia_alta"`
-	MAC            string     `json:"mac,omitempty"`
+	ID             string          `json:"id"`
+	Tipo           string          `json:"tipo"` // visor, router, internet
+	IP             string          `json:"ip"`
+	Estado         string          `json:"estado"`
+	Fuente         string          `json:"fuente"`
+	Fiabilidad     string          `json:"fiabilidad"`
+	Desde          time.Time       `json:"desde"`
+	UltimoContacto *time.Time      `json:"ultimo_contacto"`
+	RTTms          *float64        `json:"rtt_ms"`
+	PerdidaPct     float64         `json:"perdida_1min_pct"`
+	JitterMs       *float64        `json:"jitter_ms"`
+	LatenciaAlta   bool            `json:"latencia_alta"`
+	MAC            string          `json:"mac,omitempty"`
+	TelemetriaOn   bool            `json:"telemetria_activa"`
+	Telemetria     *adb.Telemetria `json:"telemetria,omitempty"`
+
+	avisoBateria, avisoTemp bool
 
 	fallos int
 	hist   []Muestra
@@ -61,6 +67,8 @@ type EstadoGlobal struct {
 	CentroActivo    bool           `json:"centro_activo"`
 	IncidentesHoy   int            `json:"incidentes_hoy"`
 	UltimoIncidente string         `json:"ultimo_incidente,omitempty"`
+	PC              *pc.Salud      `json:"pc,omitempty"`
+	Semaforo        Semaforo       `json:"semaforo"`
 }
 
 // Monitor coordina la vigilancia.
@@ -74,6 +82,10 @@ type Monitor struct {
 	// OnIPCambiada se llama cuando una gafa vinculada aparece con otra IP
 	// (para guardarlo en playbox.json).
 	OnIPCambiada func(id, ip string)
+	// RutaADB: adb.exe para leer batería y app de las gafas (vacío = sin telemetría).
+	RutaADB string
+	// TelemetriaSimulada: datos de ejemplo (solo modo simulación).
+	TelemetriaSimulada bool
 
 	mu           sync.Mutex
 	equipos      []*EstadoEquipo
@@ -83,6 +95,8 @@ type Monitor struct {
 	diaInc       string
 	ultimoInc    string
 	pendientes   sync.WaitGroup
+	salud        *pc.Salud
+	avisosPC     map[string]bool
 	ctx          context.Context
 }
 
@@ -122,6 +136,7 @@ func (m *Monitor) prepararEquipos() error {
 			return err
 		}
 		m.equipos[len(m.equipos)-1].MAC = v.MAC
+		m.equipos[len(m.equipos)-1].TelemetriaOn = v.Telemetria && v.IP != ""
 	}
 	router := m.cfg.Router
 	if router == "" {
@@ -157,6 +172,8 @@ func (m *Monitor) Ejecutar(ctx context.Context) error {
 
 	go m.vigilarWindows(ctx)
 	go m.reencontrar(ctx)
+	go m.vigilarTelemetria(ctx)
+	go m.vigilarPC(ctx)
 	tick := time.NewTicker(time.Duration(m.cfg.IntervaloS) * time.Second)
 	defer tick.Stop()
 	purga := time.NewTicker(6 * time.Hour)
@@ -390,6 +407,11 @@ func (m *Monitor) estadoLocked() EstadoGlobal {
 		}
 	}
 	g.CentroActivo = time.Since(m.ultimoOnline) < 10*time.Minute
+	if m.salud != nil {
+		s := *m.salud
+		g.PC = &s
+	}
+	g.Semaforo = calcularSemaforo(g, m.cfg)
 	return g
 }
 

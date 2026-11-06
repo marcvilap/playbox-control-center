@@ -5,6 +5,7 @@ import (
 	"testing"
 	"time"
 
+	"playbox/internal/adb"
 	"playbox/internal/sonda"
 )
 
@@ -129,5 +130,43 @@ func TestReencontrarPorMAC(t *testing.T) {
 	}
 	if !strings.Contains(tipos(m), "PICO-01:ip_cambiada") {
 		t.Fatal("falta el evento ip_cambiada")
+	}
+}
+
+func TestSemaforo(t *testing.T) {
+	cfg := PorDefecto()
+	cfg.completar()
+	b30, b10 := 30, 10
+	base := func() EstadoGlobal {
+		return EstadoGlobal{
+			Visores: []EstadoEquipo{{ID: "PICO-01", Estado: Online}, {ID: "PICO-02", Estado: Online}, {ID: "PICO-03", Estado: SinConfig}},
+			Router:  EstadoEquipo{Estado: Online}, Internet: EstadoEquipo{Estado: Online},
+		}
+	}
+	if s := calcularSemaforo(base(), cfg); s.Color != "verde" {
+		t.Fatalf("debería ser verde: %+v", s)
+	}
+	g := base()
+	g.Visores[1].Telemetria = &adb.Telemetria{BateriaPct: &b10}
+	if s := calcularSemaforo(g, cfg); s.Color != "rojo" {
+		t.Fatalf("batería 10%% debería ser rojo: %+v", s)
+	}
+	g = base()
+	g.Visores[1].Telemetria = &adb.Telemetria{BateriaPct: &b30, Pantalla: "Reposo"}
+	g.Internet.Estado = Offline
+	if s := calcularSemaforo(g, cfg); s.Color != "ambar" || len(s.Motivos) != 2 {
+		t.Fatalf("debería ser ámbar con 2 motivos: %+v", s)
+	}
+	g = base()
+	g.Visores[0].Estado = Offline
+	if s := calcularSemaforo(g, cfg); s.Color != "rojo" {
+		t.Fatalf("gafa caída debería ser rojo: %+v", s)
+	}
+	g = base()
+	for i := range g.Visores {
+		g.Visores[i].Estado = SinConfig
+	}
+	if s := calcularSemaforo(g, cfg); s.Color != "gris" {
+		t.Fatalf("sin gafas debería ser gris: %+v", s)
 	}
 }

@@ -45,6 +45,16 @@ Sin conexión o con firma no válida, sigue con la versión instalada. `playbox 
 
 La clave privada no se sube nunca al servidor ni al repositorio.
 
+## Batería, semáforo y salud del PC (v0.6)
+
+- Tras vincular por USB, «Activar batería y app» deja la gafa con ADB por Wi-Fi (`adb tcpip 5555`, hasta que
+  se reinicie). Cada 30 s una sola llamada `adb shell` lee batería, temperatura, carga, pantalla y app en primer
+  plano. Avisos de batería baja (<25 %) y temperatura alta (≥45 °C).
+- Semáforo de sesión: rojo (gafa caída, batería <15 %, router caído, teclado/ratón con problemas), ámbar
+  (sin Internet, batería baja, reposo, latencia, PC cargado) o verde.
+- Salud del PC: CPU, RAM y disco por API nativa cada 10 s; GPU NVIDIA con nvidia-smi cada 30 s; teclados y
+  ratones por PnP cada 2 min.
+
 ## Vincular gafas por USB (v0.5)
 
 La primera vez cada gafa se enchufa por USB (depuración USB activada): el programa lee por ADB su serie,

@@ -14,6 +14,7 @@ import (
 	"golang.org/x/sys/windows/svc/mgr"
 
 	"playbox/internal/actualizar"
+	"playbox/internal/adb"
 	"playbox/internal/monitor"
 )
 
@@ -193,6 +194,7 @@ func (servicio) Execute(_ []string, req <-chan svc.ChangeRequest, cambios chan<-
 		return true, 1
 	}
 	mon.OnIPCambiada = guardarIPCambiada
+	mon.RutaADB = adb.Localizar(dirExe())
 	ctx, cancelar := context.WithCancel(context.Background())
 	fin := make(chan error, 1)
 	go func() { fin <- mon.Ejecutar(ctx) }()

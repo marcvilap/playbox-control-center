@@ -97,8 +97,10 @@ func (a *App) arrancarMonitor(simular bool) error {
 	}
 	if simular {
 		mon.NuevaSonda = sonda.NuevaSimulada(time.Now())
+		mon.TelemetriaSimulada = true
 	} else {
 		mon.OnIPCambiada = guardarIPCambiada
+		mon.RutaADB = adb.Localizar(dirExe())
 	}
 	ctx, cancel := context.WithCancel(context.Background())
 	hecho := make(chan struct{})
@@ -188,6 +190,7 @@ func (a *App) servidor() (string, error) {
 	api("usb/activar", a.apiUSBActivar)
 	api("usb/preparar", a.apiUSBPreparar)
 	api("usb/vincular", a.apiUSBVincular)
+	api("usb/telemetria", a.apiUSBTelemetria)
 	api("salir", func(*http.Request) (any, error) {
 		go func() { time.Sleep(200 * time.Millisecond); a.salir() }()
 		return "ok", nil
@@ -528,6 +531,50 @@ func (a *App) apiUSBVincular(r *http.Request) (any, error) {
 		}
 	}
 	return map[string]string{"id": in.ID, "ip": g.IP}, nil
+}
+
+// apiUSBTelemetria deja la gafa escuchando ADB por Wi-Fi (hasta que se
+// reinicie) y activa la lectura de batería, pantalla y app.
+func (a *App) apiUSBTelemetria(r *http.Request) (any, error) {
+	var in struct {
+		Serie string `json:"serie"`
+	}
+	if err := leerJSON(r, &in); err != nil {
+		return nil, err
+	}
+	ruta := adb.Localizar(dirExe())
+	if ruta == "" {
+		return nil, fmt.Errorf("falta la herramienta USB")
+	}
+	cfg, _, err := monitor.Cargar(rutaConfig())
+	if err != nil {
+		return nil, err
+	}
+	idx := -1
+	for i, v := range cfg.Visores {
+		if v.Serie == in.Serie {
+			idx = i
+		}
+	}
+	if idx < 0 {
+		return nil, fmt.Errorf("vincula primero la gafa")
+	}
+	if err := adb.ActivarWifi(ruta, in.Serie); err != nil {
+		return nil, err
+	}
+	cfg.Visores[idx].Telemetria = true
+	if err := monitor.Guardar(rutaConfig(), cfg); err != nil {
+		return nil, err
+	}
+	a.mu.Lock()
+	sim := a.simulando
+	a.mu.Unlock()
+	if !sim {
+		if err := a.arrancarMonitor(false); err != nil {
+			return nil, err
+		}
+	}
+	return map[string]string{"id": cfg.Visores[idx].ID}, nil
 }
 
 // apiBuscar rastrea la red local para encontrar los visores (solo lectura).
