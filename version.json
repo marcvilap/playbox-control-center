@@ -1,7 +1,7 @@
 {
   "version": "0.7.0",
   "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.7.0.exe",
-  "sha256": "beb2cdf9d157c4ea6ba843fad52a94ddcd2142367e9f2ac4cae6a2461158d4af",
-  "firma": "OOLUZ8UmzNqfsgpeCN0KfmXKFpqk4oLVGQXyquu7IWN65ylY4PM24ZvErjENznySd4/6xIk1PFgMfNE/2pRFBA==",
+  "sha256": "56dbd88a21f56180d25a368a537e5df74e34c3af0f8dd8105655209b272bc1b2",
+  "firma": "2ZwUe74tUrFLEV/aCS9jvVGnSxrhAIKLzyW+AmenSRmnFPkigAxOgTOwVwVyKUkmmUYKgA2K9SKcCXHLSGivAA==",
   "notas": "Agentes de las gafas sin Internet: pilas de los mandos 1–5, batería, app y Wi-Fi"
 }
