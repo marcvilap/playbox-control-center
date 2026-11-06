@@ -1,7 +1,7 @@
 {
-  "version": "0.9.3",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.3.exe",
-  "sha256": "e2e6f788289c1eed1878cfd9a5067c6d078a1be500981c27efd926af5a777708",
-  "firma": "89evFuP10TUpbkIFuf863+yzevA7FJ6Vk/AdqmlxiKVTumoODirASpj4NiEo7Cf7ksiVhmnYuvU03Sj9aIPvDA==",
-  "notas": "Arena en la Sala de control: dónde está cada jugador y aviso si una gafa está descalibrada. Quién manda en cada gafa (Device Owner)."
+  "version": "0.9.4",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.4.exe",
+  "sha256": "f8772be950358d635cc6602192dadcc0221a5d933630022013f3c8a6fa08881b",
+  "firma": "UbxgEiJmbd5wgzGlIOnoWbPsMFqVd87jYnU6W7wmI/BwCnNEKVCY0vWDxbdyuM8sdAvfpxeTaNhVrNIgDcPGCw==",
+  "notas": "Arena con nombres, rastro y avisos. Device Owner en Inicio y Ajustes. Preparado «Bloquear botones» para la nueva app de las gafas."
 }
