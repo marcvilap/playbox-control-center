@@ -1,7 +1,7 @@
 {
-  "version": "0.6.0",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.0.exe",
-  "sha256": "8a62bcc567c95c7129e9000c882f0cec492f7ad97db1b4dd8c38e062f33bfb83",
-  "firma": "HkY9hZcpikNytVlVTVcJYa0XCI3ZSeMFxs5wEnS3VjBvkEbkrs4eDN2zRA48eZoieA5UopDWjbKI1Fvliw1ZBQ==",
-  "notas": "Batería y app de cada gafa, semáforo de sesión y salud del PC"
+  "version": "0.6.1",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.1.exe",
+  "sha256": "af44d79861ccf6b79e96035783feced4ca835407965a460d0825cdb20827cc4d",
+  "firma": "5aZj5uKNhBrlrIAdp8V2R0PGkjSaePUttGxNFNPJrh3bGySZtby7meSuDLg+FASaojNUML8f8tiTU6Om3yXdCw==",
+  "notas": "Botón Diagnóstico de la gafa (para localizar la batería de los mandos)"
 }
