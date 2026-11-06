@@ -1,7 +1,0 @@
-dist/
-*.exe
-clave*.txt
-datos/
-datos-simulacion/
-informes/
-playbox.json
