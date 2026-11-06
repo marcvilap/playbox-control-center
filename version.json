@@ -1,7 +1,7 @@
 {
-  "version": "0.8.2",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.2.exe",
-  "sha256": "6c54eab1ae5cc490dadf6cb89ac33aa6d61ada71decf452554e80cb7793aabc8",
-  "firma": "+JBpn7gmp+1loPPJjGKSLmDGuTZhmHzsBQhx9yUJx0NnYTBKPLlwg4vXCNUfd2yJFfGTsUEk7mXlc0lEEdbACg==",
-  "notas": "El agente de las gafas viene incluido: se instala y actualiza solo"
+  "version": "0.8.3",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.3.exe",
+  "sha256": "f20a8c441c6869dd47edcbbd0fa3b4a455eab766b08358286a4ea8118b7525cf",
+  "firma": "TNgJnShS+SMBCvXmZGrT0QS4PNOR62WTFgaU+cCeqzdFkXPFU63CM+NWTWH3ZLB+yEuDX18XYd1YJZJ3MIC3DA==",
+  "notas": "Al instalar se conservan las gafas y los datos"
 }
