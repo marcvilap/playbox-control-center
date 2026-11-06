@@ -30,9 +30,32 @@ func calcularSemaforo(g EstadoGlobal, cfg Config) Semaforo {
 			ambar = append(ambar, v.ID+" con latencia alta")
 			ok = false
 		}
+		if a := v.Agente; a != nil && a.Fresco {
+			e := a.Estado
+			sinADB := v.Telemetria == nil || v.Telemetria.Error != ""
+			if sinADB && e.BateriaPct != nil && !e.Cargando {
+				switch b := *e.BateriaPct; {
+				case b < 15:
+					rojos = append(rojos, fmt.Sprintf("%s con batería al %d %%", v.ID, b))
+					ok = false
+				case b < cfg.BateriaBajaPct:
+					ambar = append(ambar, fmt.Sprintf("%s con batería al %d %%", v.ID, b))
+					ok = false
+				}
+			}
+			for _, m := range []struct {
+				lado string
+				n    *int
+			}{{"izquierdo", e.MandoIzq}, {"derecho", e.MandoDer}} {
+				if m.n != nil && *m.n <= 1 {
+					ambar = append(ambar, fmt.Sprintf("%s: mando %s con pilas bajas (%d/5)", v.ID, m.lado, *m.n))
+					ok = false
+				}
+			}
+		}
 		if t := v.Telemetria; t != nil {
 			switch {
-			case t.Error != "":
+			case t.Error != "" && !v.AgenteFresco():
 				ambar = append(ambar, v.ID+": sin datos de batería")
 			case t.BateriaPct != nil && *t.BateriaPct < 15 && !t.Cargando:
 				rojos = append(rojos, fmt.Sprintf("%s con batería al %d %%", v.ID, *t.BateriaPct))

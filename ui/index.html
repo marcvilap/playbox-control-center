@@ -46,6 +46,7 @@ main{padding:20px 24px 28px;max-width:1240px;margin:0 auto}
 .visor .dat{display:flex;justify-content:space-between;font-size:12px;color:var(--suave);margin-top:4px}
 .visor .dat b{color:var(--texto);font-weight:500}
 .etq{font-size:10px;font-weight:700;color:#1a1300;background:var(--ambar);border-radius:4px;padding:1px 5px;margin-left:auto}
+.etq.ag{margin-left:4px;background:#3b82f6;color:#fff}
 .visor.SINCONFIG{opacity:.45}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
 .caja{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:14px 16px}
@@ -100,6 +101,7 @@ dialog.ancho{width:min(820px,94vw)}
 .bat i{display:inline-block;width:34px;height:10px;border:1px solid #3a4550;border-radius:3px;position:relative;overflow:hidden}
 .bat i b{position:absolute;left:0;top:0;bottom:0;background:var(--verde)}
 .bat.baja i b{background:var(--ambar)}.bat.critica i b{background:var(--rojo)}
+.pilas{display:inline-flex;gap:2px;vertical-align:middle;margin-right:4px}.pilas i{width:5px;height:10px;border-radius:1px}
 .app{color:var(--suave);font-size:11px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .instr{background:var(--panel2);border:1px solid var(--borde);border-radius:10px;padding:10px 14px;margin:10px 0;font-size:13px}
 .instr summary{cursor:pointer;color:var(--acento2);font-weight:600}
@@ -232,18 +234,34 @@ function pintarActualizacion(d) {
   if ($('upd').dataset.h !== h) { $('upd').innerHTML = h; $('upd').dataset.h = h; }
 }
 
+function pilas(n) {
+  if (n == null) return '<span class="via">?</span>';
+  const c = n <= 1 ? 'var(--rojo)' : n <= 2 ? 'var(--ambar)' : 'var(--verde)';
+  return `<span class="pilas" title="${n} de 5">${[1,2,3,4,5].map(k => `<i style="background:${k <= n ? c : '#2a333c'}"></i>`).join('')}</span>`;
+}
 function tele(v) {
-  const t = v.telemetria;
-  if (!v.telemetria_activa) return '';
-  if (!t) return '<div class="app">Batería: leyendo…</div>';
-  if (t.error) return `<div class="app" title="${esc(t.error)}">Batería: sin datos</div>`;
-  const b = t.bateria_pct;
+  const ag = v.agente && v.agente.fresco ? v.agente.estado : null;
+  const t = v.telemetria && !v.telemetria.error ? v.telemetria : null;
+  if (!ag && !v.telemetria_activa) return v.agente ? `<div class="app">Agente sin señal desde ${hora(v.agente.ultimo_contacto)}</div>` : '';
+  if (!ag && !v.telemetria) return '<div class="app">Batería: leyendo…</div>';
+  if (!ag && !t) return `<div class="app" title="${esc(v.telemetria.error)}">Batería: sin datos</div>`;
+  const b = ag && ag.bateria_pct != null ? ag.bateria_pct : t ? t.bateria_pct : null;
+  const carga = ag ? ag.cargando : t && t.cargando;
   const cls = b == null ? '' : b < 15 ? 'critica' : b < 25 ? 'baja' : '';
-  const bat = b == null ? '—' : `<span class="bat ${cls}"><i><b style="width:${b}%"></b></i>${b} %${t.cargando ? ' ⚡' : ''}</span>`;
-  const app = t.pantalla === 'Reposo' ? 'En reposo' : t.en_menu ? 'En el menú PICO' : (t.app || '—');
-  const m = x => x === 'online' ? '<span style="color:var(--verde)">●</span>' : x === 'offline' ? '<span style="color:var(--rojo)">●</span>' : '<span class="via">?</span>';
-  const mandos = (t.mando_izq || t.mando_der) ? `<div class="dat"><span>Mandos</span><b>I ${m(t.mando_izq)} · D ${m(t.mando_der)}</b></div>` : '';
-  return `<div class="dat"><span>Batería</span><b>${bat}</b></div>${mandos}<div class="app" title="${esc(t.app || '')}">${esc(app)}${t.temp_c != null ? ' · ' + t.temp_c.toFixed(0) + ' °C' : ''}</div>`;
+  const bat = b == null ? '—' : `<span class="bat ${cls}"><i><b style="width:${b}%"></b></i>${b} %${carga ? ' ⚡' : ''}</span>`;
+  let mandos = '';
+  if (ag && (ag.mando_izq != null || ag.mando_der != null)) mandos = `<div class="dat"><span>Mandos</span><b>I ${pilas(ag.mando_izq)} D ${pilas(ag.mando_der)}</b></div>`;
+  else if (t && (t.mando_izq || t.mando_der)) {
+    const m = x => x === 'online' ? '<span style="color:var(--verde)">●</span>' : x === 'offline' ? '<span style="color:var(--rojo)">●</span>' : '<span class="via">?</span>';
+    mandos = `<div class="dat"><span>Mandos</span><b>I ${m(t.mando_izq)} · D ${m(t.mando_der)}</b></div>`;
+  }
+  let app;
+  if (ag) app = ag.pantalla_on === false ? 'En reposo' : (ag.app_nombre || ag.app || '—');
+  else app = t.pantalla === 'Reposo' ? 'En reposo' : t.en_menu ? 'En el menú PICO' : (t.app || '—');
+  const temp = ag && ag.temp_c != null ? ag.temp_c : t ? t.temp_c : null;
+  const wifi = ag && ag.wifi_rssi != null ? ` · Wi-Fi ${ag.wifi_rssi} dBm` : '';
+  const fuente = ag ? `<span class="etq ag" title="Datos del Agente PlayBox v${esc(v.agente.version)}">AGENTE</span>` : '';
+  return `<div class="dat"><span>Batería ${fuente}</span><b>${bat}</b></div>${mandos}<div class="app" title="${esc((ag ? ag.app : t.app) || '')}">${esc(app)}${temp != null ? ' · ' + temp.toFixed(0) + ' °C' : ''}${wifi}</div>`;
 }
 
 function pintar(d) {
@@ -257,6 +275,8 @@ function pintar(d) {
   if (d.simulando) av += `<div class="aviso ambar"><p><b>Modo simulación:</b> visores virtuales. PICO-03 cae a los 30 s, PICO-07 va lento a los 45 s e Internet cae a los 100 s.</p><button onclick="simular()">Volver a vigilancia real</button></div>`;
   const cfgIP = (d.visores_config || []).filter(v => v.ip).length;
   if (!d.simulando && cfgIP === 0) av += `<div class="aviso"><p>Ningún visor tiene IP todavía. Configúralas para empezar a vigilarlos, o prueba la simulación.</p><button class="primario" onclick="abrirUSB()">Vincular gafas por USB</button><button onclick="abrirBuscar()">Buscar en la red</button></div>`;
+  const conAgente = d.estado && (d.estado.visores || []).some(v => v.agente);
+  if (!d.simulando && conAgente && d.agentes && !d.agentes.firewall) av += `<div class="aviso ambar"><p><b>Falta permiso en el firewall de Windows</b> para que los agentes de las gafas lleguen a este PC (puerto ${d.agentes.puerto}).</p><button class="primario" onclick="permitirFirewall()">Permitir</button></div>`;
   if (d.f0 && d.f0.en_curso) av += `<div class="aviso"><p>Descubrimiento F0 en curso (${esc(d.f0.fase)}): tarda un par de minutos…</p></div>`;
   else if (d.f0 && d.f0.error) av += `<div class="aviso"><p>El descubrimiento falló: ${esc(d.f0.error)}</p></div>`;
   $('avisos').innerHTML = av;
@@ -370,7 +390,8 @@ function pintarUSB(d) {
     const wifi = g.ip ? `Wi-Fi ${esc(g.ssid || '')} · IP ${esc(g.ip)} · MAC ${esc(g.mac)}` : '<span style="color:var(--rojo)">No está conectada a la Wi-Fi</span>';
     const conTele = (cfg.find(v => v.serie === g.serie) || {}).telemetria;
     const accion = ya ? `<span class="ok">Vinculada como ${esc(ya)}</span> <button onclick="vincular('${esc(g.serie)}', '${esc(ya)}')">Actualizar</button>
-        <button ${conTele ? '' : 'class="primario"'} onclick="telemetria('${esc(g.serie)}')" title="Deja la gafa escuchando por Wi-Fi hasta que se reinicie">${conTele ? 'Reactivar batería/app' : 'Activar batería y app'}</button>`
+        <button ${conTele ? '' : 'class="primario"'} onclick="telemetria('${esc(g.serie)}')" title="Deja la gafa escuchando por Wi-Fi hasta que se reinicie">${conTele ? 'Reactivar batería/app' : 'Activar batería y app'}</button>
+        <button onclick="conectarAgente('${esc(ya)}', this)" title="Si la gafa tiene el Agente PlayBox, lo apunta a este PC: pilas de los mandos 1–5 sin Internet">Conectar agente</button>`
       : g.ip ? `<select id="usb-${esc(g.serie)}">${opciones}</select> <button class="primario" onclick="vincular('${esc(g.serie)}')">Vincular</button>` : '';
     return `<div class="gafa"><i class="punto ONLINE"></i><div class="d"><div class="t">${esc(g.modelo || 'Gafas')} · serie ${esc(g.serie)}</div><div class="s">${wifi}</div></div>${accion} <button onclick="diagnostico('${esc(g.serie)}', this)" title="Lee datos internos sin cambiar nada">Diagnóstico de la gafa</button></div>`;
   }).join('');
@@ -379,6 +400,19 @@ function pintarUSB(d) {
 async function telemetria(serie) {
   try { const r = await api('usb/telemetria', {serie}); $('u-err').textContent = ''; alert(`Listo: ${r.id} enviará batería y app por Wi-Fi. Si la gafa se reinicia, vuelve a enchufarla y pulsa «Reactivar».`); refrescar(); }
   catch (e) { $('u-err').textContent = e.message; }
+}
+async function conectarAgente(id, boton) {
+  boton.disabled = true; boton.textContent = 'Conectando…';
+  try {
+    const r = await api('agente/conectar', {id}); $('u-err').textContent = '';
+    alert(`Listo: el agente ${r.version ? 'v' + r.version + ' ' : ''}de ${r.id} enviará sus datos a este PC (${r.url}). Tarda hasta un minuto en aparecer.` + (r.firewall ? '' : '\n\nFalta permitirlo en el firewall: pulsa «Permitir» en el aviso de arriba.'));
+    refrescar();
+  } catch (e) { $('u-err').textContent = e.message; }
+  boton.disabled = false; boton.textContent = 'Conectar agente';
+}
+async function permitirFirewall() {
+  try { await api('agente/firewall', {}); refrescar(); }
+  catch (e) { alert(e.message); }
 }
 async function diagnostico(serie, boton) {
   boton.disabled = true; boton.textContent = 'Leyendo… (hasta 1 min)';

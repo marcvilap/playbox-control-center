@@ -12,6 +12,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"playbox/internal/agentes"
 	"sort"
 	"strings"
 	"sync"
@@ -48,6 +49,10 @@ type App struct {
 		nueva       *actualizar.Manifiesto
 		err         string
 		hora        time.Time
+	}
+	firewall struct {
+		ok    bool
+		leido time.Time
 	}
 	usb struct {
 		activoHasta time.Time // el diálogo de USB está abierto
@@ -95,6 +100,7 @@ func (a *App) arrancarMonitor(simular bool) error {
 	if err != nil {
 		return err
 	}
+	mon.PuertoAgentes = agentes.Puerto
 	if simular {
 		mon.NuevaSonda = sonda.NuevaSimulada(time.Now())
 		mon.TelemetriaSimulada = true
@@ -192,6 +198,16 @@ func (a *App) servidor() (string, error) {
 	api("usb/vincular", a.apiUSBVincular)
 	api("usb/telemetria", a.apiUSBTelemetria)
 	api("usb/diagnostico", a.apiUSBDiagnostico)
+	api("agente/conectar", a.apiAgenteConectar)
+	api("agente/firewall", func(*http.Request) (any, error) {
+		if err := agentes.CrearReglaElevada(); err != nil {
+			return nil, err
+		}
+		a.mu.Lock()
+		a.firewall.leido = time.Time{}
+		a.mu.Unlock()
+		return "ok", nil
+	})
 	api("salir", func(*http.Request) (any, error) {
 		go func() { time.Sleep(200 * time.Millisecond); a.salir() }()
 		return "ok", nil
@@ -278,6 +294,7 @@ func (a *App) apiEstado(*http.Request) (any, error) {
 	res := map[string]any{
 		"version": Version, "simulando": sim, "actualizacion": upd, "f0": f0, "busqueda": busq, "usb": a.estadoUSB(),
 		"instalado": estaInstalado(), "carpeta": dirExe(), "visores_config": cfg.Visores,
+		"agentes": map[string]any{"puerto": agentes.Puerto, "firewall": a.firewallOK()},
 	}
 	if mon != nil {
 		res["estado"] = mon.Instantanea()

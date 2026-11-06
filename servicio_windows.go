@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"playbox/internal/agentes"
 	"time"
 
 	"golang.org/x/sys/windows"
@@ -70,6 +71,9 @@ func instalarServicio() int {
 		return 1
 	}
 	defer m.Disconnect()
+	if err := agentes.CrearReglaDirecta(); err != nil {
+		fmt.Println("Aviso: no se pudo abrir el puerto de los agentes en el firewall:", err)
+	}
 	cfg := mgr.Config{
 		DisplayName: "PlayBox VR — Vigilancia",
 		Description: "Vigila visores, router e Internet del centro y guarda la caja negra. Solo observa; no actúa sobre juegos ni visores.",
@@ -195,6 +199,7 @@ func (servicio) Execute(_ []string, req <-chan svc.ChangeRequest, cambios chan<-
 	}
 	mon.OnIPCambiada = guardarIPCambiada
 	mon.RutaADB = adb.Localizar(dirExe())
+	mon.PuertoAgentes = agentes.Puerto
 	ctx, cancelar := context.WithCancel(context.Background())
 	fin := make(chan error, 1)
 	go func() { fin <- mon.Ejecutar(ctx) }()

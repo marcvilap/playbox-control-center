@@ -1,6 +1,7 @@
 package monitor
 
 import (
+	"playbox/internal/agentes"
 	"strings"
 	"testing"
 	"time"
@@ -168,5 +169,20 @@ func TestSemaforo(t *testing.T) {
 	}
 	if s := calcularSemaforo(g, cfg); s.Color != "gris" {
 		t.Fatalf("sin gafas debería ser gris: %+v", s)
+	}
+}
+
+func TestSemaforoAgente(t *testing.T) {
+	uno, bat := 1, 70
+	g := EstadoGlobal{Router: EstadoEquipo{Estado: Online}, Internet: EstadoEquipo{Estado: Online},
+		Visores: []EstadoEquipo{{ID: "PICO-01", Estado: Online, Agente: &AgenteVisor{Fresco: true,
+			Gafa: agentes.Gafa{Estado: agentes.Estado{BateriaPct: &bat, MandoIzq: &uno}}}}}}
+	s := calcularSemaforo(g, PorDefecto())
+	if s.Color != "ambar" || len(s.Motivos) != 1 || s.Motivos[0] != "PICO-01: mando izquierdo con pilas bajas (1/5)" {
+		t.Fatalf("semáforo: %+v", s)
+	}
+	g.Visores[0].Agente.Fresco = false
+	if s := calcularSemaforo(g, PorDefecto()); s.Color != "verde" {
+		t.Fatalf("datos viejos no deben avisar: %+v", s)
 	}
 }

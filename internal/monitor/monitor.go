@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"playbox/internal/adb"
+	"playbox/internal/agentes"
 	"playbox/internal/ejec"
 	"playbox/internal/pc"
 	"playbox/internal/sonda"
@@ -46,6 +47,7 @@ type EstadoEquipo struct {
 	MAC            string          `json:"mac,omitempty"`
 	TelemetriaOn   bool            `json:"telemetria_activa"`
 	Telemetria     *adb.Telemetria `json:"telemetria,omitempty"`
+	Agente         *AgenteVisor    `json:"agente,omitempty"`
 
 	avisoBateria, avisoTemp bool
 
@@ -69,6 +71,7 @@ type EstadoGlobal struct {
 	UltimoIncidente string         `json:"ultimo_incidente,omitempty"`
 	PC              *pc.Salud      `json:"pc,omitempty"`
 	Semaforo        Semaforo       `json:"semaforo"`
+	ReceptorAgentes string         `json:"receptor_agentes,omitempty"`
 }
 
 // Monitor coordina la vigilancia.
@@ -86,6 +89,8 @@ type Monitor struct {
 	RutaADB string
 	// TelemetriaSimulada: datos de ejemplo (solo modo simulación).
 	TelemetriaSimulada bool
+	// PuertoAgentes: escuchar a los Agentes PlayBox de las gafas (0 = no).
+	PuertoAgentes int
 
 	mu           sync.Mutex
 	equipos      []*EstadoEquipo
@@ -98,6 +103,8 @@ type Monitor struct {
 	salud        *pc.Salud
 	avisosPC     map[string]bool
 	ctx          context.Context
+	ag           *agentes.Servidor
+	agEstado     string
 }
 
 // Nuevo prepara el monitor; dir es la carpeta de datos.
@@ -161,6 +168,7 @@ func (m *Monitor) Ejecutar(ctx context.Context) error {
 				e.sonda.Cerrar()
 			}
 		}
+		m.cerrarAgentes()
 		m.pendientes.Wait()
 		m.caja.Registrar(Evento{Fuente: "playbox", Tipo: "monitor_parado", Severidad: "info", Mensaje: "Vigilancia detenida"})
 		m.caja.Cerrar()
@@ -174,6 +182,7 @@ func (m *Monitor) Ejecutar(ctx context.Context) error {
 	go m.reencontrar(ctx)
 	go m.vigilarTelemetria(ctx)
 	go m.vigilarPC(ctx)
+	m.arrancarAgentes(ctx)
 	tick := time.NewTicker(time.Duration(m.cfg.IntervaloS) * time.Second)
 	defer tick.Stop()
 	purga := time.NewTicker(6 * time.Hour)
@@ -411,6 +420,7 @@ func (m *Monitor) estadoLocked() EstadoGlobal {
 		s := *m.salud
 		g.PC = &s
 	}
+	g.ReceptorAgentes = m.agEstado
 	g.Semaforo = calcularSemaforo(g, m.cfg)
 	return g
 }
