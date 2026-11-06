@@ -1,7 +1,7 @@
 {
-  "version": "0.8.1",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.1.exe",
-  "sha256": "f13ff5eb6c873b48ffa6d9f716a09b4b60478c3cafa50cf5586bbd7ed086e868",
-  "firma": "hsYhwdDWZ8g5YASlxDqlpaUaSndh/NZveF4emZRQ8yZy7e5q2CrSLxu3BYA1ssQ/cfDwUH/8p10wRtsK0TtoCg==",
-  "notas": "Todas las gafas en la pantalla Gafas, con o sin agente"
+  "version": "0.8.2",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.2.exe",
+  "sha256": "6c54eab1ae5cc490dadf6cb89ac33aa6d61ada71decf452554e80cb7793aabc8",
+  "firma": "+JBpn7gmp+1loPPJjGKSLmDGuTZhmHzsBQhx9yUJx0NnYTBKPLlwg4vXCNUfd2yJFfGTsUEk7mXlc0lEEdbACg==",
+  "notas": "El agente de las gafas viene incluido: se instala y actualiza solo"
 }
