@@ -21,6 +21,7 @@ import (
 	"playbox/internal/descubrir"
 	"playbox/internal/ejec"
 	"playbox/internal/monitor"
+	"playbox/internal/red"
 	"playbox/internal/sonda"
 )
 
@@ -46,6 +47,11 @@ type App struct {
 		nueva       *actualizar.Manifiesto
 		err         string
 		hora        time.Time
+	}
+	busqueda struct {
+		enCurso   bool
+		resultado *red.Resultado
+		err       string
 	}
 	f0 struct {
 		enCurso bool
@@ -165,6 +171,7 @@ func (a *App) servidor() (string, error) {
 	api("f0", a.apiF0)
 	api("abrir", a.apiAbrir)
 	api("instalar", a.apiInstalarApp)
+	api("buscar", a.apiBuscar)
 	api("salir", func(*http.Request) (any, error) {
 		go func() { time.Sleep(200 * time.Millisecond); a.salir() }()
 		return "ok", nil
@@ -243,11 +250,12 @@ func (a *App) apiEstado(*http.Request) (any, error) {
 		upd["hora"] = a.upd.hora.Format("15:04")
 	}
 	f0 := map[string]any{"en_curso": a.f0.enCurso, "fase": a.f0.fase, "carpeta": a.f0.carpeta, "error": a.f0.err}
+	busq := map[string]any{"en_curso": a.busqueda.enCurso, "resultado": a.busqueda.resultado, "error": a.busqueda.err}
 	a.mu.Unlock()
 
 	cfg, _, _ := monitor.Cargar(rutaConfig())
 	res := map[string]any{
-		"version": Version, "simulando": sim, "actualizacion": upd, "f0": f0,
+		"version": Version, "simulando": sim, "actualizacion": upd, "f0": f0, "busqueda": busq,
 		"instalado": estaInstalado(), "carpeta": dirExe(), "visores_config": cfg.Visores,
 	}
 	if mon != nil {
@@ -368,6 +376,35 @@ func (a *App) apiF0(r *http.Request) (any, error) {
 		}
 		a.f0.carpeta = res.Carpeta
 		abrirCarpeta(res.Carpeta)
+	}()
+	return "ok", nil
+}
+
+// apiBuscar rastrea la red local para encontrar los visores (solo lectura).
+func (a *App) apiBuscar(*http.Request) (any, error) {
+	a.mu.Lock()
+	if a.busqueda.enCurso {
+		a.mu.Unlock()
+		return "ok", nil
+	}
+	a.busqueda.enCurso, a.busqueda.err = true, ""
+	router := ""
+	if a.mon != nil {
+		router = a.mon.Instantanea().Router.IP
+	}
+	a.mu.Unlock()
+	go func() {
+		ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
+		defer cancel()
+		res, err := red.Escanear(ctx, sonda.Nueva, router)
+		a.mu.Lock()
+		defer a.mu.Unlock()
+		a.busqueda.enCurso = false
+		if err != nil {
+			a.busqueda.err = err.Error()
+			return
+		}
+		a.busqueda.resultado = res
 	}()
 	return "ok", nil
 }

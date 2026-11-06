@@ -28,9 +28,9 @@ func (pingProc) Eco(ip string, espera time.Duration) Resultado {
 	}
 	if m := reTime.FindStringSubmatch(out); m != nil {
 		ms, _ := strconv.ParseFloat(m[1], 64)
-		return Resultado{OK: true, RTT: time.Duration(ms * float64(time.Millisecond))}
+		return Resultado{OK: true, RTT: time.Duration(ms * float64(time.Millisecond)), Via: "ICMP"}
 	}
-	return Resultado{OK: true}
+	return Resultado{OK: true, Via: "ICMP"}
 }
 
 func (pingProc) Cerrar() {}

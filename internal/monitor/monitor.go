@@ -224,6 +224,9 @@ func (m *Monitor) procesar(e *EstadoEquipo, r sonda.Resultado, ahora time.Time) 
 	if r.OK {
 		t, rtt := ahora, mu.RTTms
 		e.UltimoContacto, e.RTTms, e.fallos = &t, &rtt, 0
+		if r.Via != "" {
+			e.Fuente = r.Via
+		}
 		if e.Tipo == "visor" {
 			m.ultimoOnline = ahora
 		}

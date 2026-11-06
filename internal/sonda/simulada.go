@@ -34,14 +34,14 @@ func (s *Simulada) Eco(ip string, espera time.Duration) Resultado {
 		time.Sleep(espera)
 		return Resultado{Err: "tiempo agotado (simulado)"}
 	case ip == PrefijoSimulado+"7" && t >= 45 && t < 90:
-		return Resultado{OK: true, RTT: time.Duration(110+rand.Intn(60)) * time.Millisecond}
+		return Resultado{OK: true, Via: "ICMP", RTT: time.Duration(110+rand.Intn(60)) * time.Millisecond}
 	case ip == InternetSimulado && t >= 100 && t < 130:
 		time.Sleep(espera)
 		return Resultado{Err: "tiempo agotado (simulado)"}
 	case ip == InternetSimulado:
-		return Resultado{OK: true, RTT: base + 15*time.Millisecond}
+		return Resultado{OK: true, Via: "ICMP", RTT: base + 15*time.Millisecond}
 	case ip == RouterSimulado || strings.HasPrefix(ip, PrefijoSimulado):
-		return Resultado{OK: true, RTT: base}
+		return Resultado{OK: true, Via: "ICMP", RTT: base}
 	}
 	return Resultado{Err: "fuera de la simulación"}
 }

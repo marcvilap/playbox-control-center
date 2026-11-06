@@ -11,6 +11,8 @@ type Resultado struct {
 	OK  bool
 	RTT time.Duration
 	Err string
+	Via string // ICMP o ARP
+	MAC string // solo si respondió por ARP
 }
 
 // Sonda envía ecos ICMP.
