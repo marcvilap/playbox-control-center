@@ -21,7 +21,7 @@ import (
 // Valores que se pueden sobrescribir al compilar con -ldflags "-X main.…=…".
 var (
 	Version            = "0.4.1"
-	URLActualizaciones = "https://github.com/marcvilap/playbox-control-center/releases/latest/download/version.json"
+	URLActualizaciones = "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/version.json"
 	ClavePublica       = "f32411d672c2759a1737dc6cf47c059db7d397ab9458134594700070f8d95312"
 )
 

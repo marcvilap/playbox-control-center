@@ -33,15 +33,15 @@ No modifica nada: no instala, no borra, no reinicia y no cambia ajustes del PC, 
 
 ## Actualización automática (v0.2)
 
-Al arrancar, playbox lee `https://github.com/marcvilap/playbox-control-center/releases/latest/download/version.json`. Si hay versión nueva, descarga el exe,
+Al arrancar, playbox lee `https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/version.json`. Si hay versión nueva, descarga el exe,
 comprueba su SHA-256 y la firma ed25519 (clave pública compilada en el programa), se sustituye y se relanza.
 Sin conexión o con firma no válida, sigue con la versión instalada. `playbox actualizar` fuerza la comprobación.
 
 ### Publicar una versión nueva
 
 1. Sube `Version` en `main.go` y compila el exe.
-2. `go run ./herramientas/publicar -clave clave-firma-playbox.txt -exe dist/playbox.exe -version X.Y.Z -url https://github.com/marcvilap/playbox-control-center/releases/download/vX.Y.Z/playbox.exe -notas "…"`
-3. Crea en GitHub la release `vX.Y.Z` con `playbox.exe` y `version.json` como archivos adjuntos.
+2. `go run ./herramientas/publicar -clave clave-firma-playbox.txt -exe dist/playbox.exe -version X.Y.Z -url https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-X.Y.Z.exe -notas "…"`
+3. Publica `playbox-X.Y.Z.exe` y `version.json` en la rama `actualizaciones` (solo guarda la última versión).
 
 La clave privada no se sube nunca al servidor ni al repositorio.
 
