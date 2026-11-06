@@ -191,6 +191,7 @@ func (a *App) servidor() (string, error) {
 	api("usb/preparar", a.apiUSBPreparar)
 	api("usb/vincular", a.apiUSBVincular)
 	api("usb/telemetria", a.apiUSBTelemetria)
+	api("usb/diagnostico", a.apiUSBDiagnostico)
 	api("salir", func(*http.Request) (any, error) {
 		go func() { time.Sleep(200 * time.Millisecond); a.salir() }()
 		return "ok", nil
@@ -575,6 +576,27 @@ func (a *App) apiUSBTelemetria(r *http.Request) (any, error) {
 		}
 	}
 	return map[string]string{"id": cfg.Visores[idx].ID}, nil
+}
+
+// apiUSBDiagnostico guarda en informes\ un volcado de solo lectura de la gafa
+// para localizar dónde publica PICO la batería de los mandos.
+func (a *App) apiUSBDiagnostico(r *http.Request) (any, error) {
+	var in struct {
+		Serie string `json:"serie"`
+	}
+	if err := leerJSON(r, &in); err != nil || in.Serie == "" {
+		return nil, fmt.Errorf("falta la gafa")
+	}
+	ruta := adb.Localizar(dirExe())
+	if ruta == "" {
+		return nil, fmt.Errorf("falta la herramienta USB")
+	}
+	archivo, err := adb.Diagnostico(ruta, in.Serie, dirInformes())
+	if err != nil {
+		return nil, err
+	}
+	abrirCarpeta(dirInformes())
+	return map[string]string{"archivo": archivo}, nil
 }
 
 // apiBuscar rastrea la red local para encontrar los visores (solo lectura).

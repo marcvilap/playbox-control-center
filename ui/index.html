@@ -370,13 +370,19 @@ function pintarUSB(d) {
     const accion = ya ? `<span class="ok">Vinculada como ${esc(ya)}</span> <button onclick="vincular('${esc(g.serie)}', '${esc(ya)}')">Actualizar</button>
         <button ${conTele ? '' : 'class="primario"'} onclick="telemetria('${esc(g.serie)}')" title="Deja la gafa escuchando por Wi-Fi hasta que se reinicie">${conTele ? 'Reactivar batería/app' : 'Activar batería y app'}</button>`
       : g.ip ? `<select id="usb-${esc(g.serie)}">${opciones}</select> <button class="primario" onclick="vincular('${esc(g.serie)}')">Vincular</button>` : '';
-    return `<div class="gafa"><i class="punto ONLINE"></i><div class="d"><div class="t">${esc(g.modelo || 'Gafas')} · serie ${esc(g.serie)}</div><div class="s">${wifi}</div></div>${accion}</div>`;
+    return `<div class="gafa"><i class="punto ONLINE"></i><div class="d"><div class="t">${esc(g.modelo || 'Gafas')} · serie ${esc(g.serie)}</div><div class="s">${wifi}</div></div>${accion} <button onclick="diagnostico('${esc(g.serie)}', this)" title="Lee datos internos sin cambiar nada">Diagnóstico de la gafa</button></div>`;
   }).join('');
   if ($('u-lista').dataset.h !== h) { $('u-lista').innerHTML = h; $('u-lista').dataset.h = h; }
 }
 async function telemetria(serie) {
   try { const r = await api('usb/telemetria', {serie}); $('u-err').textContent = ''; alert(`Listo: ${r.id} enviará batería y app por Wi-Fi. Si la gafa se reinicia, vuelve a enchufarla y pulsa «Reactivar».`); refrescar(); }
   catch (e) { $('u-err').textContent = e.message; }
+}
+async function diagnostico(serie, boton) {
+  boton.disabled = true; boton.textContent = 'Leyendo… (hasta 1 min)';
+  try { const r = await api('usb/diagnostico', {serie}); alert('Diagnóstico guardado:\n' + r.archivo + '\n\nEnvíaselo a Claude para localizar la batería de los mandos.'); }
+  catch (e) { $('u-err').textContent = e.message; }
+  boton.disabled = false; boton.textContent = 'Diagnóstico de la gafa';
 }
 async function prepararUSB() { try { await api('usb/preparar', {}); refrescar(); } catch (e) { $('u-err').textContent = e.message; } }
 async function vincular(serie, id) {
