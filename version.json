@@ -1,7 +1,7 @@
 {
-  "version": "0.9.1",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.1.exe",
-  "sha256": "42d2cb6d348b614630406deb5b0dd3bb561bc8ff64b141aac53408f22ebf1b7a",
-  "firma": "+MaWu1OJu1Mg5cHuC8SevXScWqxJ8/9sbQ6D+nwBkmnaz/Ezsy3IG2i+QrCdpves4O1gaMOncC+TeGJsG6uMDg==",
-  "notas": "Qué hace cada gafa en palabras claras"
+  "version": "0.9.2",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.2.exe",
+  "sha256": "5a10a3ae39c19d4e688f927f6c143e305e24181630d2d0b901116ce445b9a4e0",
+  "firma": "/tGRfP5eajKh875Lg5ttOu+df8llm0SXS3/srmoNqkXwRYd4Ud+jtsPkyvYVO1eFwk/1EbkyzNZPm5QEQV2VAA==",
+  "notas": "Fichas grandes que salen por la derecha"
 }
