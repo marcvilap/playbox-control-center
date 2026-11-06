@@ -8,8 +8,9 @@ import (
 
 // Equipo es un visor u otro equipo vigilado.
 type Equipo struct {
-	ID string `json:"id"`
-	IP string `json:"ip"`
+	ID  string `json:"id"`
+	IP  string `json:"ip"`
+	MAC string `json:"mac,omitempty"` // se guarda al asignar desde «Buscar visores»
 }
 
 // Config se guarda en playbox.json junto al exe.

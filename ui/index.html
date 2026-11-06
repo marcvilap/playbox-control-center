@@ -82,6 +82,11 @@ dialog.ancho{width:min(820px,94vw)}
 .tabla button{padding:4px 10px;font-size:12px}
 .lista{max-height:52vh;overflow:auto;margin-top:6px}
 .via{color:var(--suave);font-size:11px}
+.pasos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 4px}
+.paso{display:flex;gap:12px;background:var(--panel2);border:1px solid var(--borde);border-radius:10px;padding:12px}
+.paso>b{flex:none;width:26px;height:26px;border-radius:50%;background:var(--acento);color:#fff;display:grid;place-items:center;font-size:13px}
+.paso p{margin:0 0 10px;font-size:13px;color:var(--suave)}
+.nuevo{font-size:10px;font-weight:700;background:var(--verde);color:#062b16;border-radius:4px;padding:1px 6px;margin-left:6px}
 @media (max-width:980px){.rejilla{grid-template-columns:repeat(3,1fr)}.cols,.resumen{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -134,11 +139,15 @@ dialog.ancho{width:min(820px,94vw)}
 </dialog>
 
 <dialog id="dlg-buscar" class="ancho">
-  <h3>Buscar visores en la red</h3>
-  <p class="ayuda" id="b-info">Rastrea la red del PC (ping y ARP, solo lectura). Enciende el visor y deja la pantalla activa mientras busca.</p>
+  <h3>Encontrar las gafas en la red</h3>
+  <div class="pasos">
+    <div class="paso"><b>1</b><div><p>Apaga las gafas (o desconéctales la Wi-Fi) y <b>espera 1 minuto</b>.</p><button id="b-p1" onclick="buscar('referencia')">Paso 1 · Gafas apagadas</button></div></div>
+    <div class="paso"><b>2</b><div><p>Enciéndelas, desbloquéalas y espera a que conecten a la Wi-Fi.</p><button id="b-p2" class="primario" onclick="buscar('comparar')" disabled>Paso 2 · Gafas encendidas</button></div></div>
+  </div>
+  <p class="ayuda" id="b-info"></p>
   <div class="lista" id="b-lista"></div>
   <div class="error" id="b-err"></div>
-  <div class="pie"><button onclick="buscar()" id="b-otra">Buscar de nuevo</button><button class="primario" onclick="dlgB.close()">Cerrar</button></div>
+  <div class="pie"><button id="b-todos" onclick="verTodos = !verTodos; ultimo && pintarBusqueda(ultimo)" style="margin-right:auto">Mostrar todos los dispositivos</button><button class="primario" onclick="dlgB.close()">Cerrar</button></div>
 </dialog>
 
 <script>
@@ -254,39 +263,53 @@ async function guardarConfig() {
   catch (e) { $('dlg-err').textContent = e.message; }
 }
 
-function abrirBuscar() { $('b-err').textContent = ''; dlgB.showModal(); buscar(); }
-async function buscar() {
-  try { await api('buscar', {}); } catch (e) { $('b-err').textContent = e.message; }
+let verTodos = false;
+function abrirBuscar() { $('b-err').textContent = ''; verTodos = false; dlgB.showModal(); buscar('normal'); }
+async function buscar(modo) {
+  $('b-err').textContent = '';
+  try { await api('buscar', {modo}); } catch (e) { $('b-err').textContent = e.message; }
   refrescar();
 }
 function pintarBusqueda(d) {
   if (!dlgB.open) return;
   const b = d.busqueda || {};
-  $('b-otra').disabled = !!b.en_curso;
-  if (b.en_curso) { $('b-lista').innerHTML = '<div class="vacio">Buscando… (entre 5 y 20 segundos)</div>'; return; }
+  $('b-p1').disabled = !!b.en_curso;
+  $('b-p2').disabled = !!b.en_curso || !b.referencia;
+  if (b.en_curso) {
+    $('b-info').textContent = b.modo === 'referencia' ? 'Haciendo la foto de la red sin las gafas…' : b.modo === 'comparar' ? 'Buscando lo que ha aparecido al encender las gafas…' : 'Buscando…';
+    $('b-lista').innerHTML = '<div class="vacio">Entre 5 y 20 segundos…</div>'; $('b-lista').dataset.h = '';
+    return;
+  }
   if (b.error) { $('b-err').textContent = b.error; return; }
   const r = b.resultado;
   if (!r) return;
   r.dispositivos = r.dispositivos || []; r.subredes = r.subredes || [];
-  if (!r.subredes.length) { $('b-lista').innerHTML = '<div class="vacio">Este PC no está conectado a ninguna red local (Wi-Fi o cable). Conéctalo a la misma red que los visores.</div>'; return; }
+  if (!r.subredes.length) { $('b-lista').innerHTML = '<div class="vacio">Este PC no está conectado a ninguna red local. Conéctalo a la misma red que las gafas.</div>'; return; }
+  const gafas = r.dispositivos.filter(x => x.conocido || x.nuevo || x.posible_visor);
+  const lista = verTodos ? r.dispositivos : gafas;
+  $('b-todos').textContent = verTodos ? 'Ver solo las gafas' : `Mostrar todos los dispositivos (${r.dispositivos.length})`;
+  let info;
+  if (b.modo === 'referencia') info = `Foto guardada: ${b.referencia} dispositivos en la red sin las gafas. Ahora haz el paso 2.`;
+  else if (b.modo === 'comparar') info = gafas.some(x => x.nuevo) ? 'Estas son las gafas que han aparecido al encenderlas:' : 'No ha aparecido nada nuevo. Comprueba que las gafas están despiertas y en la misma Wi-Fi que el PC, y repite los pasos.';
+  else info = gafas.length ? 'Gafas encontradas:' : 'No reconozco ninguna gafa por su nombre. Sigue los pasos 1 y 2 para identificarlas.';
+  $('b-info').textContent = info;
   const asignados = Object.fromEntries((d.visores_config || []).filter(v => v.ip).map(v => [v.ip, v.id]));
   const libre = ((d.visores_config || []).find(v => !v.ip) || {}).id;
   const opciones = (d.visores_config || []).map(v => `<option value="${esc(v.id)}"${v.id === libre ? ' selected' : ''}>${esc(v.id)}${v.ip ? ' (' + esc(v.ip) + ')' : ''}</option>`).join('');
-  $('b-info').textContent = `Red analizada: ${(r.subredes || []).map(s => s.red).join(', ') || '—'} · ${r.dispositivos.length} dispositivos · ${r.duracion_s} s. Los marcados en morado parecen visores por su nombre.`;
-  const filas = r.dispositivos.map(x => {
-    const etiqueta = x.es_este_pc ? 'Este PC' : x.es_router ? 'Router' : esc(x.nombre || '—');
+  const filas = lista.map(x => {
+    const etiqueta = x.es_este_pc ? 'Este PC' : x.es_router ? 'Router' : esc(x.nombre || 'Sin nombre');
     const resp = x.via === 'ICMP' && x.rtt_ms != null ? Math.round(x.rtt_ms) + ' ms' : `<span class="via">${esc(x.via)}</span>`;
-    const accion = x.es_este_pc || x.es_router ? '' : asignados[x.ip] ? `<span class="ok">${esc(asignados[x.ip])}</span>` :
-      `<select id="sel-${esc(x.ip)}">${opciones}</select> <button onclick="asignar('${esc(x.ip)}')">Asignar</button>`;
-    return `<tr class="${x.posible_visor ? 'visor-prob' : ''}"><td class="mono">${esc(x.ip)}</td><td>${etiqueta}</td><td class="mono">${esc(x.mac || '—')}</td><td>${resp}</td><td>${accion}</td></tr>`;
+    const ya = x.conocido || asignados[x.ip];
+    const accion = x.es_este_pc || x.es_router ? '' : ya ? `<span class="ok">${esc(ya)}</span>` :
+      `<select id="sel-${esc(x.ip)}">${opciones}</select> <button onclick="asignar('${esc(x.ip)}','${esc(x.mac || '')}')">Asignar</button>`;
+    return `<tr class="${x.nuevo || x.posible_visor ? 'visor-prob' : ''}"><td class="mono">${esc(x.ip)}</td><td>${etiqueta}${x.nuevo ? '<span class="nuevo">NUEVO</span>' : ''}</td><td class="mono">${esc(x.mac || '—')}</td><td>${resp}</td><td>${accion}</td></tr>`;
   }).join('');
-  const h = `<table class="tabla"><tr><th>IP</th><th>Nombre</th><th>MAC</th><th>Respuesta</th><th>Visor</th></tr>${filas}</table>
-    <p class="nota">¿No sabes cuál es? Apaga el visor, busca de nuevo y mira qué IP desaparece. Si no aparece ninguno, revisa que el PC y el visor estén en la misma red y que el router no aísle los dispositivos Wi-Fi.</p>`;
+  const h = lista.length ? `<table class="tabla"><tr><th>IP</th><th>Nombre</th><th>MAC</th><th>Respuesta</th><th>Visor</th></tr>${filas}</table>` : '';
   if ($('b-lista').dataset.h !== h) { $('b-lista').innerHTML = h; $('b-lista').dataset.h = h; }
 }
-async function asignar(ip) {
+async function asignar(ip, mac) {
   const id = document.getElementById('sel-' + ip).value;
-  try { await api('config', {visores: [{id, ip}]}); refrescar(); }
+  try { await api('config', {visores: [{id, ip, mac}]}); refrescar(); }
   catch (e) { $('b-err').textContent = e.message; }
 }
 

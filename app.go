@@ -49,9 +49,11 @@ type App struct {
 		hora        time.Time
 	}
 	busqueda struct {
-		enCurso   bool
-		resultado *red.Resultado
-		err       string
+		enCurso    bool
+		modo       string // normal, referencia (gafas apagadas), comparar (gafas encendidas)
+		resultado  *red.Resultado
+		referencia map[string]bool
+		err        string
 	}
 	f0 struct {
 		enCurso bool
@@ -250,7 +252,8 @@ func (a *App) apiEstado(*http.Request) (any, error) {
 		upd["hora"] = a.upd.hora.Format("15:04")
 	}
 	f0 := map[string]any{"en_curso": a.f0.enCurso, "fase": a.f0.fase, "carpeta": a.f0.carpeta, "error": a.f0.err}
-	busq := map[string]any{"en_curso": a.busqueda.enCurso, "resultado": a.busqueda.resultado, "error": a.busqueda.err}
+	busq := map[string]any{"en_curso": a.busqueda.enCurso, "modo": a.busqueda.modo, "resultado": a.busqueda.resultado,
+		"error": a.busqueda.err, "referencia": len(a.busqueda.referencia)}
 	a.mu.Unlock()
 
 	cfg, _, _ := monitor.Cargar(rutaConfig())
@@ -323,7 +326,13 @@ func (a *App) apiConfig(r *http.Request) (any, error) {
 		}
 		for i := range cfg.Visores {
 			if cfg.Visores[i].ID == v.ID {
+				if cfg.Visores[i].IP != ip {
+					cfg.Visores[i].MAC = "" // IP cambiada a mano: la MAC anterior ya no vale
+				}
 				cfg.Visores[i].IP = ip
+				if v.MAC != "" {
+					cfg.Visores[i].MAC = strings.ToLower(v.MAC)
+				}
 			}
 		}
 	}
@@ -381,13 +390,22 @@ func (a *App) apiF0(r *http.Request) (any, error) {
 }
 
 // apiBuscar rastrea la red local para encontrar los visores (solo lectura).
-func (a *App) apiBuscar(*http.Request) (any, error) {
+// modo "referencia": foto de la red con las gafas apagadas; "comparar": con
+// las gafas encendidas, marca como nuevo lo que no estaba en la referencia.
+func (a *App) apiBuscar(r *http.Request) (any, error) {
+	var in struct {
+		Modo string `json:"modo"`
+	}
+	_ = leerJSON(r, &in)
+	if in.Modo == "" {
+		in.Modo = "normal"
+	}
 	a.mu.Lock()
 	if a.busqueda.enCurso {
 		a.mu.Unlock()
 		return "ok", nil
 	}
-	a.busqueda.enCurso, a.busqueda.err = true, ""
+	a.busqueda.enCurso, a.busqueda.err, a.busqueda.modo = true, "", in.Modo
 	router := ""
 	if a.mon != nil {
 		router = a.mon.Instantanea().Router.IP
@@ -397,12 +415,35 @@ func (a *App) apiBuscar(*http.Request) (any, error) {
 		ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
 		defer cancel()
 		res, err := red.Escanear(ctx, sonda.Nueva, router)
+		cfg, _, _ := monitor.Cargar(rutaConfig())
 		a.mu.Lock()
 		defer a.mu.Unlock()
 		a.busqueda.enCurso = false
 		if err != nil {
 			a.busqueda.err = err.Error()
 			return
+		}
+		for i := range res.Dispositivos {
+			d := &res.Dispositivos[i]
+			for _, v := range cfg.Visores {
+				if (v.MAC != "" && v.MAC == d.MAC) || (v.MAC == "" && v.IP != "" && v.IP == d.IP) {
+					d.Conocido = v.ID
+				}
+			}
+		}
+		switch in.Modo {
+		case "referencia":
+			a.busqueda.referencia = map[string]bool{}
+			for _, d := range res.Dispositivos {
+				if d.Activo() {
+					a.busqueda.referencia[d.Clave()] = true
+				}
+			}
+		case "comparar":
+			for i := range res.Dispositivos {
+				d := &res.Dispositivos[i]
+				d.Nuevo = d.Activo() && !d.EsEstePC && !d.EsRouter && !a.busqueda.referencia[d.Clave()]
+			}
 		}
 		a.busqueda.resultado = res
 	}()

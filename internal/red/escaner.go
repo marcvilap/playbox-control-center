@@ -26,7 +26,20 @@ type Dispositivo struct {
 	EsEstePC     bool     `json:"es_este_pc"`
 	EsRouter     bool     `json:"es_router"`
 	PosibleVisor bool     `json:"posible_visor"`
+	Nuevo        bool     `json:"nuevo"`    // apareció al encender las gafas (paso 2)
+	Conocido     string   `json:"conocido"` // visor ya asignado con esa MAC o IP
 }
+
+// Clave identifica un dispositivo entre búsquedas (MAC si se conoce, si no IP).
+func (d Dispositivo) Clave() string {
+	if d.MAC != "" {
+		return d.MAC
+	}
+	return d.IP
+}
+
+// Activo indica si respondió de verdad en esta búsqueda (no solo caché ARP).
+func (d Dispositivo) Activo() bool { return d.Via == "ICMP" || d.Via == "ARP" }
 
 // Subred analizada.
 type Subred struct {
