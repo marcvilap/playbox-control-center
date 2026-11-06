@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PlayBox VR Control Center</title>
+<style>
+:root{
+  --bg:#0b0d10; --panel:#12161b; --panel2:#171c22; --borde:#232a32; --texto:#e7ebef; --suave:#8a96a3;
+  --verde:#2fd27a; --rojo:#ff5a5f; --ambar:#f5b83d; --gris:#5b6672; --acento:#7c5cff; --acento2:#9a83ff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--texto);font:14px/1.45 "Segoe UI",system-ui,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer;border:1px solid var(--borde);background:var(--panel2);border-radius:8px;padding:8px 14px}
+button:hover{border-color:#3a4550}
+button.primario{background:var(--acento);border-color:var(--acento);color:#fff;font-weight:600}
+button.primario:hover{background:var(--acento2)}
+button:disabled{opacity:.5;cursor:default}
+select,input{font:inherit;color:var(--texto);background:var(--bg);border:1px solid var(--borde);border-radius:8px;padding:7px 10px}
+input:focus,select:focus{outline:none;border-color:var(--acento)}
+header{display:flex;align-items:center;gap:14px;padding:16px 24px;border-bottom:1px solid var(--borde);position:sticky;top:0;background:var(--bg);z-index:2}
+.marca{font-weight:700;font-size:16px;letter-spacing:.2px}
+.marca span{color:var(--suave);font-weight:400}
+.pastilla{font-size:12px;color:var(--suave);border:1px solid var(--borde);border-radius:999px;padding:2px 9px}
+.espacio{flex:1}
+.upd{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--suave)}
+main{padding:20px 24px 28px;max-width:1240px;margin:0 auto}
+.aviso{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;margin-bottom:14px;border:1px solid var(--borde);background:var(--panel)}
+.aviso.morado{border-color:#3d3277;background:#17142a}
+.aviso.ambar{border-color:#5a4720;background:#1d1910}
+.aviso p{margin:0;flex:1}
+.resumen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.cifra{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:14px 16px}
+.cifra .et{color:var(--suave);font-size:12px;text-transform:uppercase;letter-spacing:.6px}
+.cifra .v{font-size:22px;font-weight:650;margin-top:4px;display:flex;align-items:center;gap:8px}
+.punto{width:9px;height:9px;border-radius:50%;display:inline-block;background:var(--gris);flex:none}
+.ONLINE .punto,.punto.ONLINE{background:var(--verde);box-shadow:0 0 8px #2fd27a66}
+.OFFLINE .punto,.punto.OFFLINE{background:var(--rojo);box-shadow:0 0 8px #ff5a5f66}
+.SINCONF .punto,.punto.SINCONF{background:var(--ambar)}
+.rejilla{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+.visor{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:14px;min-height:118px}
+.visor.OFFLINE{border-color:#4a2326;background:#170f11}
+.visor .cab{display:flex;align-items:center;gap:8px;font-weight:650}
+.visor .est{font-size:11px;letter-spacing:.5px;color:var(--suave);margin:6px 0 10px}
+.visor .ip{color:var(--suave);font-size:12px;font-family:Consolas,monospace}
+.visor .dat{display:flex;justify-content:space-between;font-size:12px;color:var(--suave);margin-top:4px}
+.visor .dat b{color:var(--texto);font-weight:500}
+.etq{font-size:10px;font-weight:700;color:#1a1300;background:var(--ambar);border-radius:4px;padding:1px 5px;margin-left:auto}
+.visor.SINCONFIG{opacity:.45}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.caja{background:var(--panel);border:1px solid var(--borde);border-radius:12px;padding:14px 16px}
+.caja h2{font-size:13px;margin:0 0 10px;color:var(--suave);text-transform:uppercase;letter-spacing:.6px;font-weight:600;display:flex;align-items:center}
+.caja h2 button{margin-left:auto;padding:3px 9px;font-size:12px;text-transform:none;letter-spacing:0}
+.fila{display:flex;gap:10px;padding:7px 0;border-top:1px solid #1c2229;font-size:13px}
+.fila:first-of-type{border-top:0}
+.fila .h{color:var(--suave);font-family:Consolas,monospace;font-size:12px;flex:none;padding-top:1px}
+.sev{flex:none;font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;height:fit-content;text-transform:uppercase}
+.sev.critica{background:var(--rojo);color:#fff}.sev.alta{background:#c7404a;color:#fff}
+.sev.aviso{background:var(--ambar);color:#1a1300}.sev.info{background:#28313a;color:var(--suave)}
+.ok{color:var(--verde);font-size:12px}
+.vacio{color:var(--suave);font-size:13px;padding:6px 0}
+.acciones{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px;background:var(--panel);border:1px solid var(--borde);border-radius:12px}
+.acciones .sep{width:1px;height:26px;background:var(--borde);margin:0 4px}
+.nota{color:var(--suave);font-size:12px;margin-top:12px}
+dialog{background:var(--panel);color:var(--texto);border:1px solid var(--borde);border-radius:14px;padding:22px;width:min(560px,92vw)}
+dialog::backdrop{background:#000a}
+dialog h3{margin:0 0 4px}
+dialog .ayuda{color:var(--suave);font-size:13px;margin:0 0 14px}
+.ips{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.ips label{display:flex;align-items:center;gap:10px;font-size:13px}
+.ips label span{width:64px;color:var(--suave)}
+.ips input{flex:1;font-family:Consolas,monospace}
+.pie{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+.error{color:var(--rojo);font-size:13px;margin-top:10px;min-height:18px}
+@media (max-width:980px){.rejilla{grid-template-columns:repeat(3,1fr)}.cols,.resumen{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="marca">PlayBox VR <span>· Control Center</span></div>
+  <span class="pastilla" id="ver">v—</span>
+  <div class="espacio"></div>
+  <div class="upd" id="upd"></div>
+</header>
+<main>
+  <div id="avisos"></div>
+  <section class="resumen">
+    <div class="cifra"><div class="et">Visores activos</div><div class="v" id="r-vis">—</div></div>
+    <div class="cifra" id="r-router"><div class="et">Router</div><div class="v"><i class="punto"></i><span>—</span></div></div>
+    <div class="cifra" id="r-inet"><div class="et">Internet</div><div class="v"><i class="punto"></i><span>—</span></div></div>
+    <div class="cifra"><div class="et">Incidentes hoy</div><div class="v" id="r-inc">—</div></div>
+  </section>
+  <section class="rejilla" id="visores"></section>
+  <section class="cols">
+    <div class="caja"><h2>Incidentes <button onclick="abrir('incidentes')">Abrir carpeta</button></h2><div id="incidentes"></div></div>
+    <div class="caja"><h2>Últimos eventos</h2><div id="eventos"></div></div>
+  </section>
+  <section class="acciones">
+    <button onclick="abrirConfig()">Configurar IP de visores</button>
+    <button id="b-sim" onclick="simular()">Probar con simulación</button>
+    <span class="sep"></span>
+    <select id="fase">
+      <option value="reposo">F0 · Reposo, sin partida</option>
+      <option value="partida-vex">F0 · Partida de prueba VEX</option>
+      <option value="partida-herozone">F0 · Partida de prueba HeroZone</option>
+      <option value="partida-spawnpoint">F0 · Partida de prueba Spawnpoint</option>
+      <option value="cambio-proveedor">F0 · Tras cambiar de proveedor</option>
+    </select>
+    <button id="b-f0" onclick="f0()">Ejecutar descubrimiento</button>
+    <span class="espacio"></span>
+    <button onclick="abrir('datos')">Abrir datos</button>
+    <button onclick="salir()">Salir</button>
+  </section>
+  <p class="nota">ONLINE significa que el visor responde en la red; todavía no confirma que la app o la partida estén abiertas. El programa solo observa: no actúa sobre visores, juegos ni red.</p>
+</main>
+
+<dialog id="dlg">
+  <h3>IP de los visores</h3>
+  <p class="ayuda">La IP aparece en el visor (Ajustes → Wi-Fi → tu red) o en la lista de clientes del router. Deja vacío lo que no uses.</p>
+  <div class="ips" id="ips"></div>
+  <div class="error" id="dlg-err"></div>
+  <div class="pie"><button onclick="dlg.close()">Cancelar</button><button class="primario" onclick="guardarConfig()">Guardar</button></div>
+</dialog>
+
+<script>
+const TOKEN = new URLSearchParams(location.search).get('t');
+const $ = id => document.getElementById(id);
+const dlg = $('dlg');
+let ultimo = null;
+
+async function api(ruta, cuerpo) {
+  const r = await fetch('/api/' + ruta, {
+    method: cuerpo === undefined ? 'GET' : 'POST',
+    headers: {'X-Token': TOKEN, 'Content-Type': 'application/json'},
+    body: cuerpo === undefined ? undefined : JSON.stringify(cuerpo)
+  });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || r.statusText);
+  return j;
+}
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hace(iso) {
+  if (!iso) return '—';
+  const s = Math.max(0, (Date.now() - new Date(iso)) / 1000);
+  if (s < 60) return `hace ${Math.round(s)} s`;
+  if (s < 3600) return `hace ${Math.round(s / 60)} min`;
+  if (s < 172800) return `hace ${Math.round(s / 3600)} h`;
+  return new Date(iso).toLocaleDateString('es-ES');
+}
+const hora = iso => new Date(iso).toLocaleTimeString('es-ES', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+const clase = e => e === 'ONLINE' ? 'ONLINE' : e === 'OFFLINE' ? 'OFFLINE' : e === 'SIN CONFIGURAR' ? 'SINCONFIG' : 'SINCONF';
+const nombreEstado = e => ({'ONLINE': 'En línea', 'OFFLINE': 'Sin respuesta', 'SIN CONFIRMACIÓN': 'Esperando señal', 'SIN CONFIGURAR': 'Sin IP'}[e] || e);
+
+function pintarActualizacion(d) {
+  const u = d.actualizacion || {};
+  let h;
+  if (u.instalando) h = `<span>Instalando la versión ${esc(u.nueva)}… se reabrirá solo</span>`;
+  else if (u.nueva) h = `<span>Nueva versión ${esc(u.nueva)}${u.notas ? ' · ' + esc(u.notas) : ''}</span><button class="primario" onclick="actualizar()">Actualizar</button>`;
+  else if (u.comprobando) h = `<span>Buscando actualizaciones…</span>`;
+  else h = `<span>${u.error ? esc(u.error) : u.hora ? 'Al día · comprobado a las ' + esc(u.hora) : ''}</span><button onclick="comprobar()">Buscar actualizaciones</button>`;
+  if ($('upd').dataset.h !== h) { $('upd').innerHTML = h; $('upd').dataset.h = h; }
+}
+
+function pintar(d) {
+  ultimo = d;
+  $('ver').textContent = 'v' + d.version;
+  pintarActualizacion(d);
+  let av = '';
+  if (!d.instalado) av += `<div class="aviso morado"><p><b>Estás usando PlayBox sin instalar.</b> Instálalo para tener acceso directo en el escritorio y actualizaciones automáticas.</p><button class="primario" onclick="instalar()">Instalar en este PC</button></div>`;
+  if (d.simulando) av += `<div class="aviso ambar"><p><b>Modo simulación:</b> visores virtuales. PICO-03 cae a los 30 s, PICO-07 va lento a los 45 s e Internet cae a los 100 s.</p><button onclick="simular()">Volver a vigilancia real</button></div>`;
+  const cfgIP = (d.visores_config || []).filter(v => v.ip).length;
+  if (!d.simulando && cfgIP === 0) av += `<div class="aviso"><p>Ningún visor tiene IP todavía. Configúralas para empezar a vigilarlos, o prueba la simulación.</p><button class="primario" onclick="abrirConfig()">Configurar IP</button></div>`;
+  if (d.f0 && d.f0.en_curso) av += `<div class="aviso"><p>Descubrimiento F0 en curso (${esc(d.f0.fase)}): tarda un par de minutos…</p></div>`;
+  else if (d.f0 && d.f0.error) av += `<div class="aviso"><p>El descubrimiento falló: ${esc(d.f0.error)}</p></div>`;
+  $('avisos').innerHTML = av;
+  $('b-sim').textContent = d.simulando ? 'Parar simulación' : 'Probar con simulación';
+  $('b-f0').disabled = !!(d.f0 && d.f0.en_curso);
+
+  const g = d.estado;
+  if (!g) return;
+  const conIP = g.visores.filter(v => v.estado !== 'SIN CONFIGURAR').length;
+  $('r-vis').textContent = `${g.visores_online} / ${conIP}`;
+  for (const [id, e] of [['r-router', g.router], ['r-inet', g.internet]]) {
+    const c = $(id); c.className = 'cifra ' + clase(e.estado);
+    c.querySelector('span').textContent = nombreEstado(e.estado) + (e.rtt_ms != null ? ` · ${Math.round(e.rtt_ms)} ms` : '');
+  }
+  $('r-inc').textContent = g.incidentes_hoy;
+  $('visores').innerHTML = g.visores.map(v => `
+    <div class="visor ${clase(v.estado)}">
+      <div class="cab"><i class="punto"></i>${esc(v.id)}${v.latencia_alta ? '<span class="etq">LENTO</span>' : ''}</div>
+      <div class="est">${esc(nombreEstado(v.estado).toUpperCase())}</div>
+      <div class="ip">${esc(v.ip || 'sin IP')}</div>
+      ${v.estado === 'SIN CONFIGURAR' ? '' : `
+      <div class="dat"><span>Latencia</span><b>${v.rtt_ms != null ? Math.round(v.rtt_ms) + ' ms' : '—'}</b></div>
+      <div class="dat"><span>Pérdida 1 min</span><b>${Math.round(v.perdida_1min_pct)}%</b></div>
+      <div class="dat"><span>Última señal</span><b>${hace(v.ultimo_contacto)}</b></div>`}
+    </div>`).join('');
+
+  const inc = d.incidentes || [];
+  $('incidentes').innerHTML = inc.length ? inc.map(i => `
+    <div class="fila"><span class="h">${hora(i.inicio)}</span><span class="sev ${esc(i.severidad)}">${esc(i.severidad)}</span>
+    <span>${esc(i.resumen)} ${i.recuperado ? '<span class="ok">· recuperado</span>' : ''}</span></div>`).join('')
+    : '<div class="vacio">Sin incidentes registrados.</div>';
+  const ev = (d.eventos || []).slice().reverse();
+  $('eventos').innerHTML = ev.length ? ev.map(e => `
+    <div class="fila"><span class="h">${hora(e.ts)}</span><span class="sev ${esc(e.severidad)}">${esc(e.severidad)}</span><span>${esc(e.mensaje)}</span></div>`).join('')
+    : '<div class="vacio">Esperando los primeros datos…</div>';
+}
+
+async function refrescar() {
+  try { pintar(await api('estado')); } catch (e) { /* la app se está cerrando o reiniciando */ }
+}
+async function accion(ruta, cuerpo) {
+  try { await api(ruta, cuerpo ?? {}); refrescar(); } catch (e) { alert(e.message); }
+}
+const comprobar = () => accion('actualizar/comprobar');
+const actualizar = () => accion('actualizar/instalar');
+const instalar = () => accion('instalar');
+const simular = () => accion('simulacion', {activar: !(ultimo && ultimo.simulando)});
+const f0 = () => accion('f0', {fase: $('fase').value});
+const abrir = que => accion('abrir', {que});
+const salir = () => { if (confirm('¿Cerrar PlayBox? La vigilancia se detendrá.')) accion('salir'); };
+
+function abrirConfig() {
+  const vs = (ultimo && ultimo.visores_config) || [];
+  $('ips').innerHTML = vs.map(v => `<label><span>${esc(v.id)}</span><input data-id="${esc(v.id)}" value="${esc(v.ip)}" placeholder="192.168.0.101"></label>`).join('');
+  $('dlg-err').textContent = '';
+  dlg.showModal();
+}
+async function guardarConfig() {
+  const visores = [...document.querySelectorAll('#ips input')].map(i => ({id: i.dataset.id, ip: i.value.trim()}));
+  try { await api('config', {visores}); dlg.close(); refrescar(); }
+  catch (e) { $('dlg-err').textContent = e.message; }
+}
+
+refrescar();
+setInterval(refrescar, 2000);
+</script>
+</body>
+</html>
