@@ -1,7 +1,7 @@
 {
-  "version": "0.6.1",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.1.exe",
-  "sha256": "af44d79861ccf6b79e96035783feced4ca835407965a460d0825cdb20827cc4d",
-  "firma": "5aZj5uKNhBrlrIAdp8V2R0PGkjSaePUttGxNFNPJrh3bGySZtby7meSuDLg+FASaojNUML8f8tiTU6Om3yXdCw==",
-  "notas": "Botón Diagnóstico de la gafa (para localizar la batería de los mandos)"
+  "version": "0.6.2",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.2.exe",
+  "sha256": "0b65b4ea8fd2390681f7c5ba4d74837aa84e5cf6544716ed855dc3e73bad7459",
+  "firma": "H9hUkbNdUtvQM4/StHX1tBBciXkBAvuCNhzFwG/+oayy28gkfLB7dDC/6e8uHY2mr/Hd2jfgtQPzqz3nNipqDA==",
+  "notas": "Estado de los mandos (conectado/desconectado), sin gafas duplicadas en USB"
 }
