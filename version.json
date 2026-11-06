@@ -1,7 +1,7 @@
 {
-  "version": "0.8.3",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.3.exe",
-  "sha256": "f20a8c441c6869dd47edcbbd0fa3b4a455eab766b08358286a4ea8118b7525cf",
-  "firma": "TNgJnShS+SMBCvXmZGrT0QS4PNOR62WTFgaU+cCeqzdFkXPFU63CM+NWTWH3ZLB+yEuDX18XYd1YJZJ3MIC3DA==",
-  "notas": "Al instalar se conservan las gafas y los datos"
+  "version": "0.9.0",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.0.exe",
+  "sha256": "a02791d6898150cbbdb8aa847f0020c819c4312e4c83d32ed96417e019b1b903",
+  "firma": "WPUoikAEQOGl2V1aFSaEnyi9fITCMZVxXvcShu4HKJS//Bfbik9wY0XHR/I82n17WbtiI67YNzf0PXdPm6/UCQ==",
+  "notas": "Nueva ventana con pestañas, asistente USB y logo de PlayBox"
 }
