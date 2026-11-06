@@ -1,7 +1,7 @@
 {
-  "version": "0.6.2",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.2.exe",
-  "sha256": "0b65b4ea8fd2390681f7c5ba4d74837aa84e5cf6544716ed855dc3e73bad7459",
-  "firma": "H9hUkbNdUtvQM4/StHX1tBBciXkBAvuCNhzFwG/+oayy28gkfLB7dDC/6e8uHY2mr/Hd2jfgtQPzqz3nNipqDA==",
-  "notas": "Estado de los mandos (conectado/desconectado), sin gafas duplicadas en USB"
+  "version": "0.7.0",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.7.0.exe",
+  "sha256": "beb2cdf9d157c4ea6ba843fad52a94ddcd2142367e9f2ac4cae6a2461158d4af",
+  "firma": "OOLUZ8UmzNqfsgpeCN0KfmXKFpqk4oLVGQXyquu7IWN65ylY4PM24ZvErjENznySd4/6xIk1PFgMfNE/2pRFBA==",
+  "notas": "Agentes de las gafas sin Internet: pilas de los mandos 1–5, batería, app y Wi-Fi"
 }
