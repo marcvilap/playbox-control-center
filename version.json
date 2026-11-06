@@ -1,7 +1,7 @@
 {
-  "version": "0.8.0",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.0.exe",
-  "sha256": "74992f6a7d5c77ab79b5c44ef3f53e521e5a217f9e87f068dceb03db815d2c2b",
-  "firma": "VK+yho//xp2Ks57fANUDDeP4+qU42Jq1W7LZyRquu04PAqojmqsLv/R3+uXui6K5d8UlImW8FvbZw+8815EZDw==",
-  "notas": "Gafas, Sala de control y Baterías como en la web, sin Internet"
+  "version": "0.8.1",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.8.1.exe",
+  "sha256": "f13ff5eb6c873b48ffa6d9f716a09b4b60478c3cafa50cf5586bbd7ed086e868",
+  "firma": "hsYhwdDWZ8g5YASlxDqlpaUaSndh/NZveF4emZRQ8yZy7e5q2CrSLxu3BYA1ssQ/cfDwUH/8p10wRtsK0TtoCg==",
+  "notas": "Todas las gafas en la pantalla Gafas, con o sin agente"
 }
