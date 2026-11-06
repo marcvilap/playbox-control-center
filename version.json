@@ -1,7 +1,7 @@
 {
-  "version": "0.5.0",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.5.0.exe",
-  "sha256": "e429ba632fa65434c5df00b5e4648580acedc7b7931853f0ef3191303f53dbc3",
-  "firma": "9W6wJ3q3wVocacpeiVhuMnkbqb7Z3b6uG2tB4bK6X4LO0lQUyfrQS/OzhQzUAJpYktF1sWkCjjSun0NJqh5ZBg==",
-  "notas": "Vincular gafas por USB una vez y reencontrarlas siempre por su MAC"
+  "version": "0.6.0",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.6.0.exe",
+  "sha256": "8a62bcc567c95c7129e9000c882f0cec492f7ad97db1b4dd8c38e062f33bfb83",
+  "firma": "HkY9hZcpikNytVlVTVcJYa0XCI3ZSeMFxs5wEnS3VjBvkEbkrs4eDN2zRA48eZoieA5UopDWjbKI1Fvliw1ZBQ==",
+  "notas": "Batería y app de cada gafa, semáforo de sesión y salud del PC"
 }
