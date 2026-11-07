@@ -1,7 +1,7 @@
 {
-  "version": "0.9.13",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.13.exe",
-  "sha256": "499b84bd60fe396eb11db8b9956ddb45b70cddb58f84a720b36410f0a1084368",
-  "firma": "rdgwY0kPfzeV5twyXhrVTxkYWsu+q2C1aTBVM5cnd9SXOhDZfCRKUWYEK/xD3FBos+YhCeXHnGS38/e23/HJDg==",
-  "notas": "Mapas: si PICO no exporta el mapa, se guarda el que ya está exportado en la gafa. App de las gafas 0.44."
+  "version": "0.9.14",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.14.exe",
+  "sha256": "25aa3aada6d5604318104c57dd2ba962666389bc899574340af3a687b7466be8",
+  "firma": "PaeCduakx/heifU4UpmKRJS0hqKAZ8dpunShnsnqMFfZh3XtVEHMFgjAewpljuGnA6sWjr2WH0X9Rjsv8Ic6BA==",
+  "notas": "Mapas: el dibujo del área se lee con la función nueva de PICO 4 Ultra y se completa aunque llegue tarde. App de las gafas 0.45."
 }
