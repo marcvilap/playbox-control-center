@@ -1,7 +1,7 @@
 {
-  "version": "0.9.6",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.6.exe",
-  "sha256": "6e214a12f6ccc24f66da356789452911962ffd616c7c824d68b3a674d878058c",
-  "firma": "GQy2FAA39NZbQAKWRsxf4yUr0JOJltc9cLjb4BUpcLXS2mAPWKbd23L5ju0nMNRDcPFy74aeTM/4VZztSUTtBg==",
-  "notas": "Nueva pestaña Mapas. Recentrar y Relocalizar en la Sala de control. La arena dibuja el área de juego del mapa."
+  "version": "0.9.7",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.7.exe",
+  "sha256": "1ebce962acc1d1ee057730c2d0e91b7e9ad66a77fb78c971fb3bd1a8986c9c1e",
+  "firma": "hfPIbvk0/dD8FwoOUQpME2MP5egCgYhMsUkPW6umkIc2axVlzzF6gMlrZUNOFmlWOsl5qAFHhUwrzOeCJMXaBQ==",
+  "notas": "Incluye la app de las gafas 0.40 (mapas, recentrar, relocalizar, bloquear botones)."
 }
