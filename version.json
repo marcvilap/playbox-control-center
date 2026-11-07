@@ -1,7 +1,7 @@
 {
-  "version": "0.9.18",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.18.exe",
-  "sha256": "3a283d8fc00be33bdc2e10f13d1654bafaffacbcc9698721f25b61e94214e55d",
-  "firma": "7RPz3bDGs/SXM3+v0gCSzZi5mjRh5ODud4RSCpjnJOxIvgSoEV02uGABsKgcacDNkCnOwL/sYmY4Da+VPjy5Cg==",
-  "notas": "Logo nuevo: el programa y los accesos directos ya muestran el icono de PlayBox."
+  "version": "0.9.19",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.19.exe",
+  "sha256": "0039974d94110b8dbf7a5b5c31d68c29b18049d38d742437dd02f79584d0c17b",
+  "firma": "dJy4xTcwad1gaKVr0mGFpdScQ5mqf/Z3A6OQeE/5b6WNCg4/h1I8QAinOOUh0G/+Yyhq3rPNFssyAvI7AfpEDg==",
+  "notas": "Mapas: botón «Encender espacio grande» y al enviar un mapa se enciende solo si hace falta. App de las gafas 0.46."
 }
