@@ -1,7 +1,7 @@
 {
-  "version": "0.9.20",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.20.exe",
-  "sha256": "e01a89bdfd6143ee7ea02300ce70d1e5ebcc0da0b13a54d533ae625b02bb7bb7",
-  "firma": "d/bayDKQhhwVhiXIYx4sXIlEXSXnqNWuD9PF+PtRoZvRinHsA9F5C9zO1WfIh716M8w8JBjhXldkxGBykMs5AQ==",
-  "notas": "App de las gafas 0.47: lee mejor el área del espacio grande."
+  "version": "0.9.21",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.21.exe",
+  "sha256": "7c441634b923cae44f9ee9970b99a188ff0b9525ad073fcbe73251df2d3b1802",
+  "firma": "VHn6BLPSYTwT+1a77XmkLMUlpfhrTKQsqnP9NNpu2A32glnTX31RmtcNFm4RA6RrOkORfj6bmKHIsDH5BXt0Cw==",
+  "notas": "Mapas: el área solo se dibuja sola, desde la gafa. App de las gafas 0.47."
 }
