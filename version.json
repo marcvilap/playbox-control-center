@@ -1,7 +1,7 @@
 {
-  "version": "0.9.11",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.11.exe",
-  "sha256": "df714ea54205a422af6513a5ce6a047ec710761928863474ae0048357cd991e0",
-  "firma": "GfMnkq1CV4IQNEFOGw9liDRg9/ccQmg2CuLMDHT6aBh7H5Mt2B9JhSlQpZKOwfbqFG8vNb8UQ71tDZtcHxyyCQ==",
-  "notas": "Crear el mapa de espacio grande desde PlayBox (límite marcando las 4 esquinas). App de las gafas 0.42."
+  "version": "0.9.12",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.12.exe",
+  "sha256": "d738f4398bfaf76d90f25be74dfc17ee02fb466bd9b923b19d42ab61027d00bb",
+  "firma": "KyWgnYx7o+RdGctU3O2ayN2cEmPh1YaIZvG0m8fPkrTyxD1GVGpMDmMsEUz6PtQIry2LngS5gtokrYyrlJAOAA==",
+  "notas": "Arreglo: ya se puede guardar el mapa recién creado en una gafa."
 }
