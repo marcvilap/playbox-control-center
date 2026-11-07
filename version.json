@@ -1,7 +1,7 @@
 {
-  "version": "0.9.22",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.22.exe",
-  "sha256": "f55478581a3488f07c8788bc870f93703f573804ee2403d023e03ccd85769951",
-  "firma": "tPa6Oc7n1Nx6QQ3E6qxPuLSZkn3z6clBzRG/Al9HL4kkuS9sC7Bmfk7UWcSY5WV0HBNUXZez19EyhFHV+031DQ==",
-  "notas": "La app Espacio grande de PICO ya no cuenta como alguien jugando."
+  "version": "0.9.23",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.23.exe",
+  "sha256": "6476936dbaed7ac999d41e74f1ea260eed65f6e42e4e74d2837c5417172aa488",
+  "firma": "KMkcfq0GhTVhApVRfn1VqMxW1b02ixDEUeOxY6qcZBkY9IQ/JWlFfJLBCwZ3wL6IAD2rzceIBNScfMffLQY3CQ==",
+  "notas": "Mapas: el área que marcaste en PICO se lee del propio mapa y se dibuja con sus medidas."
 }
