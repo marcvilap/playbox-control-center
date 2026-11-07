@@ -1,7 +1,7 @@
 {
-  "version": "0.9.23",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.23.exe",
-  "sha256": "6476936dbaed7ac999d41e74f1ea260eed65f6e42e4e74d2837c5417172aa488",
-  "firma": "KMkcfq0GhTVhApVRfn1VqMxW1b02ixDEUeOxY6qcZBkY9IQ/JWlFfJLBCwZ3wL6IAD2rzceIBNScfMffLQY3CQ==",
-  "notas": "Mapas: el área que marcaste en PICO se lee del propio mapa y se dibuja con sus medidas."
+  "version": "0.9.24",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.24.exe",
+  "sha256": "4cff5fcc3596dd4e8d9ca28dc006edd51d84f1c7f6df0687fdd48f94a8df79b0",
+  "firma": "IzGZ1PAHyTXvYHDlPPi50smYx/rASrWdIsk76EpdKJ+mORY4KTtTOOc4Bbsc3VEYf/cTs+/T5/rPW7Z40U+yDQ==",
+  "notas": "Mapas: el área se lee también de los mapas creados con el sistema 5.15."
 }
