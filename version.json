@@ -1,7 +1,7 @@
 {
-  "version": "0.9.17",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.17.exe",
-  "sha256": "138e551974dfea784ed7b2e62d51e86a177da89f57424e17a8597bae42233057",
-  "firma": "E1GjWNvcD4oJkmUuhsbyu3yJr4n21I9NDARcjv6qFM9RGtXraHtW2VNmx+/vnKNS7xpHth1TAl+MJBPrim5SDw==",
-  "notas": "Mapas: dibuja el área caminando con una gafa puesta; silueta con la medida de cada lado, superficie y perímetro."
+  "version": "0.9.18",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.18.exe",
+  "sha256": "3a283d8fc00be33bdc2e10f13d1654bafaffacbcc9698721f25b61e94214e55d",
+  "firma": "7RPz3bDGs/SXM3+v0gCSzZi5mjRh5ODud4RSCpjnJOxIvgSoEV02uGABsKgcacDNkCnOwL/sYmY4Da+VPjy5Cg==",
+  "notas": "Logo nuevo: el programa y los accesos directos ya muestran el icono de PlayBox."
 }
