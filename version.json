@@ -1,7 +1,7 @@
 {
-  "version": "0.9.24",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.24.exe",
-  "sha256": "4cff5fcc3596dd4e8d9ca28dc006edd51d84f1c7f6df0687fdd48f94a8df79b0",
-  "firma": "IzGZ1PAHyTXvYHDlPPi50smYx/rASrWdIsk76EpdKJ+mORY4KTtTOOc4Bbsc3VEYf/cTs+/T5/rPW7Z40U+yDQ==",
-  "notas": "Mapas: el área se lee también de los mapas creados con el sistema 5.15."
+  "version": "0.9.25",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.25.exe",
+  "sha256": "99e5fe5d95241af60cd27ceeeda8264d9b633afd71cf1cdd348b2a85f61ecc0d",
+  "firma": "yTi47i2xLoh2glAuRI7UveNWcPaBfmqHO+Q3PNoS6+gU5mLlG++1jyXBsdA3I1M9Py7Hyw2LJtS14DYo25wwBQ==",
+  "notas": "Arena: preparación para ver a los jugadores sobre el mapa."
 }
