@@ -1,7 +1,7 @@
 {
-  "version": "0.9.9",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.9.exe",
-  "sha256": "540b756eb3566a2758e0f297d4723c2bc527d8c93f0de9a17682589cd13a3cb4",
-  "firma": "xGcs9BzGUFAl8HFWWxAu3G8rNWMSvRK3APYbuHblNsW5b4/987ByJSxSrE7OizGQV4hyEB9kK7kJ2Z9a1fTQAg==",
-  "notas": "Crear área desde PlayBox y enviarla a todas las gafas. Versión del sistema de cada gafa y botón para actualizarlo. App de las gafas 0.41."
+  "version": "0.9.10",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.10.exe",
+  "sha256": "8194046b44b5768ce53a0d26c44df93a5504b63fd8c8397a6ed13d89bb44837c",
+  "firma": "Bhj5XE9ep2rab3oJ4oqrztoUctzAQB2m3Tt3YNhk4+4bYyAOMkNQd0xg+dyHZ6ZzgyBEJDk7g1tMq9bSQKs0Cg==",
+  "notas": "Botón «Actualizar sistema» en la tarjeta de cada gafa."
 }
