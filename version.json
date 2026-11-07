@@ -1,7 +1,7 @@
 {
-  "version": "0.9.16",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.16.exe",
-  "sha256": "3bbb1d4e4621aba78c2e0cc56679accad44e9fbd26fb74d74bb90e9dc751d5cc",
-  "firma": "Bp1qoAa31oU0ZbyWeg5tK3qUplFrbhzh/i+mn2swNTTAGT9xQd6HgO1yuH5F0GEDBFuPfEF8Z/d0Q0yand/IAQ==",
-  "notas": "Gafas: explica qué hacer cuando la gafa no acepta actualizaciones del sistema."
+  "version": "0.9.17",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.17.exe",
+  "sha256": "138e551974dfea784ed7b2e62d51e86a177da89f57424e17a8597bae42233057",
+  "firma": "E1GjWNvcD4oJkmUuhsbyu3yJr4n21I9NDARcjv6qFM9RGtXraHtW2VNmx+/vnKNS7xpHth1TAl+MJBPrim5SDw==",
+  "notas": "Mapas: dibuja el área caminando con una gafa puesta; silueta con la medida de cada lado, superficie y perímetro."
 }
