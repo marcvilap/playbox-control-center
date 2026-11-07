@@ -1,7 +1,7 @@
 {
-  "version": "0.9.4",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.4.exe",
-  "sha256": "f8772be950358d635cc6602192dadcc0221a5d933630022013f3c8a6fa08881b",
-  "firma": "UbxgEiJmbd5wgzGlIOnoWbPsMFqVd87jYnU6W7wmI/BwCnNEKVCY0vWDxbdyuM8sdAvfpxeTaNhVrNIgDcPGCw==",
-  "notas": "Arena con nombres, rastro y avisos. Device Owner en Inicio y Ajustes. Preparado «Bloquear botones» para la nueva app de las gafas."
+  "version": "0.9.5",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.5.exe",
+  "sha256": "e034f55d27cafe1b02cc2a35cd38e0c6a2ed9be94b97fbf35839055cca7688da",
+  "firma": "qEL2KZV0Tpsq6sqKSJ4bjdAxCyfCaiZARLrdIc2WTtyI4rtUiGmAEHhGWImmMU2FYDkiVq4l383UyGhiH3zNAA==",
+  "notas": "Las gafas apagadas se ven claramente como apagadas."
 }
