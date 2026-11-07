@@ -1,7 +1,7 @@
 {
-  "version": "0.9.10",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.10.exe",
-  "sha256": "8194046b44b5768ce53a0d26c44df93a5504b63fd8c8397a6ed13d89bb44837c",
-  "firma": "Bhj5XE9ep2rab3oJ4oqrztoUctzAQB2m3Tt3YNhk4+4bYyAOMkNQd0xg+dyHZ6ZzgyBEJDk7g1tMq9bSQKs0Cg==",
-  "notas": "Botón «Actualizar sistema» en la tarjeta de cada gafa."
+  "version": "0.9.11",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.11.exe",
+  "sha256": "df714ea54205a422af6513a5ce6a047ec710761928863474ae0048357cd991e0",
+  "firma": "GfMnkq1CV4IQNEFOGw9liDRg9/ccQmg2CuLMDHT6aBh7H5Mt2B9JhSlQpZKOwfbqFG8vNb8UQ71tDZtcHxyyCQ==",
+  "notas": "Crear el mapa de espacio grande desde PlayBox (límite marcando las 4 esquinas). App de las gafas 0.42."
 }
