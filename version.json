@@ -1,7 +1,7 @@
 {
-  "version": "0.9.14",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.14.exe",
-  "sha256": "25aa3aada6d5604318104c57dd2ba962666389bc899574340af3a687b7466be8",
-  "firma": "PaeCduakx/heifU4UpmKRJS0hqKAZ8dpunShnsnqMFfZh3XtVEHMFgjAewpljuGnA6sWjr2WH0X9Rjsv8Ic6BA==",
-  "notas": "Mapas: el dibujo del área se lee con la función nueva de PICO 4 Ultra y se completa aunque llegue tarde. App de las gafas 0.45."
+  "version": "0.9.15",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.15.exe",
+  "sha256": "20df919cafc8d076b789aa07eaa712d540e3670a8b0f89e3dc270f962c08ed5c",
+  "firma": "ZIWUNZmFMOd8nJkZQI6jlTXcg9JVHCVfi3zXOjqfhlh1qmtDQerIwidFJk1ARhuE9iyp1qoH6TWPpL7T6YeCBA==",
+  "notas": "Mapas: ficha más clara (Guardado, quién lo usa y qué falta)."
 }
