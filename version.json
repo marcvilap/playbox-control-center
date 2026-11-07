@@ -1,7 +1,7 @@
 {
-  "version": "0.9.15",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.15.exe",
-  "sha256": "20df919cafc8d076b789aa07eaa712d540e3670a8b0f89e3dc270f962c08ed5c",
-  "firma": "ZIWUNZmFMOd8nJkZQI6jlTXcg9JVHCVfi3zXOjqfhlh1qmtDQerIwidFJk1ARhuE9iyp1qoH6TWPpL7T6YeCBA==",
-  "notas": "Mapas: ficha más clara (Guardado, quién lo usa y qué falta)."
+  "version": "0.9.16",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.16.exe",
+  "sha256": "3bbb1d4e4621aba78c2e0cc56679accad44e9fbd26fb74d74bb90e9dc751d5cc",
+  "firma": "Bp1qoAa31oU0ZbyWeg5tK3qUplFrbhzh/i+mn2swNTTAGT9xQd6HgO1yuH5F0GEDBFuPfEF8Z/d0Q0yand/IAQ==",
+  "notas": "Gafas: explica qué hacer cuando la gafa no acepta actualizaciones del sistema."
 }
