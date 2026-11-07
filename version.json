@@ -1,7 +1,7 @@
 {
-  "version": "0.9.7",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.7.exe",
-  "sha256": "1ebce962acc1d1ee057730c2d0e91b7e9ad66a77fb78c971fb3bd1a8986c9c1e",
-  "firma": "hfPIbvk0/dD8FwoOUQpME2MP5egCgYhMsUkPW6umkIc2axVlzzF6gMlrZUNOFmlWOsl5qAFHhUwrzOeCJMXaBQ==",
-  "notas": "Incluye la app de las gafas 0.40 (mapas, recentrar, relocalizar, bloquear botones)."
+  "version": "0.9.8",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.8.exe",
+  "sha256": "96ee515c4673700c61f3efcc9673478ce66473ed76ea694119531be5762a948f",
+  "firma": "KGpVr9GaktJp+ondk3DeUWhrbuw7d8NRFSaP+n1Zn+KZFMua/JSdXXi8TKrZqo2sscZg8+JttCH0o/QJKqM9BA==",
+  "notas": "Arreglo: el asistente por USB ya no falla con «el receptor de las gafas no responde»."
 }
