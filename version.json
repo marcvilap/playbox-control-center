@@ -1,7 +1,7 @@
 {
-  "version": "0.9.28",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.28.exe",
-  "sha256": "1366acb671fc9fc77f85ae9cdcf05471244adec4acd76c6bef54aa33697068db",
-  "firma": "1rCtdk6OrhShf/8qDv6eZX3sEaLqS+PK9NFPKItagn9sJ6YWpiWhx61XXMorlox+Ze5q4t7Qf6/3SNdgudTtBA==",
-  "notas": "Arena: la posición de las gafas se actualiza cada 0,3 s. App de las gafas 0.49."
+  "version": "0.9.29",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.29.exe",
+  "sha256": "6b6eeea10e20f65953c253b934815c7684bdcdb260ab4346f43f29219a1126e4",
+  "firma": "30sX0wbeT8Gddm6CylCj0s+vil6cbECvH9qATpCRRfnJb5ko5QJbovE+ILHNGtQ7AzdkyJ42RW/CbgLL0Z3vAg==",
+  "notas": "Sala de control: quién se ha quedado fuera de la partida y «Llevar al juego»; con «Bloquear botones» el juego se reabre solo; «Preparar partida» revisa todas las gafas."
 }
