@@ -1,7 +1,7 @@
 {
-  "version": "0.9.40",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.40.exe",
-  "sha256": "0e5dec2a4d9570b1f12298a6bd691e1c7506b3f3daa870f548f12d0fe6aeafba",
-  "firma": "CKoLEIFQ7dyFmPxDHqm6k3xGQb3q3ocznzowXrCedTRGx67NRLdlAbdbAvOJ0WWY1EJ8JdyvdH9Gdf1nCupbAA==",
-  "notas": "Gafas: cada gafa dice qué hay que actualizar y si es por wifi o por cable"
+  "version": "0.9.41",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.41.exe",
+  "sha256": "cc44a304a8beefe431e606c43116762fef0a1c1239e32f395a3e4afbeb7ab74c",
+  "firma": "7KUBe7AnEkLTuSNqWXjVxRWD9dFhmRY5dB7BQBrBaQeBgN6AB5Ez3LUu9VSYUQpfmBieTK9Qy+s8xPQ1H+wcBw==",
+  "notas": "Red y PC: los grupos de dispositivos se pueden plegar (Otros empieza plegado)"
 }
