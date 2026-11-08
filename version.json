@@ -1,7 +1,7 @@
 {
-  "version": "0.9.32",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.32.exe",
-  "sha256": "ae2b1e3d629e64e82394df04283ba406c4f78224f122e3cbc43085ff32a9b474",
-  "firma": "7pLkmt43SE8cvcjGmiUuc13PpZpZI4z5ke09EfbnJHw3cmsjQARueYjmQCo8mYc0dQW/1u36P3A6FYgTpRdvCA==",
-  "notas": "Sala de control más limpia: solo «Ver todas» y «Hablar a todas». «Preparar partida» pasa a Gafas y los vídeos a Registro."
+  "version": "0.9.33",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.33.exe",
+  "sha256": "98664d93fbfe5300b3cd6206055a3f9e5a64689165dd9b6aab06858b77d4d0f6",
+  "firma": "f6UsjR6uZcOWYbxiBMku6/wy68r46o1BBd3I5GsxEeI4/KVi3hBrjyZqm7jCFrDjprfAh8EjbUFKcomeWu49Dg==",
+  "notas": "Ver la pantalla de las gafas con el sistema 5.15 de PICO. App de las gafas 0.50."
 }
