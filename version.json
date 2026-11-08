@@ -1,7 +1,7 @@
 {
-  "version": "0.9.45",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.45.exe",
-  "sha256": "ea29235db0a39c6c487a34d237663705d51e785a0221ed015f4f7f20cffd2688",
-  "firma": "9qNYD08xjmKRelOWR8IpylOaOYviDSNr5Sam6ubkwzeLqPhuAWi4ATTGL+O3NU0U7WNvAz98BXmQRoUDPN6vDA==",
-  "notas": "Ver pantalla: PlayBox echa a cualquier espectador que se haya quedado colgado en la gafa (pantalla negra)"
+  "version": "0.9.46",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.46.exe",
+  "sha256": "00ed0fd2d8d0e67467adb421662c560dcbe1a76f9a00ae560825805687c58b52",
+  "firma": "PPs9EdY4Li5f02O1lQ813K8aiMiJKx7ux9qJOt8B5ffiaOMIvZX2J/RC73+4ZjvomvKWAK/o5OGyl5GyT4dJBQ==",
+  "notas": "Pantalla de las gafas: el vídeo se descodifica sin la gráfica para que no salga en negro"
 }
