@@ -1,7 +1,7 @@
 {
-  "version": "0.9.27",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.27.exe",
-  "sha256": "8180aca65b8ac4d5f909a645c8011ea0e7dd0f91f8bdb4610b6e779a143d57be",
-  "firma": "2i7+pRB0lCzl6ECLx4VOha99qymwe6GRA2lYYPEhTWbIdL3k969CTsTlROY3ZgEcQACiQU2oyPp5GRiWICovAQ==",
-  "notas": "Arena: eliges un mapa y ves su área con medidas y las gafas que lo usan."
+  "version": "0.9.28",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.28.exe",
+  "sha256": "1366acb671fc9fc77f85ae9cdcf05471244adec4acd76c6bef54aa33697068db",
+  "firma": "1rCtdk6OrhShf/8qDv6eZX3sEaLqS+PK9NFPKItagn9sJ6YWpiWhx61XXMorlox+Ze5q4t7Qf6/3SNdgudTtBA==",
+  "notas": "Arena: la posición de las gafas se actualiza cada 0,3 s. App de las gafas 0.49."
 }
