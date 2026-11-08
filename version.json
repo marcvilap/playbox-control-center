@@ -1,7 +1,7 @@
 {
-  "version": "0.9.52",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.52.exe",
-  "sha256": "a5f5c52dc84bb23ff6ed974d4c218fbfb581750c4341368f95332ee4e00123fb",
-  "firma": "amXEuNJE3qCR5CC/GePSuFRmIA/wKZg/bkNWerIxdNPH6id3spSrUBTwpyZCxIFPEuZ2SRp54rBa+JxK14tHDw==",
-  "notas": "Hablar: se ve qué micrófono del PC se usa y si capta la voz"
+  "version": "0.9.53",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.53.exe",
+  "sha256": "f12bf63ab4ca58b65d9f7ced0c31de5086462f0e6716cffb95001494336a3f38",
+  "firma": "WB3jnzhADHzujms4d9O3sS8Dyccp9bkim6F07RGq03tA7jpRNuBvTKD2YtTq9eAgQ7TpYvSoUFhWX16E4L6RAQ==",
+  "notas": "Llamar: también enseña qué micrófono del PC se usa y si capta la voz"
 }
