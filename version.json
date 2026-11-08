@@ -1,7 +1,7 @@
 {
-  "version": "0.9.34",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.34.exe",
-  "sha256": "b533a9b0f4094cb06fc77ca6f22171477885ea9fd4642bc336d7ae9262b97180",
-  "firma": "3Wm+YNnGwS272XHo0jbQXZTBdoLu+Ib/ti90+c0iaeiRTh+Htll4w8pEOh30yF3SuXqYeebQAkmaNjqHt6bqDg==",
-  "notas": "Ajustes de PICO: cada ajuste se puede activar o desactivar en todas las gafas (por ejemplo, quitar la pantalla «Área de juego recuperada»)."
+  "version": "0.9.35",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.35.exe",
+  "sha256": "5bb010da774216631fad09d5d6216d72814fb4de96c73884a71f301d56523b8a",
+  "firma": "OfWl9BJXfyLNEkS05zX54Gi1sQkJRHuROJCAN4/yKDVHRMH1pjDgJ8HMfVwVgdOXubG9K0ULFJKff8bSVi22Cw==",
+  "notas": "Las gafas ya no enseñan «Área de juego recuperada · Sumérgete…» al ponérselas: PlayBox lo desactiva solo."
 }
