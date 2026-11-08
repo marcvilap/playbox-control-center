@@ -1,7 +1,7 @@
 {
-  "version": "0.9.41",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.41.exe",
-  "sha256": "cc44a304a8beefe431e606c43116762fef0a1c1239e32f395a3e4afbeb7ab74c",
-  "firma": "7KUBe7AnEkLTuSNqWXjVxRWD9dFhmRY5dB7BQBrBaQeBgN6AB5Ez3LUu9VSYUQpfmBieTK9Qy+s8xPQ1H+wcBw==",
-  "notas": "Red y PC: los grupos de dispositivos se pueden plegar (Otros empieza plegado)"
+  "version": "0.9.42",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.42.exe",
+  "sha256": "7fa5def268e14ef788538e66b23973cc4a8e97e78a0d4039b6fb7a68aa8a0436",
+  "firma": "cBooKHJVGOYshryQAiumYrLCXWPWl5LBJeG/bPTtgBlGm9OlUVZdLwS0kzeQbWs+6GV1iPyoSypMBzZHVN3ZCA==",
+  "notas": "Sala de control: avisa cuando la pantalla sale en negro porque la gafa muestra su cámara"
 }
