@@ -1,7 +1,7 @@
 {
-  "version": "0.9.51",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.51.exe",
-  "sha256": "0bd0dd96e67051feacc181ffd70ee2d0e3abd12c17ca093fc9a7b98675b7ff61",
-  "firma": "krwDn1N4rRKhDU/f4jJS6RgoA6V97qSW+vqsd0QwJqcBPIL7TTbqq0zH1uVX58uvG5Zr9EWyGP0jEBInfpc5CQ==",
-  "notas": "Hablar: PlayBox usa el micrófono del PC sin pedir permiso (la pregunta se perdía)"
+  "version": "0.9.52",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.52.exe",
+  "sha256": "a5f5c52dc84bb23ff6ed974d4c218fbfb581750c4341368f95332ee4e00123fb",
+  "firma": "amXEuNJE3qCR5CC/GePSuFRmIA/wKZg/bkNWerIxdNPH6id3spSrUBTwpyZCxIFPEuZ2SRp54rBa+JxK14tHDw==",
+  "notas": "Hablar: se ve qué micrófono del PC se usa y si capta la voz"
 }
