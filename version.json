@@ -1,7 +1,7 @@
 {
-  "version": "0.9.25",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.25.exe",
-  "sha256": "99e5fe5d95241af60cd27ceeeda8264d9b633afd71cf1cdd348b2a85f61ecc0d",
-  "firma": "yTi47i2xLoh2glAuRI7UveNWcPaBfmqHO+Q3PNoS6+gU5mLlG++1jyXBsdA3I1M9Py7Hyw2LJtS14DYo25wwBQ==",
-  "notas": "Arena: preparación para ver a los jugadores sobre el mapa."
+  "version": "0.9.26",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.26.exe",
+  "sha256": "956b79150879b0828d409c414c5b3573d100950d9ec3849d707c1f42d41e0532",
+  "firma": "H4BfApY6MBUkVAvnveLej6gnWLen7CuLmJK5Odu871BEUXv3sVYKMVLsCVseciEYeQFnX3ZyJzTD/Nd8S2BZDQ==",
+  "notas": "Jugadores sobre el mapa, avisos de golpe y de gafa perdida, salud de las gafas, Ajustes de PICO, mapa reforzado y vídeos de la partida. App de las gafas 0.48."
 }
