@@ -1,7 +1,7 @@
 {
-  "version": "0.9.39",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.39.exe",
-  "sha256": "d22fcc880b045a9b7d20780529f49d2afb9d4d190cc9345525d341c729ba6182",
-  "firma": "GP89lXvPV+WQLikgmwM+LFbnOFjh2jSFa4r5H26qCPYFo8sH5J+5xTRhPEeU2AwD6qNWyHn7pfSdn+11WH2ABA==",
-  "notas": "Registro: cada suceso con el icono de su tipo y filtro por tipo"
+  "version": "0.9.40",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.40.exe",
+  "sha256": "0e5dec2a4d9570b1f12298a6bd691e1c7506b3f3daa870f548f12d0fe6aeafba",
+  "firma": "CKoLEIFQ7dyFmPxDHqm6k3xGQb3q3ocznzowXrCedTRGx67NRLdlAbdbAvOJ0WWY1EJ8JdyvdH9Gdf1nCupbAA==",
+  "notas": "Gafas: cada gafa dice qué hay que actualizar y si es por wifi o por cable"
 }
