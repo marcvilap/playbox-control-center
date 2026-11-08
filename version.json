@@ -1,7 +1,7 @@
 {
-  "version": "0.9.35",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.35.exe",
-  "sha256": "5bb010da774216631fad09d5d6216d72814fb4de96c73884a71f301d56523b8a",
-  "firma": "OfWl9BJXfyLNEkS05zX54Gi1sQkJRHuROJCAN4/yKDVHRMH1pjDgJ8HMfVwVgdOXubG9K0ULFJKff8bSVi22Cw==",
-  "notas": "Las gafas ya no enseñan «Área de juego recuperada · Sumérgete…» al ponérselas: PlayBox lo desactiva solo."
+  "version": "0.9.36",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.36.exe",
+  "sha256": "1bdb1835321cc4a73c9d6da3662637ba12011e3de39c7dbf08f7bc008c73af9d",
+  "firma": "qTjs4yK3cfodvk7g2A5F5KypTmI0HB1/HPTtpMIVglTVTNvFngWqGqHSSOm5jhb9W7jTfaeQreHr1g0xfa6FAA==",
+  "notas": "Red y PC: la IP de este PC, por dónde se conecta, si es fija o automática, y aviso si cambia"
 }
