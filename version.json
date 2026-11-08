@@ -1,7 +1,7 @@
 {
-  "version": "0.9.42",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.42.exe",
-  "sha256": "7fa5def268e14ef788538e66b23973cc4a8e97e78a0d4039b6fb7a68aa8a0436",
-  "firma": "cBooKHJVGOYshryQAiumYrLCXWPWl5LBJeG/bPTtgBlGm9OlUVZdLwS0kzeQbWs+6GV1iPyoSypMBzZHVN3ZCA==",
-  "notas": "Sala de control: avisa cuando la pantalla sale en negro porque la gafa muestra su cámara"
+  "version": "0.9.43",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.43.exe",
+  "sha256": "a260ead90762bc17509a7d87069a534d0b5b1144bddae5c301770d2f2fe2abb2",
+  "firma": "tz4ENKop0AjDQSv1qxgFs0KD7+jYOzvkN98EgPH/3uL+KscUT7ekn6jNkpm6DBhEK0P6btpcFZba3tnYVJw3Cw==",
+  "notas": "Sala: la pantalla de la gafa se recarga sola al salir de la cámara; las gafas ya no abren la cámara con dos golpecitos (app 0.51)"
 }
