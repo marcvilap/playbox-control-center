@@ -1,7 +1,7 @@
 {
-  "version": "0.9.46",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.46.exe",
-  "sha256": "00ed0fd2d8d0e67467adb421662c560dcbe1a76f9a00ae560825805687c58b52",
-  "firma": "PPs9EdY4Li5f02O1lQ813K8aiMiJKx7ux9qJOt8B5ffiaOMIvZX2J/RC73+4ZjvomvKWAK/o5OGyl5GyT4dJBQ==",
-  "notas": "Pantalla de las gafas: el vídeo se descodifica sin la gráfica para que no salga en negro"
+  "version": "0.9.47",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.47.exe",
+  "sha256": "b3e11f2d9db0d4ca6c556a3faaff848b486c32bf578bc88c482cd1743ea8d862",
+  "firma": "ZJv4Is8yaguwlsh1GM+3UvfkjaURsjLSe9sKeTR7C1qK9QqeLLnlTh9zy2R/ToZkyjENo2wHwCi8CNae0p18Dg==",
+  "notas": "Pantalla de las gafas: PlayBox recibe el vídeo y lo reproduce él mismo (con PICO 5.15 la página de PICO salía en negro)"
 }
