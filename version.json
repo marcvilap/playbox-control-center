@@ -1,7 +1,7 @@
 {
-  "version": "0.9.47",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.47.exe",
-  "sha256": "b3e11f2d9db0d4ca6c556a3faaff848b486c32bf578bc88c482cd1743ea8d862",
-  "firma": "ZJv4Is8yaguwlsh1GM+3UvfkjaURsjLSe9sKeTR7C1qK9QqeLLnlTh9zy2R/ToZkyjENo2wHwCi8CNae0p18Dg==",
-  "notas": "Pantalla de las gafas: PlayBox recibe el vídeo y lo reproduce él mismo (con PICO 5.15 la página de PICO salía en negro)"
+  "version": "0.9.48",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.48.exe",
+  "sha256": "f70e179779400cb1b97d8e0437c229bbe66ea1cc3c831ff2ed76a9603405a6dc",
+  "firma": "bNBOb5cqsY9Qet0iRB+hX5to3HQuQJYW+8XaJU9myyPq6y5/HFUqR3ctEfIkXbQzNdQcLQ7zp03RxWj325eBDw==",
+  "notas": "Sala de control: selector de reproductor de prueba para comparar con la página de PICO"
 }
