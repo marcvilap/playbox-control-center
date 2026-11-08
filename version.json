@@ -1,7 +1,7 @@
 {
-  "version": "0.9.26",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.26.exe",
-  "sha256": "956b79150879b0828d409c414c5b3573d100950d9ec3849d707c1f42d41e0532",
-  "firma": "H4BfApY6MBUkVAvnveLej6gnWLen7CuLmJK5Odu871BEUXv3sVYKMVLsCVseciEYeQFnX3ZyJzTD/Nd8S2BZDQ==",
-  "notas": "Jugadores sobre el mapa, avisos de golpe y de gafa perdida, salud de las gafas, Ajustes de PICO, mapa reforzado y vídeos de la partida. App de las gafas 0.48."
+  "version": "0.9.27",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.27.exe",
+  "sha256": "8180aca65b8ac4d5f909a645c8011ea0e7dd0f91f8bdb4610b6e779a143d57be",
+  "firma": "2i7+pRB0lCzl6ECLx4VOha99qymwe6GRA2lYYPEhTWbIdL3k969CTsTlROY3ZgEcQACiQU2oyPp5GRiWICovAQ==",
+  "notas": "Arena: eliges un mapa y ves su área con medidas y las gafas que lo usan."
 }
