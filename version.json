@@ -1,7 +1,7 @@
 {
-  "version": "0.9.31",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.31.exe",
-  "sha256": "a1a209ee12a96a2ebc23e9bc074d19eacec9f64b7dea1f62e1958dd5795f7e0e",
-  "firma": "4Aa3tZfTq26ZYRqQZtC6wv4FbvcL3Ql9wKjN0FlFdOrxcu8caRmv6uwWGxPuMDET7ns4YFwdGsfl74TPJDjAAQ==",
-  "notas": "«Bloquear botones» está ahora en Gafas (para todas o en la ficha de cada gafa)."
+  "version": "0.9.32",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.32.exe",
+  "sha256": "ae2b1e3d629e64e82394df04283ba406c4f78224f122e3cbc43085ff32a9b474",
+  "firma": "7pLkmt43SE8cvcjGmiUuc13PpZpZI4z5ke09EfbnJHw3cmsjQARueYjmQCo8mYc0dQW/1u36P3A6FYgTpRdvCA==",
+  "notas": "Sala de control más limpia: solo «Ver todas» y «Hablar a todas». «Preparar partida» pasa a Gafas y los vídeos a Registro."
 }
