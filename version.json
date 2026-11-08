@@ -1,7 +1,7 @@
 {
-  "version": "0.9.29",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.29.exe",
-  "sha256": "6b6eeea10e20f65953c253b934815c7684bdcdb260ab4346f43f29219a1126e4",
-  "firma": "30sX0wbeT8Gddm6CylCj0s+vil6cbECvH9qATpCRRfnJb5ko5QJbovE+ILHNGtQ7AzdkyJ42RW/CbgLL0Z3vAg==",
-  "notas": "Sala de control: quién se ha quedado fuera de la partida y «Llevar al juego»; con «Bloquear botones» el juego se reabre solo; «Preparar partida» revisa todas las gafas."
+  "version": "0.9.30",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.30.exe",
+  "sha256": "557100134195be7e8919e90079b749cf8a5b06f1692605a07db78256515d9dcd",
+  "firma": "ltUzPXrWf53D2cOAK3RuXpF/wZddKJ16rAbkPVDUt2GCdBPezUtkK9+uBKmy9Cc5CRrJp5qJvP31kU1RrvfqCQ==",
+  "notas": "Los fallos de apps internas de PICO ya no salen como juego colgado; el botón «Reabrir el juego» ya no se queda atascado."
 }
