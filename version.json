@@ -1,7 +1,7 @@
 {
-  "version": "0.9.48",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.48.exe",
-  "sha256": "f70e179779400cb1b97d8e0437c229bbe66ea1cc3c831ff2ed76a9603405a6dc",
-  "firma": "bNBOb5cqsY9Qet0iRB+hX5to3HQuQJYW+8XaJU9myyPq6y5/HFUqR3ctEfIkXbQzNdQcLQ7zp03RxWj325eBDw==",
-  "notas": "Sala de control: selector de reproductor de prueba para comparar con la página de PICO"
+  "version": "0.9.49",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.49.exe",
+  "sha256": "d79af265b0dfff4a8f4f00c0c9813e8e56cb34fdd7f0b67557e9b9aa734aabcd",
+  "firma": "UL759VAt0a8FuOIDRQiih5qhEtwoBfzg/VBj5gh3fWclRjeMCusg0pmLbNDP0BAZhR+52NJT/bBK7DpUqwTvBQ==",
+  "notas": "Sala de control: fuera el selector de prueba; la pantalla de las gafas va siempre con el reproductor de PlayBox"
 }
