@@ -1,7 +1,7 @@
 {
-  "version": "0.9.50",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.50.exe",
-  "sha256": "6f1154e65dfe8ce11e9ef0fb91f3f6d2145bfadc643209b421339d3a6340617c",
-  "firma": "MPbwbeob10DaRNeuvMWFLxMXiGoqBfFR06v+Krkzb8nJp6bu4bWgLXI1vCQzv6ZsyMSh6dTvhTJsO7My7JMOAQ==",
-  "notas": "Añadir o arreglar una gafa: devuelve y comprueba el permiso de micrófono (Oír)"
+  "version": "0.9.51",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.51.exe",
+  "sha256": "0bd0dd96e67051feacc181ffd70ee2d0e3abd12c17ca093fc9a7b98675b7ff61",
+  "firma": "krwDn1N4rRKhDU/f4jJS6RgoA6V97qSW+vqsd0QwJqcBPIL7TTbqq0zH1uVX58uvG5Zr9EWyGP0jEBInfpc5CQ==",
+  "notas": "Hablar: PlayBox usa el micrófono del PC sin pedir permiso (la pregunta se perdía)"
 }
