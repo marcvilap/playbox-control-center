@@ -1,7 +1,7 @@
 {
-  "version": "0.9.43",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.43.exe",
-  "sha256": "a260ead90762bc17509a7d87069a534d0b5b1144bddae5c301770d2f2fe2abb2",
-  "firma": "tz4ENKop0AjDQSv1qxgFs0KD7+jYOzvkN98EgPH/3uL+KscUT7ekn6jNkpm6DBhEK0P6btpcFZba3tnYVJw3Cw==",
-  "notas": "Sala: la pantalla de la gafa se recarga sola al salir de la cámara; las gafas ya no abren la cámara con dos golpecitos (app 0.51)"
+  "version": "0.9.44",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.44.exe",
+  "sha256": "f07564d7696468e55a670f6b9e752a9c9be0b25b890a80849d6f6d02c9f79868",
+  "firma": "8cKdWwld6CAtF0Mi9+ysjgENvCHiAxEeRFjU6IATY91J5lH+nrDEyTKuOXgYQLkV0MF8+CrW4Fbw37RrvXtTAQ==",
+  "notas": "Ver pantalla: siempre empieza una retransmisión nueva y se ve solo en la Sala de control (PICO solo deja un espectador)"
 }
