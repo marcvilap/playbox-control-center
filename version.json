@@ -1,7 +1,7 @@
 {
-  "version": "0.9.36",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.36.exe",
-  "sha256": "1bdb1835321cc4a73c9d6da3662637ba12011e3de39c7dbf08f7bc008c73af9d",
-  "firma": "qTjs4yK3cfodvk7g2A5F5KypTmI0HB1/HPTtpMIVglTVTNvFngWqGqHSSOm5jhb9W7jTfaeQreHr1g0xfa6FAA==",
-  "notas": "Red y PC: la IP de este PC, por dónde se conecta, si es fija o automática, y aviso si cambia"
+  "version": "0.9.37",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.37.exe",
+  "sha256": "57e48affada01df05b482d419170e3b31ff72ff98562d9fdfaa9c6bfd327a111",
+  "firma": "vQA6inR+jOmfYvD9+hYqybRktBvxYoZ8tYQ4mJEiBuoLdVh6DxOFCrfNZLSJ59p2ItXQjVHT68JRzdyMXbqADQ==",
+  "notas": "Red y PC: todos los dispositivos de la red agrupados (router, este PC, gafas y otros)"
 }
