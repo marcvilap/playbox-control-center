@@ -1,7 +1,7 @@
 {
-  "version": "0.9.33",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.33.exe",
-  "sha256": "98664d93fbfe5300b3cd6206055a3f9e5a64689165dd9b6aab06858b77d4d0f6",
-  "firma": "f6UsjR6uZcOWYbxiBMku6/wy68r46o1BBd3I5GsxEeI4/KVi3hBrjyZqm7jCFrDjprfAh8EjbUFKcomeWu49Dg==",
-  "notas": "Ver la pantalla de las gafas con el sistema 5.15 de PICO. App de las gafas 0.50."
+  "version": "0.9.34",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.34.exe",
+  "sha256": "b533a9b0f4094cb06fc77ca6f22171477885ea9fd4642bc336d7ae9262b97180",
+  "firma": "3Wm+YNnGwS272XHo0jbQXZTBdoLu+Ib/ti90+c0iaeiRTh+Htll4w8pEOh30yF3SuXqYeebQAkmaNjqHt6bqDg==",
+  "notas": "Ajustes de PICO: cada ajuste se puede activar o desactivar en todas las gafas (por ejemplo, quitar la pantalla «Área de juego recuperada»)."
 }
