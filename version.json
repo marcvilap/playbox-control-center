@@ -1,7 +1,7 @@
 {
-  "version": "0.9.37",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.37.exe",
-  "sha256": "57e48affada01df05b482d419170e3b31ff72ff98562d9fdfaa9c6bfd327a111",
-  "firma": "vQA6inR+jOmfYvD9+hYqybRktBvxYoZ8tYQ4mJEiBuoLdVh6DxOFCrfNZLSJ59p2ItXQjVHT68JRzdyMXbqADQ==",
-  "notas": "Red y PC: todos los dispositivos de la red agrupados (router, este PC, gafas y otros)"
+  "version": "0.9.38",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.38.exe",
+  "sha256": "71a6637456f3212bb1a458063aabde484c7cac5eb66c84956b525d395f730741",
+  "firma": "Z1f4Jy9Crb3FpCMDODs9rgapJX2pbJrN6rgEfeuKVSe2ZJUl6N3xLNvzjeIZsVYAxYV8I/PbwP/No4itGLeHCw==",
+  "notas": "Registro: incidentes explicados en claro; la wifi lenta de una gafa en reposo ya no cuenta como fallo"
 }
