@@ -1,7 +1,7 @@
 {
-  "version": "0.9.44",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.44.exe",
-  "sha256": "f07564d7696468e55a670f6b9e752a9c9be0b25b890a80849d6f6d02c9f79868",
-  "firma": "8cKdWwld6CAtF0Mi9+ysjgENvCHiAxEeRFjU6IATY91J5lH+nrDEyTKuOXgYQLkV0MF8+CrW4Fbw37RrvXtTAQ==",
-  "notas": "Ver pantalla: siempre empieza una retransmisión nueva y se ve solo en la Sala de control (PICO solo deja un espectador)"
+  "version": "0.9.45",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.45.exe",
+  "sha256": "ea29235db0a39c6c487a34d237663705d51e785a0221ed015f4f7f20cffd2688",
+  "firma": "9qNYD08xjmKRelOWR8IpylOaOYviDSNr5Sam6ubkwzeLqPhuAWi4ATTGL+O3NU0U7WNvAz98BXmQRoUDPN6vDA==",
+  "notas": "Ver pantalla: PlayBox echa a cualquier espectador que se haya quedado colgado en la gafa (pantalla negra)"
 }
