@@ -1,7 +1,7 @@
 {
-  "version": "0.9.30",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.30.exe",
-  "sha256": "557100134195be7e8919e90079b749cf8a5b06f1692605a07db78256515d9dcd",
-  "firma": "ltUzPXrWf53D2cOAK3RuXpF/wZddKJ16rAbkPVDUt2GCdBPezUtkK9+uBKmy9Cc5CRrJp5qJvP31kU1RrvfqCQ==",
-  "notas": "Los fallos de apps internas de PICO ya no salen como juego colgado; el botón «Reabrir el juego» ya no se queda atascado."
+  "version": "0.9.31",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.31.exe",
+  "sha256": "a1a209ee12a96a2ebc23e9bc074d19eacec9f64b7dea1f62e1958dd5795f7e0e",
+  "firma": "4Aa3tZfTq26ZYRqQZtC6wv4FbvcL3Ql9wKjN0FlFdOrxcu8caRmv6uwWGxPuMDET7ns4YFwdGsfl74TPJDjAAQ==",
+  "notas": "«Bloquear botones» está ahora en Gafas (para todas o en la ficha de cada gafa)."
 }
