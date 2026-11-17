@@ -1,7 +1,7 @@
 {
-  "version": "0.9.55",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.55.exe",
-  "sha256": "3edd13bd047b742f487190a4520789f9fc31fb63abd84dc8a680f3ac67bf8f6b",
-  "firma": "Gasq5VUO+xYi0aceKmJfr3zeEt/n6SvqBXm8XxLPEOZREIY9abg9G/Op2CxuwFm9JtzD7Zzi7NqJAxgzgKGBAA==",
-  "notas": "Sala de control: primero las gafas y la Arena en su pestaña. Línea de tiempo: cada apunte dice cuánto hace y solo se ve la última hora"
+  "version": "0.9.56",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.56.exe",
+  "sha256": "1bf9e87968892a5b3aceb549fb97ecc006e9fdf8eb205b15fd8459b128081fac",
+  "firma": "FOqbJOV9zF6sVLxnKse8kmpZFPqb8jr8r59nIM+jd6dez0Y2HcBoSrkx88q+vdXv+lYWe6eLQPiE0qh+66+uBA==",
+  "notas": "Ajustes de PICO: fuera las apps escondidas y las pestañas de Ajustes, que el jugador no usa"
 }
