@@ -1,7 +1,7 @@
 {
-  "version": "0.9.54",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.54.exe",
-  "sha256": "e0a36d6c5827d999774e05352453c86c682a7630f9bbcca8f659eccec1671b7e",
-  "firma": "e92HGT8ObX585sVqAf1/mHQ53HO5u8Q79iX1q6jiFqlhpJuzwpVJ7bOKoEfkV9UAVFqsSJGdlcrEDLf+8McsBQ==",
-  "notas": "«¿Qué ha pasado?»: explica por qué un jugador se salió del juego o por qué una gafa no entra, leyendo los registros de VEX"
+  "version": "0.9.55",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.55.exe",
+  "sha256": "3edd13bd047b742f487190a4520789f9fc31fb63abd84dc8a680f3ac67bf8f6b",
+  "firma": "Gasq5VUO+xYi0aceKmJfr3zeEt/n6SvqBXm8XxLPEOZREIY9abg9G/Op2CxuwFm9JtzD7Zzi7NqJAxgzgKGBAA==",
+  "notas": "Sala de control: primero las gafas y la Arena en su pestaña. Línea de tiempo: cada apunte dice cuánto hace y solo se ve la última hora"
 }
