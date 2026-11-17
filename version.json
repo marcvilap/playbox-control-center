@@ -1,7 +1,7 @@
 {
-  "version": "0.9.53",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.53.exe",
-  "sha256": "f12bf63ab4ca58b65d9f7ced0c31de5086462f0e6716cffb95001494336a3f38",
-  "firma": "WB3jnzhADHzujms4d9O3sS8Dyccp9bkim6F07RGq03tA7jpRNuBvTKD2YtTq9eAgQ7TpYvSoUFhWX16E4L6RAQ==",
-  "notas": "Llamar: también enseña qué micrófono del PC se usa y si capta la voz"
+  "version": "0.9.54",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.54.exe",
+  "sha256": "e0a36d6c5827d999774e05352453c86c682a7630f9bbcca8f659eccec1671b7e",
+  "firma": "e92HGT8ObX585sVqAf1/mHQ53HO5u8Q79iX1q6jiFqlhpJuzwpVJ7bOKoEfkV9UAVFqsSJGdlcrEDLf+8McsBQ==",
+  "notas": "«¿Qué ha pasado?»: explica por qué un jugador se salió del juego o por qué una gafa no entra, leyendo los registros de VEX"
 }
