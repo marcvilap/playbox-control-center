@@ -1,7 +1,7 @@
 {
-  "version": "0.9.58",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.58.exe",
-  "sha256": "754abd3346ee3ad17ea424eedec1704d2974d31308305a4497bad966ea9ab240",
-  "firma": "lFb0NjY1q1Id7nEQaYXYWe7UttAA4yYg9C/ufSR5HnLJXkGKomH+RxQG1DkCgpdHnQ33RhaN4Fc+MrAlZEipBQ==",
-  "notas": "PlayBox Mode: el modo de partida, ahora editable (botones, reabrir el juego y ajustes de PICO), y botón «No afectes nada» en Gafas. Sin editar hace lo mismo que «Bloquear botones»."
+  "version": "0.9.59",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.59.exe",
+  "sha256": "f49efd6205f65b94d32375356da41f2b1510ef98ad110406dd34e10c64200ab9",
+  "firma": "YHG2UG801/h3rFjz02+SNDSCIm+m+KNMDdDjMHvrUC+jNWPH6WINhsZOLmCF710Ho0FU7LISmJ3luCusVTzfCA==",
+  "notas": "App de las gafas 0.52: ya no sale el icono azul al ver la pantalla. PlayBox Mode: más opciones (manos, límite del área, barra inferior, menú rápido completo) y nombres más claros."
 }
