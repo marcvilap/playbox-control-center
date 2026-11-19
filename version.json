@@ -1,7 +1,7 @@
 {
-  "version": "0.9.56",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.56.exe",
-  "sha256": "1bf9e87968892a5b3aceb549fb97ecc006e9fdf8eb205b15fd8459b128081fac",
-  "firma": "FOqbJOV9zF6sVLxnKse8kmpZFPqb8jr8r59nIM+jd6dez0Y2HcBoSrkx88q+vdXv+lYWe6eLQPiE0qh+66+uBA==",
-  "notas": "Ajustes de PICO: fuera las apps escondidas y las pestañas de Ajustes, que el jugador no usa"
+  "version": "0.9.57",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.57.exe",
+  "sha256": "eb35e983c56efbb7a0d9c183ebb74f6922c31c768c0f02268d1071131e0aa3c8",
+  "firma": "ZKGC+DVipgvQnlF4d/2m0pGsCnMCiA+ZQisIEN8GoxcvPzcl6CFB0JpNGl9TIZNVuKOGjgJa8gdC8kJL/jlEAw==",
+  "notas": "Vídeos de las partidas: al grabar se abren, se ven aquí mismo, se abre su carpeta y se borran. Botón «Vídeos» en la Sala de control. «Comprobar este PC»."
 }
