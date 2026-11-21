@@ -1,7 +1,7 @@
 {
-  "version": "0.9.59",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.59.exe",
-  "sha256": "f49efd6205f65b94d32375356da41f2b1510ef98ad110406dd34e10c64200ab9",
-  "firma": "YHG2UG801/h3rFjz02+SNDSCIm+m+KNMDdDjMHvrUC+jNWPH6WINhsZOLmCF710Ho0FU7LISmJ3luCusVTzfCA==",
-  "notas": "App de las gafas 0.52: ya no sale el icono azul al ver la pantalla. PlayBox Mode: más opciones (manos, límite del área, barra inferior, menú rápido completo) y nombres más claros."
+  "version": "0.9.60",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.60.exe",
+  "sha256": "4890e16fb366ebb6be5902e7a4bc2820990cecd9c98772d1bb0c432cfde04638",
+  "firma": "OlYzm377da88RewldqaoaYGfA31h3fbszfMYLaDq3O1d1NrNHUYJr7xjNFH9kUiiv+9zONju6VI0XYdPq+TVBA==",
+  "notas": "Pestaña Juegos: instala, lanza y para Zona Cero en las gafas; modo Todos juntos (multijugador)"
 }
