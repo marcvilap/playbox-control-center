@@ -1,0 +1,99 @@
+{
+  "juegos": [
+    {
+      "id": "zonacero",
+      "version": "1.3",
+      "code": 4,
+      "apk": {
+        "url": "https://github.com/marcvilap/playbox-control-center/releases/download/zonacero-1.3/ZonaCero-1.3.apk",
+        "sha256": "14eaaad27f9f29e8ec2e0c4d7e35dd349dca4c793524d338d95ab071a4978ad6",
+        "tam": 244332814,
+        "partes": [
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte02"
+        ]
+      },
+      "pc": {
+        "url": "https://github.com/marcvilap/playbox-control-center/releases/download/zonacero-1.3/ZonaCero-1.3-PC.zip",
+        "sha256": "7655645cb434d49069bcc73d69a79ef5fc4928d08aca54f6e744f258ca15f334",
+        "tam": 205647125,
+        "partes": [
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte02"
+        ]
+      },
+      "notas": "Zona Cero en equipo completo: historia, jefe, vehículos, premios, ver en la tele",
+      "juego": {
+        "id": "zonacero",
+        "nombre": "Zona Cero",
+        "paquete": "es.playbox.zonacero",
+        "actividad": "com.godot.game.GodotAppLauncher",
+        "prefijo": "ZC",
+        "exePC": "ZonaCero.exe",
+        "opciones": [
+          {
+            "clave": "duracion",
+            "nombre": "Duración",
+            "valores": [
+              "5",
+              "10",
+              "20"
+            ],
+            "etiquetas": [
+              "5 min",
+              "10 min",
+              "20 min"
+            ],
+            "defecto": "10"
+          },
+          {
+            "clave": "dificultad",
+            "nombre": "Dificultad",
+            "valores": [
+              "facil",
+              "normal",
+              "dificil"
+            ],
+            "etiquetas": [
+              "Fácil",
+              "Normal",
+              "Difícil"
+            ],
+            "defecto": "normal"
+          },
+          {
+            "clave": "acto",
+            "nombre": "Empieza en",
+            "valores": [
+              "1",
+              "2",
+              "3"
+            ],
+            "etiquetas": [
+              "1 · Calle",
+              "2 · Cine",
+              "3 · Huida"
+            ],
+            "defecto": "1"
+          },
+          {
+            "clave": "ninos",
+            "nombre": "Modo Niños",
+            "valores": [
+              "no",
+              "si"
+            ],
+            "etiquetas": [
+              "No",
+              "Sí"
+            ],
+            "defecto": "no"
+          }
+        ]
+      },
+      "firma": "tILgCRWmbYWK6HCM+HwhJfvjMh+KhFi6E+p3zbLQGuaYRbzg3tXfayw0qWjZwpTQhK7mTFpZuFFdJu5cxOCrCw=="
+    }
+  ]
+}
