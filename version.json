@@ -1,7 +1,7 @@
 {
-  "version": "0.9.60",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.60.exe",
-  "sha256": "4890e16fb366ebb6be5902e7a4bc2820990cecd9c98772d1bb0c432cfde04638",
-  "firma": "OlYzm377da88RewldqaoaYGfA31h3fbszfMYLaDq3O1d1NrNHUYJr7xjNFH9kUiiv+9zONju6VI0XYdPq+TVBA==",
-  "notas": "Pestaña Juegos: instala, lanza y para Zona Cero en las gafas; modo Todos juntos (multijugador)"
+  "version": "0.9.61",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.61.exe",
+  "sha256": "d5ec916c8c9fdfeed85d3cffad8aa8547f7df40584a4565d931784363369b80a",
+  "firma": "/1Pp2YP6lw6sc+o8CiCCuHaraSozVFVAhaFtPVGJTMJrQhA3ysbJnGvafaeAU7WFY+Ay59jyJQ7qQXSrr2isBQ==",
+  "notas": "Juegos: Zona Cero en equipo completo, juegos al día solos desde internet, instalar sin ADB con la app 0.53, ver la partida en la tele, nombres de los jugadores, historial con CSV"
 }
