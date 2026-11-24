@@ -1,7 +1,7 @@
 {
-  "version": "0.9.61",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.61.exe",
-  "sha256": "d5ec916c8c9fdfeed85d3cffad8aa8547f7df40584a4565d931784363369b80a",
-  "firma": "/1Pp2YP6lw6sc+o8CiCCuHaraSozVFVAhaFtPVGJTMJrQhA3ysbJnGvafaeAU7WFY+Ay59jyJQ7qQXSrr2isBQ==",
-  "notas": "Juegos: Zona Cero en equipo completo, juegos al día solos desde internet, instalar sin ADB con la app 0.53, ver la partida en la tele, nombres de los jugadores, historial con CSV"
+  "version": "0.9.62",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.62.exe",
+  "sha256": "853d12c8c2f14c01c7c03b3068b6e876ef8b0ef9289fcac7c92db1d1cfcf5a3a",
+  "firma": "QhWGM+ps3A2D8eAahaPEC7Qph4C9A9QbjavTVMKoBIJwwbGb6w6tj/CRBZAmYWlgOzKUSC8btigvmKwaHCmjBg==",
+  "notas": "Más fiable: vuelve sola a la versión anterior si la nueva falla al arrancar, copia de seguridad del registro de gafas y de la configuración, firewall solo para la red local, nombres de jugadores borrados a los 30 días. Más fácil: menú en cinco grupos, Sala de control compacta (las 10 gafas en una pantalla), Baterías en tabla, Ajustes de PICO y Mapas enseñan solo lo que no coincide. Opción para que un centro pruebe primero las versiones nuevas."
 }
