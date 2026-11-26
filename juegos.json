@@ -2,29 +2,29 @@
   "juegos": [
     {
       "id": "zonacero",
-      "version": "1.6",
-      "code": 7,
+      "version": "1.7",
+      "code": 8,
       "apk": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6.apk",
-        "sha256": "3a3135863c3f7485f2113305e198be9ebea8acc5d1238b18ef82d7d5c246b84a",
-        "tam": 244342115,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7.apk",
+        "sha256": "51778effdb5c67bde7893f05550ac3762837de5a463b4bf9d6d1a2838502883f",
+        "tam": 244343063,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6.apk.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6.apk.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6.apk.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7.apk.parte02"
         ]
       },
       "pc": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6-PC.zip",
-        "sha256": "ef66682092b7f3daf8e6d9f709136fd47e6915cfc6e57bacfcb1c8b272857d92",
-        "tam": 205655007,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7-PC.zip",
+        "sha256": "22ce5626a550549b982076f4b718ad261d9724f2fb19474a81aa919987d43f66",
+        "tam": 205655965,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6-PC.zip.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6-PC.zip.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.6/ZonaCero-1.6-PC.zip.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.7/ZonaCero-1.7-PC.zip.parte02"
         ]
       },
-      "notas": "Sin teletransporte ni giro con el joystick en las partidas en equipo: el cruce no se mueve de la sala",
+      "notas": "Opción «Ver el área (prueba)»: pinta en el suelo un cuadrado de 8 x 8 m, el cruce y el límite de PICO",
       "juego": {
         "id": "zonacero",
         "nombre": "Zona Cero",
@@ -90,10 +90,23 @@
               "Sí"
             ],
             "defecto": "no"
+          },
+          {
+            "clave": "area",
+            "nombre": "Ver el área (prueba)",
+            "valores": [
+              "no",
+              "si"
+            ],
+            "etiquetas": [
+              "No",
+              "Sí"
+            ],
+            "defecto": "no"
           }
         ]
       },
-      "firma": "axZ3deydluWZC0ufY4KRlWR4uhIoUskF28NSb81v+talqRSeXFkC6GeibBIEgTudf14BDW7AQH+Rt5ibq21ACQ=="
+      "firma": "+juPjxKU0h2SAQor9++acSmUQzyYmuSUTL1iqgU1SnDOFheY4bzq8DdjybSQbHtbj08tGU7yjRkhrdTuHXYUCQ=="
     }
   ]
 }
