@@ -1,7 +1,7 @@
 {
-  "version": "0.9.63",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.63.exe",
-  "sha256": "ebb95cceccaa6cb8df9a0f2db87a9551884ecd8230beaff21a91d93eaf9b519f",
-  "firma": "6qAKoP4rs5vWXKQxSnlOGEbj6C33H2RuUpnXrM3+2uSMKuWG9hMIbhFVupdo5qadOzEwgWuOymkq40C+AQQUAg==",
-  "notas": "Sala de control: se pueden ver las 10 pantallas a la vez sin que la Sala se quede sin datos, y dice a qué juego de VEX juega cada gafa (Death Squad…). Añadir gafas por USB: una tarjeta por gafa con su avance."
+  "version": "0.9.64",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.64.exe",
+  "sha256": "f74d21ac45156e192224fe3224722a01c3025828b1b4edca93b598f16eeccb56",
+  "firma": "cv2wm6S4WQJ+b8qYhVFjyUMVSLi3yD8AZucIbCDds8Y/wNVdwNKpCT9csyfYQHeUxdOKFp9cUz9y8Vx4fhvoAA==",
+  "notas": "Arena: la posición de los jugadores se ajusta sola durante las partidas (ya no hace falta tener la Arena abierta ni se pierde al reiniciar). Gafas en el mismo sitio ya no se tapan. Incluye lo de la 0.9.63."
 }
