@@ -1,7 +1,7 @@
 {
-  "version": "0.9.71",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.71.exe",
-  "sha256": "97f176e8716dac2ebd6da4b6741aa061f663151a415ea007901c77dcb92d238a",
-  "firma": "l2HxYifdfeP/kdZhLRfBtkURTMYcKdped1L1tkOotQJlT/1znQnjnfhSgyhM1anS1AmQVvVeXUWztCmuPJnvAw==",
-  "notas": "Si una gafa no manda su resultado al acabar una partida en equipo, la partida se apunta igual en el historial con la tabla del servidor."
+  "version": "0.9.72",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.72.exe",
+  "sha256": "2381120e19f673187972105f8abb3bbb1192c7620e9ff46f9d76bdd9b534bb47",
+  "firma": "85IFH4EqsLonjhnRcOVbtm/vZfp0bBYedZ0ctYUHIGIFItIcJR6Jv7XWEQ1KWFUbjY0G5DVfhYKdHgrcUxndCA==",
+  "notas": "La barra de título de la ventana es del mismo negro que PlayBox y ya no hay destello blanco al abrir."
 }
