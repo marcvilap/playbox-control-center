@@ -1,7 +1,7 @@
 {
-  "version": "0.9.67",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.67.exe",
-  "sha256": "46712f87251f282bf85ccd0c2c46e271bea0fc88050701964897e1d331b7a08f",
-  "firma": "k25jmWDfSZJvT3PBipd3+XNY3MIm/6RpO+nQslesQrtozBlSgv8AEEpI2EvP9UBAVcfThc1Q52QxmTqE3SV+Cg==",
-  "notas": "Zona Cero: el cruce encaja con el límite de la sala (PlayBox le pasa al juego el de PICO). Juegos más fácil: catálogo, opciones a la vista, gafas en botones y un solo botón para empezar y parar la partida."
+  "version": "0.9.68",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.68.exe",
+  "sha256": "0b793d7726e3c2b25229144abc2f9c6ae28e5641468cadfa755c0dbdb9bf6030",
+  "firma": "d/0gCUDq/SmngqlG9t+zVWaCb8w8SmscMd6mMfbJJNJJk2pbwktTqmtC8REYKTvnY1ke4vgQqH8anzwxcI7mCg==",
+  "notas": "Nombres de los niños en Inicio debajo de cada gafa (Tab para pasar de una a otra); la ficha de la gafa se abre en Inicio; Sala de control más clara: encendidas y apagadas bien distintas y «Grabar 20 s» siempre a mano."
 }
