@@ -1,7 +1,7 @@
 {
-  "version": "0.9.70",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.70.exe",
-  "sha256": "52754b46be7fd28a3e244d68d2d6c82d981007bcb74a45a2fa2c3007bd395863",
-  "firma": "gJrV/KQg86IEZysdR4xTN6T07hsVukcFqKiHdxV+Zm7CHT9MC7wJ8A/KcYNG2+PE+5njxV8S0FO5GN12cRFjBQ==",
-  "notas": "Zona Cero 1.8 puede calibrar sus ejes con los de PICO (coloca el área de juego donde están las paredes). En la Arena, la flecha apunta hacia donde mira la gafa."
+  "version": "0.9.71",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.71.exe",
+  "sha256": "97f176e8716dac2ebd6da4b6741aa061f663151a415ea007901c77dcb92d238a",
+  "firma": "l2HxYifdfeP/kdZhLRfBtkURTMYcKdped1L1tkOotQJlT/1znQnjnfhSgyhM1anS1AmQVvVeXUWztCmuPJnvAw==",
+  "notas": "Si una gafa no manda su resultado al acabar una partida en equipo, la partida se apunta igual en el historial con la tabla del servidor."
 }

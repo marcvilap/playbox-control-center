@@ -2,29 +2,29 @@
   "juegos": [
     {
       "id": "zonacero",
-      "version": "1.8",
-      "code": 9,
+      "version": "1.9",
+      "code": 10,
       "apk": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8.apk",
-        "sha256": "d7742613d9598c284bf6a49eebcdc4d24d62b140582ab5d5cfcd80e02f6a7664",
-        "tam": 244351462,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9.apk",
+        "sha256": "56aa4f3cca8ce5fa6785cd6add4029a66713bbe9b4ba7e47ef19c3085ff4a3fc",
+        "tam": 244351974,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8.apk.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8.apk.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8.apk.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9.apk.parte02"
         ]
       },
       "pc": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8-PC.zip",
-        "sha256": "9338324d51ebce1d1be4890c85638da613817560e2937e28e46725642f91eda9",
-        "tam": 205665430,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9-PC.zip",
+        "sha256": "c740143be468836e7602c5b804691261c0def0ddd72b745e9c70265a7e057fed",
+        "tam": 205665964,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8-PC.zip.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8-PC.zip.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.8/ZonaCero-1.8-PC.zip.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.9/ZonaCero-1.9-PC.zip.parte02"
         ]
       },
-      "notas": "El juego aprende solo cómo está girada la sala respecto a PICO mientras el jugador camina (unos 20 pasos) y coloca el área donde están las paredes de verdad. Lo apunta en «Qué pasó».",
+      "notas": "Si al abrirse no encuentra PlayBox, lo sigue buscando (y le manda el resultado y la calibración cuando lo encuentra). Sin el falso «se ha perdido el servidor» al acabar en equipo.",
       "juego": {
         "id": "zonacero",
         "nombre": "Zona Cero",
@@ -106,7 +106,7 @@
           }
         ]
       },
-      "firma": "zpalClYAKf5JO+Gh81SXrYZ/9glt1yjgWru4Wwpy1/7Ln3dZyF90jWQ0omHBa87hkVTVwzzaPmBw05MH5kufCQ=="
+      "firma": "TBw+3F/hqMozuyD0VhbhOeEpqNCDy5wLsfZoDbFx6aeoB91DmQmM0S6qt01tALhC5+8twf/uN2SaijanGgGSBA=="
     }
   ]
 }
