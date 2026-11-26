@@ -1,7 +1,7 @@
 {
-  "version": "0.9.68",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.68.exe",
-  "sha256": "0b793d7726e3c2b25229144abc2f9c6ae28e5641468cadfa755c0dbdb9bf6030",
-  "firma": "d/0gCUDq/SmngqlG9t+zVWaCb8w8SmscMd6mMfbJJNJJk2pbwktTqmtC8REYKTvnY1ke4vgQqH8anzwxcI7mCg==",
-  "notas": "Nombres de los niños en Inicio debajo de cada gafa (Tab para pasar de una a otra); la ficha de la gafa se abre en Inicio; Sala de control más clara: encendidas y apagadas bien distintas y «Grabar 20 s» siempre a mano."
+  "version": "0.9.69",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.69.exe",
+  "sha256": "fdf9e8c2f23a9e944f9bcb3eaf6c5e8982a593f91e9614886d5327060f937c43",
+  "firma": "DFtWPKPl9fNU2lFnlJEX4tG0rqbD5rbbiJhSGklNgLxYz7+8csY18Oi2E3y+0TK87iBwwRKV/ZN+KV4Mysy8BA==",
+  "notas": "Avisa de los cables de carga que fallan (falso contacto, enchufada sin cargar, carga lenta, batería externa que no da). En la Arena, los nombres de Inicio y elegir qué gafas se ven. Inicio más ordenado."
 }
