@@ -2,29 +2,29 @@
   "juegos": [
     {
       "id": "zonacero",
-      "version": "1.3",
-      "code": 4,
+      "version": "1.4",
+      "code": 5,
       "apk": {
-        "url": "https://github.com/marcvilap/playbox-control-center/releases/download/zonacero-1.3/ZonaCero-1.3.apk",
-        "sha256": "14eaaad27f9f29e8ec2e0c4d7e35dd349dca4c793524d338d95ab071a4978ad6",
-        "tam": 244332814,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4.apk",
+        "sha256": "815d427f213e9f907b48030725d4454fe4eb65f778a84fa3ade84ab87cf8adb1",
+        "tam": 244339391,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3.apk.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4.apk.parte02"
         ]
       },
       "pc": {
-        "url": "https://github.com/marcvilap/playbox-control-center/releases/download/zonacero-1.3/ZonaCero-1.3-PC.zip",
-        "sha256": "7655645cb434d49069bcc73d69a79ef5fc4928d08aca54f6e744f258ca15f334",
-        "tam": 205647125,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4-PC.zip",
+        "sha256": "b3bec1a0d7cc617890feee4e22e5a332991e116f9452e0430082e5e9d2a89043",
+        "tam": 205652051,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.3/ZonaCero-1.3-PC.zip.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/1.4/ZonaCero-1.4-PC.zip.parte02"
         ]
       },
-      "notas": "Zona Cero en equipo completo: historia, jefe, vehículos, premios, ver en la tele",
+      "notas": "El cruce encaja con la sala real y los compañeros salen donde están",
       "juego": {
         "id": "zonacero",
         "nombre": "Zona Cero",
@@ -93,7 +93,7 @@
           }
         ]
       },
-      "firma": "tILgCRWmbYWK6HCM+HwhJfvjMh+KhFi6E+p3zbLQGuaYRbzg3tXfayw0qWjZwpTQhK7mTFpZuFFdJu5cxOCrCw=="
+      "firma": "enOZtOGLRw1uTcw2rYuVeMjoULPrnUPvrnb6HpXv0bVLKj3LNDTcwonG1UuBA2DRKqzNLEvmUSwCvubPGqW2AQ=="
     }
   ]
 }
