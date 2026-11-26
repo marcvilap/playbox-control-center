@@ -1,7 +1,7 @@
 {
-  "version": "0.9.64",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.64.exe",
-  "sha256": "f74d21ac45156e192224fe3224722a01c3025828b1b4edca93b598f16eeccb56",
-  "firma": "cv2wm6S4WQJ+b8qYhVFjyUMVSLi3yD8AZucIbCDds8Y/wNVdwNKpCT9csyfYQHeUxdOKFp9cUz9y8Vx4fhvoAA==",
-  "notas": "Arena: la posición de los jugadores se ajusta sola durante las partidas (ya no hace falta tener la Arena abierta ni se pierde al reiniciar). Gafas en el mismo sitio ya no se tapan. Incluye lo de la 0.9.63."
+  "version": "0.9.65",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.65.exe",
+  "sha256": "f03f164dffe92ce53eb55eae2a43094d9c3f669be722065080fb5e037c780566",
+  "firma": "/XLO2LZAS9raajTQQCuJR6xHRJRUylF/zr9kj6K71QsV7oObjn38sdAu/T+5mqHJXjJoM4m6RASDE7EZ8AItDw==",
+  "notas": "Sala de control: botón «Volumen» para subir o bajar el volumen de todas las gafas o de algunas a la vez. Temperatura de las gafas más clara (procesador, interior y batería). Incluye lo de la 0.9.63 y la 0.9.64."
 }
