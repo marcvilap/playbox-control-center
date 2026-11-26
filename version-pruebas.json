@@ -1,7 +1,7 @@
 {
-  "version": "0.9.65",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.65.exe",
-  "sha256": "f03f164dffe92ce53eb55eae2a43094d9c3f669be722065080fb5e037c780566",
-  "firma": "/XLO2LZAS9raajTQQCuJR6xHRJRUylF/zr9kj6K71QsV7oObjn38sdAu/T+5mqHJXjJoM4m6RASDE7EZ8AItDw==",
-  "notas": "Sala de control: botón «Volumen» para subir o bajar el volumen de todas las gafas o de algunas a la vez. Temperatura de las gafas más clara (procesador, interior y batería). Incluye lo de la 0.9.63 y la 0.9.64."
+  "version": "0.9.66",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.66.exe",
+  "sha256": "0eb793ac2d59e33f4e974c0a26c08b3357b22091e19ee826cba4b991264e04a9",
+  "firma": "/UJymBwxfh08r1MGUAwRXNKWILRcqO7z8BDxTQY3Ur2AuiMnYY1OPMp9mRRdOfXzwCmDXPudgTx7Cs78EN0HAQ==",
+  "notas": "Arena: el dibujo de la sala se coloca bien al momento (usa el límite del área que da la gafa), sin esperar a juntar posiciones. Incluye lo de la 0.9.63 a la 0.9.65."
 }
