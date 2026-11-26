@@ -1,7 +1,7 @@
 {
-  "version": "0.9.66",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.66.exe",
-  "sha256": "0eb793ac2d59e33f4e974c0a26c08b3357b22091e19ee826cba4b991264e04a9",
-  "firma": "/UJymBwxfh08r1MGUAwRXNKWILRcqO7z8BDxTQY3Ur2AuiMnYY1OPMp9mRRdOfXzwCmDXPudgTx7Cs78EN0HAQ==",
-  "notas": "Arena: el dibujo de la sala se coloca bien al momento (usa el límite del área que da la gafa), sin esperar a juntar posiciones. Incluye lo de la 0.9.63 a la 0.9.65."
+  "version": "0.9.67",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.67.exe",
+  "sha256": "46712f87251f282bf85ccd0c2c46e271bea0fc88050701964897e1d331b7a08f",
+  "firma": "k25jmWDfSZJvT3PBipd3+XNY3MIm/6RpO+nQslesQrtozBlSgv8AEEpI2EvP9UBAVcfThc1Q52QxmTqE3SV+Cg==",
+  "notas": "Zona Cero: el cruce encaja con el límite de la sala (PlayBox le pasa al juego el de PICO). Juegos más fácil: catálogo, opciones a la vista, gafas en botones y un solo botón para empezar y parar la partida."
 }
