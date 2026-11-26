@@ -2,29 +2,29 @@
   "juegos": [
     {
       "id": "zonacero",
-      "version": "2.0",
-      "code": 11,
+      "version": "2.1",
+      "code": 12,
       "apk": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0.apk",
-        "sha256": "b3fe00c16399afd1c87cb2e731924054f94ea79906e5c63dc9102ccc07cf1d3c",
-        "tam": 244347860,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk",
+        "sha256": "1bee4256ba579d1bfc3c15dc9af39e71394955be83a51c1144f152f93b47f461",
+        "tam": 244352876,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0.apk.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0.apk.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0.apk.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte02"
         ]
       },
       "pc": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0-PC.zip",
-        "sha256": "27522a6f2610cde246aeca4987165af9fea31c440501c94b02d7b8aaa1f6ed33",
-        "tam": 205661944,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip",
+        "sha256": "3479fcb67b21eddb4a41f52c665e5d66e05a6b62ee81c5b4ce7e92787e0ad968",
+        "tam": 205666750,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0-PC.zip.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0-PC.zip.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.0/ZonaCero-2.0-PC.zip.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte02"
         ]
       },
-      "notas": "El área de juego sale donde dice el mapa de PICO, como en VEX, Hero Zone y SpawnPoint: el juego usa el espacio «suelo» que pide PICO y coloca el cruce en el origen del mapa, mirando a su dirección hacia delante. En «Ver el área (prueba)», una cruz y una flecha blancas marcan el origen y esa dirección.",
+      "notas": "Reloj de muñeca nuevo: anillo de vida, tiempo que queda, latido que se acelera con poca vida, munición y puntos; se ilumina al mirarlo.",
       "juego": {
         "id": "zonacero",
         "nombre": "Zona Cero",
@@ -106,7 +106,7 @@
           }
         ]
       },
-      "firma": "EZpkhMAwytc5PiyGTCGt1RsEZ/jsoFrAH8/CjfHTRo4TuW51ThdLKpsOGiPK2CK/dyZfd02xXiNRtAUnmoLBDQ=="
+      "firma": "ocX7YE7xBTqeGIdq6fHgOPzCuitGivgLdSlfG1WHQnZq76A1hjOMwTmasoFXfZrwtHkOL8QsWlbKyWb5XEk3Bg=="
     }
   ]
 }
