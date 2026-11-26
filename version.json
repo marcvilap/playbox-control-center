@@ -1,7 +1,7 @@
 {
-  "version": "0.9.69",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.69.exe",
-  "sha256": "fdf9e8c2f23a9e944f9bcb3eaf6c5e8982a593f91e9614886d5327060f937c43",
-  "firma": "DFtWPKPl9fNU2lFnlJEX4tG0rqbD5rbbiJhSGklNgLxYz7+8csY18Oi2E3y+0TK87iBwwRKV/ZN+KV4Mysy8BA==",
-  "notas": "Avisa de los cables de carga que fallan (falso contacto, enchufada sin cargar, carga lenta, batería externa que no da). En la Arena, los nombres de Inicio y elegir qué gafas se ven. Inicio más ordenado."
+  "version": "0.9.70",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.70.exe",
+  "sha256": "52754b46be7fd28a3e244d68d2d6c82d981007bcb74a45a2fa2c3007bd395863",
+  "firma": "gJrV/KQg86IEZysdR4xTN6T07hsVukcFqKiHdxV+Zm7CHT9MC7wJ8A/KcYNG2+PE+5njxV8S0FO5GN12cRFjBQ==",
+  "notas": "Zona Cero 1.8 puede calibrar sus ejes con los de PICO (coloca el área de juego donde están las paredes). En la Arena, la flecha apunta hacia donde mira la gafa."
 }
