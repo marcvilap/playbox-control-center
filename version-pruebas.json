@@ -1,7 +1,7 @@
 {
-  "version": "0.9.62",
-  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.62.exe",
-  "sha256": "853d12c8c2f14c01c7c03b3068b6e876ef8b0ef9289fcac7c92db1d1cfcf5a3a",
-  "firma": "QhWGM+ps3A2D8eAahaPEC7Qph4C9A9QbjavTVMKoBIJwwbGb6w6tj/CRBZAmYWlgOzKUSC8btigvmKwaHCmjBg==",
-  "notas": "Más fiable: vuelve sola a la versión anterior si la nueva falla al arrancar, copia de seguridad del registro de gafas y de la configuración, firewall solo para la red local, nombres de jugadores borrados a los 30 días. Más fácil: menú en cinco grupos, Sala de control compacta (las 10 gafas en una pantalla), Baterías en tabla, Ajustes de PICO y Mapas enseñan solo lo que no coincide. Opción para que un centro pruebe primero las versiones nuevas."
+  "version": "0.9.63",
+  "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/actualizaciones/playbox-0.9.63.exe",
+  "sha256": "ebb95cceccaa6cb8df9a0f2db87a9551884ecd8230beaff21a91d93eaf9b519f",
+  "firma": "6qAKoP4rs5vWXKQxSnlOGEbj6C33H2RuUpnXrM3+2uSMKuWG9hMIbhFVupdo5qadOzEwgWuOymkq40C+AQQUAg==",
+  "notas": "Sala de control: se pueden ver las 10 pantallas a la vez sin que la Sala se quede sin datos, y dice a qué juego de VEX juega cada gafa (Death Squad…). Añadir gafas por USB: una tarjeta por gafa con su avance."
 }
