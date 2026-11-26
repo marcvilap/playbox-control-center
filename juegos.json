@@ -2,29 +2,29 @@
   "juegos": [
     {
       "id": "zonacero",
-      "version": "2.1",
-      "code": 12,
+      "version": "2.2",
+      "code": 13,
       "apk": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk",
-        "sha256": "1bee4256ba579d1bfc3c15dc9af39e71394955be83a51c1144f152f93b47f461",
-        "tam": 244352876,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2.apk",
+        "sha256": "934f51a9fc7ce352d933c83e3a42aaffa412f62e6dff5b746719501f62dad9b9",
+        "tam": 244366794,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1.apk.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2.apk.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2.apk.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2.apk.parte02"
         ]
       },
       "pc": {
-        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip",
-        "sha256": "3479fcb67b21eddb4a41f52c665e5d66e05a6b62ee81c5b4ce7e92787e0ad968",
-        "tam": 205666750,
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2-PC.zip",
+        "sha256": "d6486309eb9923765c0bc9fcc47180763c9b13191a9236baf21afbd2bf8d789b",
+        "tam": 205677396,
         "partes": [
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte00",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte01",
-          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.1/ZonaCero-2.1-PC.zip.parte02"
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2-PC.zip.parte00",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2-PC.zip.parte01",
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/zonacero/2.2/ZonaCero-2.2-PC.zip.parte02"
         ]
       },
-      "notas": "Reloj de muñeca nuevo: anillo de vida, tiempo que queda, latido que se acelera con poca vida, munición y puntos; se ilumina al mirarlo.",
+      "notas": "Menos tirones: ya no hay parones cada pocos segundos, lo que se cargaba en plena partida (zombis, voces, armas) se carga en el menú y el final con el informativo pesa menos en las gafas. Al acabar, «Qué pasó» dice el rendimiento de cada pantalla.",
       "juego": {
         "id": "zonacero",
         "nombre": "Zona Cero",
@@ -106,7 +106,7 @@
           }
         ]
       },
-      "firma": "ocX7YE7xBTqeGIdq6fHgOPzCuitGivgLdSlfG1WHQnZq76A1hjOMwTmasoFXfZrwtHkOL8QsWlbKyWb5XEk3Bg=="
+      "firma": "MReybxSV9tKVS6LJTl/k05o5agJNI/w2YmTZWnX/5oqjpZ1OQE+i8QU2tpnk7tcMIDQsIyWm0AXQTb5I5afwDg=="
     }
   ]
 }
