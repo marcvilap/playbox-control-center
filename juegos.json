@@ -107,6 +107,135 @@
         ]
       },
       "firma": "MReybxSV9tKVS6LJTl/k05o5agJNI/w2YmTZWnX/5oqjpZ1OQE+i8QU2tpnk7tcMIDQsIyWm0AXQTb5I5afwDg=="
+    },
+    {
+      "id": "piratas",
+      "version": "0.1",
+      "code": 1,
+      "apk": {
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/piratas/0.1/BatallaPirata-0.1.apk",
+        "sha256": "3ae0577dad4873705f7c01803f934fceae3b5e89fee1159e90b1a6bc7c8ac25c",
+        "tam": 79455155,
+        "partes": [
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/piratas/0.1/BatallaPirata-0.1.apk.parte00"
+        ]
+      },
+      "pc": {
+        "url": "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/piratas/0.1/Piratas-0.1-PC.zip",
+        "sha256": "34735aaa35f9bb95ba5fb48b424413eb1daa64c738d21cce744cc65ad554f8e8",
+        "tam": 37876326,
+        "partes": [
+          "https://raw.githubusercontent.com/marcvilap/playbox-control-center/juegos/piratas/0.1/Piratas-0.1-PC.zip.parte00"
+        ]
+      },
+      "notas": "Juego nuevo: Batalla Pirata. Dos equipos, cada uno en su barco: cañones, tablas, tormenta y kraken. Primera versión, sin probar aún en las gafas.",
+      "juego": {
+        "id": "piratas",
+        "nombre": "Batalla Pirata",
+        "paquete": "es.playbox.piratas",
+        "prefijo": "BP",
+        "exePC": "Piratas.exe",
+        "opciones": [
+          {
+            "clave": "duracion",
+            "nombre": "Duración",
+            "valores": [
+              "10",
+              "12",
+              "15"
+            ],
+            "etiquetas": [
+              "10 min",
+              "12 min",
+              "15 min"
+            ],
+            "defecto": "10"
+          },
+          {
+            "clave": "dificultad",
+            "nombre": "Dificultad",
+            "valores": [
+              "facil",
+              "normal",
+              "dificil"
+            ],
+            "etiquetas": [
+              "Fácil",
+              "Normal",
+              "Difícil"
+            ],
+            "defecto": "facil"
+          },
+          {
+            "clave": "ninos",
+            "nombre": "Modo Niños",
+            "valores": [
+              "no",
+              "si"
+            ],
+            "etiquetas": [
+              "No",
+              "Sí"
+            ],
+            "defecto": "no"
+          },
+          {
+            "clave": "tormenta",
+            "nombre": "Tormenta",
+            "valores": [
+              "si",
+              "no"
+            ],
+            "etiquetas": [
+              "Sí",
+              "No"
+            ],
+            "defecto": "si"
+          },
+          {
+            "clave": "kraken",
+            "nombre": "Kraken",
+            "valores": [
+              "si",
+              "no"
+            ],
+            "etiquetas": [
+              "Sí",
+              "No"
+            ],
+            "defecto": "si"
+          },
+          {
+            "clave": "dorado",
+            "nombre": "Cañón dorado",
+            "valores": [
+              "si",
+              "no"
+            ],
+            "etiquetas": [
+              "Sí",
+              "No"
+            ],
+            "defecto": "si"
+          },
+          {
+            "clave": "escenario",
+            "nombre": "Escenario",
+            "valores": [
+              "dia",
+              "atardecer",
+              "noche"
+            ],
+            "etiquetas": [
+              "De día",
+              "Atardecer",
+              "Noche"
+            ],
+            "defecto": "dia"
+          }
+        ]
+      },
+      "firma": "1peyv+Ej0CMRcRlVd88bCiYaEN4nPXP+LBXmKApVMg5CFuQ2xSFzwrGfoPiRCsC8n6jHyVSh+lz7fzDBKPQaBw=="
     }
   ]
 }
